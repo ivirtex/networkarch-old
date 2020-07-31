@@ -13,6 +13,7 @@ struct WiFiSection: View {
     var ipAddress: String
     
     var body: some View {
+        
         VStack {
             HStack {
                 Text(ssid)
@@ -24,7 +25,7 @@ struct WiFiSection: View {
             .padding(.top, 5)
             
             HStack {
-                Text("IPv4 address:")
+                Text("Internal IP address:")
                     .padding(.top)
                 Spacer()
                 Text(ipAddress)
@@ -32,18 +33,21 @@ struct WiFiSection: View {
             }
             .padding(.bottom)
             
-            VStack {
-                Text("More Info")
-                    .frame(width: UIScreen.main.bounds.width - 85)
-                    .padding(5)
-                    .background(Color(.secondarySystemFill))
-                    .cornerRadius(5)
-                    .onTapGesture {
-                        print("Button got clicked")
-                    }
-            }
-            .padding(.bottom, 10)
+//            VStack {
+//                Text("More Info")
+//                    .frame(width: UIScreen.main.bounds.width - 85)
+//                    .padding(5)
+//                    .background(Color(.secondarySystemFill))
+//                    .cornerRadius(5)
+//            }
         }
+        
+        NavigationLink(destination: WiFiDetailView()) {
+            Spacer()
+            Text("More Info")
+            Spacer()
+        }
+        .padding(5)
     }
 }
 

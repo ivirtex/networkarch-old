@@ -13,6 +13,7 @@ struct OverviewTab: View {
     let locationManager = CLLocationManager()
     @State var ipv4 = try! Host.current().ipv4s
     @State var ssid = getWiFiSsid()
+    @State var carrierName = CellularData().carrierName
     @State var timer: Timer?
     
     var body: some View {
@@ -28,7 +29,12 @@ struct OverviewTab: View {
                 }
                 
                 Section(header: CellularHeader()) {
-                    CellularSection(brand: "Brand", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "0.0.0.0")
+                    if let safeCarrierName = carrierName {
+                        CellularSection(carrier: safeCarrierName, cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "0.0.0.0")
+                    }
+                    else {
+                        CellularSection(carrier: "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "Not available")
+                    }
                 }
                 
                 Section(header: ToolsHeader()) {
@@ -57,6 +63,7 @@ struct OverviewTab: View {
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
                 ssid = getWiFiSsid()
                 ipv4 = try! Host.current().ipv4s
+                carrierName = CellularData().carrierName
             })
         })
     }
