@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CellularHeader: View {
     var body: some View {
-        Text("Cellular")
+        Text("Cellular Network")
     }
 }
 

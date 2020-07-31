@@ -9,7 +9,9 @@ import SwiftUI
 
 struct WiFiHeader: View {
     var body: some View {
-        Text("Wi-Fi")
+        HStack {
+            Text("Wi-Fi")
+        }
     }
 }
 

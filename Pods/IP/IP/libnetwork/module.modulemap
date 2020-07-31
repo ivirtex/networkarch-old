@@ -1,0 +1,5 @@
+module libnetwork [system] {
+    // For some reason that header file only exist in the iOS Simulator SDK, but not iOS SDK.
+    header "route.h"
+    export *
+}

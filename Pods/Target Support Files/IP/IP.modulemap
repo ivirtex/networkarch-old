@@ -1,0 +1,6 @@
+framework module IP {
+  umbrella header "IP-umbrella.h"
+
+  export *
+  module * { export * }
+}
