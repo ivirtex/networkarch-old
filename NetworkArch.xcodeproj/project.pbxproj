@@ -13,6 +13,14 @@
 		DDEBD44724D41EB300623F3F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEBD44624D41EB300623F3F /* Preview Assets.xcassets */; };
 		DDEBD45224D41EB300623F3F /* NetworkArchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD45124D41EB300623F3F /* NetworkArchTests.swift */; };
 		DDEBD45D24D41EB300623F3F /* NetworkArchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD45C24D41EB300623F3F /* NetworkArchUITests.swift */; };
+		DDEBD46B24D41FF700623F3F /* OverviewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD46A24D41FF700623F3F /* OverviewTab.swift */; };
+		DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD46C24D4200E00623F3F /* SettingsTab.swift */; };
+		DDEBD46F24D4234100623F3F /* WiFiHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD46E24D4234100623F3F /* WiFiHeader.swift */; };
+		DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47024D4235B00623F3F /* WiFiSection.swift */; };
+		DDEBD47324D423D000623F3F /* CellularHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47224D423D000623F3F /* CellularHeader.swift */; };
+		DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47424D423F900623F3F /* CellularSection.swift */; };
+		DDEBD47724D4243D00623F3F /* ToolsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47624D4243D00623F3F /* ToolsHeader.swift */; };
+		DDEBD47E24D4257100623F3F /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47D24D4257100623F3F /* ToolsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +53,14 @@
 		DDEBD45824D41EB300623F3F /* NetworkArchUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NetworkArchUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEBD45C24D41EB300623F3F /* NetworkArchUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkArchUITests.swift; sourceTree = "<group>"; };
 		DDEBD45E24D41EB300623F3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDEBD46A24D41FF700623F3F /* OverviewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTab.swift; sourceTree = "<group>"; };
+		DDEBD46C24D4200E00623F3F /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
+		DDEBD46E24D4234100623F3F /* WiFiHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiHeader.swift; sourceTree = "<group>"; };
+		DDEBD47024D4235B00623F3F /* WiFiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSection.swift; sourceTree = "<group>"; };
+		DDEBD47224D423D000623F3F /* CellularHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularHeader.swift; sourceTree = "<group>"; };
+		DDEBD47424D423F900623F3F /* CellularSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularSection.swift; sourceTree = "<group>"; };
+		DDEBD47624D4243D00623F3F /* ToolsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsHeader.swift; sourceTree = "<group>"; };
+		DDEBD47D24D4257100623F3F /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +113,8 @@
 			children = (
 				DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */,
 				DDEBD44124D41EB100623F3F /* ContentView.swift */,
+				DDEBD47F24D4281100623F3F /* Overview */,
+				DDEBD48024D4283800623F3F /* Settings */,
 				DDEBD44324D41EB300623F3F /* Assets.xcassets */,
 				DDEBD44824D41EB300623F3F /* Info.plist */,
 				DDEBD44524D41EB300623F3F /* Preview Content */,
@@ -128,6 +146,52 @@
 				DDEBD45E24D41EB300623F3F /* Info.plist */,
 			);
 			path = NetworkArchUITests;
+			sourceTree = "<group>";
+		};
+		DDEBD47824D4248F00623F3F /* Wi-Fi */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBD46E24D4234100623F3F /* WiFiHeader.swift */,
+				DDEBD47024D4235B00623F3F /* WiFiSection.swift */,
+			);
+			path = "Wi-Fi";
+			sourceTree = "<group>";
+		};
+		DDEBD47924D424A300623F3F /* Cellular */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBD47224D423D000623F3F /* CellularHeader.swift */,
+				DDEBD47424D423F900623F3F /* CellularSection.swift */,
+			);
+			path = Cellular;
+			sourceTree = "<group>";
+		};
+		DDEBD47A24D424AF00623F3F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBD47624D4243D00623F3F /* ToolsHeader.swift */,
+				DDEBD47D24D4257100623F3F /* ToolsView.swift */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		DDEBD47F24D4281100623F3F /* Overview */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBD46A24D41FF700623F3F /* OverviewTab.swift */,
+				DDEBD47824D4248F00623F3F /* Wi-Fi */,
+				DDEBD47924D424A300623F3F /* Cellular */,
+				DDEBD47A24D424AF00623F3F /* Tools */,
+			);
+			path = Overview;
+			sourceTree = "<group>";
+		};
+		DDEBD48024D4283800623F3F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DDEBD46C24D4200E00623F3F /* SettingsTab.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,8 +323,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */,
+				DDEBD47724D4243D00623F3F /* ToolsHeader.swift in Sources */,
+				DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */,
 				DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */,
+				DDEBD47E24D4257100623F3F /* ToolsView.swift in Sources */,
 				DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */,
+				DDEBD46B24D41FF700623F3F /* OverviewTab.swift in Sources */,
+				DDEBD47324D423D000623F3F /* CellularHeader.swift in Sources */,
+				DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */,
+				DDEBD46F24D4234100623F3F /* WiFiHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
