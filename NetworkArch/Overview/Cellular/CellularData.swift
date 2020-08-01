@@ -8,12 +8,8 @@
 import Foundation
 import CoreTelephony
 
-let carrier = CTCarrier()
+let carrierInfo = CTCarrier()
 
 struct CellularData {
-    var carrierName = carrier.carrierName
-    var voIPBool = carrier.allowsVOIP
-    var isoCountryCode = carrier.isoCountryCode
-    var mobileCountryCode = carrier.mobileCountryCode
-    var mobileNetworkCode = carrier.mobileNetworkCode
+    var carrierName = carrierInfo.carrierName
 }

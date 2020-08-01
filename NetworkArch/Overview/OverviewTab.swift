@@ -9,11 +9,14 @@ import SwiftUI
 import CoreLocation
 import IP
 
+let wifi = WiFiInformation()
+let locationManager = CLLocationManager()
+let carrier = CellularData()
+
 struct OverviewTab: View {
-    let locationManager = CLLocationManager()
     @State var ipv4 = try! Host.current().ipv4s
-    @State var ssid = getWiFiSsid()
-    @State var carrierName = CellularData().carrierName
+    @State var ssid = wifi.getWiFiInfo()?.networkName
+    @State var carrierName = carrier.carrierName
     @State var timer: Timer?
     
     var body: some View {
@@ -21,7 +24,7 @@ struct OverviewTab: View {
             List {
                 Section(header: WiFiHeader()) {
                     if let safeSSID = ssid, let safeIPv4 = ipv4 {
-                        WiFiSection(ssid: safeSSID, wifiImage: "wifi", ipAddress: String(describing: safeIPv4[0].address))
+                        WiFiSection(ssid: String(describing: safeSSID), wifiImage: "wifi", ipAddress: String(describing: safeIPv4[0].address))
                     }
                     else {
                         WiFiSection(ssid: "SSID not available", wifiImage: "wifi.slash", ipAddress: "Not available")
@@ -61,9 +64,9 @@ struct OverviewTab: View {
         .onAppear(perform: {
             locationManager.requestWhenInUseAuthorization()
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
-                ssid = getWiFiSsid()
+                ssid = wifi.getWiFiInfo()?.networkName
                 ipv4 = try! Host.current().ipv4s
-                carrierName = CellularData().carrierName
+                carrierName = carrier.carrierName
             })
         })
     }
