@@ -25,7 +25,7 @@ struct WiFiSection: View {
             .padding(.top, 5)
             
             HStack {
-                Text("Internal IP address:")
+                Text("IP address")
                     .padding(.top)
                 Spacer()
                 Text(ipAddress)

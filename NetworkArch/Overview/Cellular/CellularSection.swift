@@ -24,7 +24,7 @@ struct CellularSection: View {
             .padding(.top, 5)
             
             HStack {
-                Text("IP address:")
+                Text("IP address")
                     .padding(.top)
                 Spacer()
                 Text(ipAddress)

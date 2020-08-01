@@ -31,8 +31,8 @@ struct OverviewTab: View {
                 }
                 
                 Section(header: CellularHeader()) {
-                    if let safeCarrierInfo = carrierInfo, let safeIPv4 = ipv4 {
-                        CellularSection(carrier: String(describing: safeCarrierInfo.first?.value.carrierName ?? "Not available"), cellularImage: "antenna.radiowaves.left.and.right", ipAddress: safeIPv4)
+                    if let safeCarrierInfo = carrierInfo {
+                        CellularSection(carrier: String(describing: safeCarrierInfo.first?.value.carrierName ?? "Not available"), cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "0.0.0.0")
                     }
                     else {
                         CellularSection(carrier: "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "Not available")

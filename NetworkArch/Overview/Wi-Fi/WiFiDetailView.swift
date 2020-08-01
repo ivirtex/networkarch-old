@@ -13,20 +13,31 @@ struct WiFiDetailView: View {
     @State var bssid = FGRoute.getBSSID()
     @State var ipv4 = FGRoute.getIPAddress()
     @State var defaultGateway = FGRoute.getGatewayIP()
+    @State var connectionStatus = FGRoute.isWifiConnected()
     @State var timer: Timer?
     
     var body: some View {
         List {
             Section(header: WiFiHeader()) {
-                InfoRow(leftSide: "SSID", rightSide: ssid ?? "Not available")
-                InfoRow(leftSide: "BSSID", rightSide: bssid ?? "Not available")
-                
-                if let safeIPv4 = ipv4 {
-                    InfoRow(leftSide: "Internal IP Address", rightSide: safeIPv4)
+                if connectionStatus == true {
+                    HStack {
+                        Text("Status")
+                            .font(.subheadline)
+                        Spacer()
+                        StatusView(backgroundColor: Color.green, text: "Online")
+                    }
                 }
                 else {
-                    InfoRow(leftSide: "Internal IP Address", rightSide: "Not available")
+                    HStack {
+                        Text("Status")
+                            .font(.subheadline)
+                        Spacer()
+                        StatusView(backgroundColor: Color.red, text: "Offline")
+                    }
                 }
+               
+                InfoRow(leftSide: "SSID", rightSide: ssid ?? "Not available")
+                InfoRow(leftSide: "BSSID", rightSide: bssid ?? "Not available")
                 
                 if let safeDefaultGateway = defaultGateway {
                     InfoRow(leftSide: "Default Gateway", rightSide: safeDefaultGateway)
@@ -34,6 +45,15 @@ struct WiFiDetailView: View {
                 else {
                     InfoRow(leftSide: "Default Gateway", rightSide: "Not available")
                 }
+                
+                if ipv4 != "error" {
+                    InfoRow(leftSide: "Internal IP Adress", rightSide: ipv4!)
+                }
+                else {
+                    InfoRow(leftSide: "Internal IP Adress", rightSide: "Not available")
+                }
+                
+                
             }
         }
         .listStyle(InsetGroupedListStyle())
@@ -44,6 +64,7 @@ struct WiFiDetailView: View {
                 bssid = FGRoute.getBSSID()
                 ipv4 = FGRoute.getIPAddress()
                 defaultGateway = FGRoute.getGatewayIP()
+                connectionStatus = FGRoute.isWifiConnected()
             })
         })
     }

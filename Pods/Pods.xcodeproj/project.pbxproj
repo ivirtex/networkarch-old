@@ -53,12 +53,12 @@
 /* Begin PBXFileReference section */
 		0263FDBDAFFAFA3CFC736B8FE869D6A5 /* Pods-NetworkArchTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetworkArchTests-acknowledgements.plist"; sourceTree = "<group>"; };
 		0623F5EB19D6F511753A3C9A8C4BBDA7 /* Pods-NetworkArch-NetworkArchUITests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetworkArch-NetworkArchUITests-acknowledgements.plist"; sourceTree = "<group>"; };
-		0C0928C4AFF292F1AEA323F845F963EC /* Pods_NetworkArch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NetworkArch.framework; path = "Pods-NetworkArch.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C0928C4AFF292F1AEA323F845F963EC /* Pods_NetworkArch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FA1670F66B3D5F4F307119C7B73AB58 /* Pods-NetworkArch-NetworkArchUITests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-NetworkArch-NetworkArchUITests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		1C25CC615EB9A2ABF76D80F376621831 /* FGRoute-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FGRoute-prefix.pch"; sourceTree = "<group>"; };
-		1C36F8349C91D30A0A72295EDFC9EF9C /* IpHelper.c */ = {isa = PBXFileReference; includeInIndex = 1; name = IpHelper.c; path = FGRoute/Classes/IpHelper.c; sourceTree = "<group>"; };
+		1C36F8349C91D30A0A72295EDFC9EF9C /* IpHelper.c */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.c; name = IpHelper.c; path = FGRoute/Classes/IpHelper.c; sourceTree = "<group>"; };
 		1CCFF666CCE81801AB4B736E329F06E9 /* Pods-NetworkArch-NetworkArchUITests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NetworkArch-NetworkArchUITests.modulemap"; sourceTree = "<group>"; };
-		1FCAA1D8FD6A29CC184B74B29056ECB2 /* Pods_NetworkArch_NetworkArchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NetworkArch_NetworkArchUITests.framework; path = "Pods-NetworkArch-NetworkArchUITests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FCAA1D8FD6A29CC184B74B29056ECB2 /* Pods_NetworkArch_NetworkArchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch_NetworkArchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		258EDA99208FAAE987C723A6CBC49277 /* Pods-NetworkArch-NetworkArchUITests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NetworkArch-NetworkArchUITests-dummy.m"; sourceTree = "<group>"; };
 		2B671A788AD0F4BA9A6481CD7580F674 /* Pods-NetworkArch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetworkArch.release.xcconfig"; sourceTree = "<group>"; };
 		2B9145475519774F2255CB4A4076C02B /* Pods-NetworkArchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-NetworkArchTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,11 +82,11 @@
 		6EE7D71FD496E05DAD7F066AFA243EDA /* Pods-NetworkArchTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-NetworkArchTests-umbrella.h"; sourceTree = "<group>"; };
 		7D375076ACC56E6F3A0212FD3191A6EB /* FGRoute.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FGRoute.m; path = FGRoute/Classes/FGRoute.m; sourceTree = "<group>"; };
 		86AA2B911C14EC4036231398BE63C357 /* FGRoute-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FGRoute-umbrella.h"; sourceTree = "<group>"; };
-		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9EF7EBD8F99AF011B3A9E41293AFF29C /* Pods-NetworkArch-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-NetworkArch-frameworks.sh"; sourceTree = "<group>"; };
-		A462BB8075057AD2B266B8F6CD4BAD66 /* FGRoute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FGRoute.framework; path = FGRoute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A462BB8075057AD2B266B8F6CD4BAD66 /* FGRoute.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FGRoute.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA0DE678AEF1D4B4E5CF9EFA89B08E35 /* Pods-NetworkArch.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-NetworkArch.modulemap"; sourceTree = "<group>"; };
-		B1EC421C4D2EAD8E7CDD3091C5AC803A /* Pods_NetworkArchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_NetworkArchTests.framework; path = "Pods-NetworkArchTests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1EC421C4D2EAD8E7CDD3091C5AC803A /* Pods_NetworkArchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4C616B95D18D9BAE7DDD5150FBB891F /* Pods-NetworkArchTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-NetworkArchTests-Info.plist"; sourceTree = "<group>"; };
 		B834D01FE7BBD87D7577557DBAA09BB7 /* FGRoute.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FGRoute.modulemap; sourceTree = "<group>"; };
 		C5EBCB7A3773A88929A2D2C9BE2CF06E /* Pods-NetworkArch-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NetworkArch-dummy.m"; sourceTree = "<group>"; };
@@ -168,7 +168,6 @@
 				FEF68EA329511E3F683C6E06AA9704F1 /* route.h */,
 				3DA44DDED2C6BF64EFC97B72273361F1 /* Support Files */,
 			);
-			name = FGRoute;
 			path = FGRoute;
 			sourceTree = "<group>";
 		};
@@ -391,7 +390,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1100;
-				LastUpgradeCheck = 1100;
+				LastUpgradeCheck = 1200;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 10.0";
@@ -520,7 +519,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FGRoute/FGRoute-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FGRoute/FGRoute-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -644,6 +643,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -698,7 +698,7 @@
 				GCC_PREFIX_HEADER = "Target Support Files/FGRoute/FGRoute-prefix.pch";
 				INFOPLIST_FILE = "Target Support Files/FGRoute/FGRoute-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -820,6 +820,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
