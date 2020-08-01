@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2C7CA8AB7D619CA488F78496 /* Pods_NetworkArchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E2068283E22FA6F624A304 /* Pods_NetworkArchTests.framework */; };
 		68AB4162713D65584B3F9767 /* Pods_NetworkArch_NetworkArchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5702178074DA592C45149FBA /* Pods_NetworkArch_NetworkArchUITests.framework */; };
+		DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10124D5DA65000DA60F /* CellularData.swift */; };
 		DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */; };
 		DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD44124D41EB100623F3F /* ContentView.swift */; };
 		DDEBD44424D41EB300623F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEBD44324D41EB300623F3F /* Assets.xcassets */; };
@@ -25,7 +26,6 @@
 		DDEBD47E24D4257100623F3F /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47D24D4257100623F3F /* ToolsView.swift */; };
 		DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */; };
 		DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48824D4A06800623F3F /* CellularDetailView.swift */; };
-		DDEBD48B24D4A5A000623F3F /* CellularData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48A24D4A5A000623F3F /* CellularData.swift */; };
 		DDEBD48F24D4B25900623F3F /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48E24D4B25900623F3F /* InfoRow.swift */; };
 		DDEBD49124D4BF5900623F3F /* WiFiInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD49024D4BF5900623F3F /* WiFiInformation.swift */; };
 		ED379F628AEA72C8A06FD325 /* Pods_NetworkArch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFA322CB1707064FE7A84E3 /* Pods_NetworkArch.framework */; };
@@ -57,6 +57,7 @@
 		70E2068283E22FA6F624A304 /* Pods_NetworkArchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86716AC15C9DF766370BEB55 /* Pods-NetworkArchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArchTests.release.xcconfig"; path = "Target Support Files/Pods-NetworkArchTests/Pods-NetworkArchTests.release.xcconfig"; sourceTree = "<group>"; };
 		8AFA322CB1707064FE7A84E3 /* Pods_NetworkArch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD95D10124D5DA65000DA60F /* CellularData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularData.swift; sourceTree = "<group>"; };
 		DDEBD43C24D41EB100623F3F /* NetworkArch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkArch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkArchApp.swift; sourceTree = "<group>"; };
 		DDEBD44124D41EB100623F3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		DDEBD48324D43AB800623F3F /* NetworkArch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetworkArch.entitlements; sourceTree = "<group>"; };
 		DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiDetailView.swift; sourceTree = "<group>"; };
 		DDEBD48824D4A06800623F3F /* CellularDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularDetailView.swift; sourceTree = "<group>"; };
-		DDEBD48A24D4A5A000623F3F /* CellularData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularData.swift; sourceTree = "<group>"; };
 		DDEBD48E24D4B25900623F3F /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
 		DDEBD49024D4BF5900623F3F /* WiFiInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiInformation.swift; sourceTree = "<group>"; };
 		F5C3CB4F23A54E10070604FD /* Pods-NetworkArch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArch.debug.xcconfig"; path = "Target Support Files/Pods-NetworkArch/Pods-NetworkArch.debug.xcconfig"; sourceTree = "<group>"; };
@@ -217,7 +217,7 @@
 				DDEBD47224D423D000623F3F /* CellularHeader.swift */,
 				DDEBD47424D423F900623F3F /* CellularSection.swift */,
 				DDEBD48824D4A06800623F3F /* CellularDetailView.swift */,
-				DDEBD48A24D4A5A000623F3F /* CellularData.swift */,
+				DD95D10124D5DA65000DA60F /* CellularData.swift */,
 			);
 			path = Cellular;
 			sourceTree = "<group>";
@@ -489,10 +489,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */,
-				DDEBD48B24D4A5A000623F3F /* CellularData.swift in Sources */,
 				DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */,
 				DDEBD47724D4243D00623F3F /* ToolsHeader.swift in Sources */,
 				DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */,
+				DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */,
 				DDEBD49124D4BF5900623F3F /* WiFiInformation.swift in Sources */,
 				DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */,
 				DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */,

@@ -2,14 +2,14 @@
 //  CellularData.swift
 //  NetworkArch
 //
-//  Created by Hubert Jóźwiak on 31/07/2020.
+//  Created by Hubert Jóźwiak on 01/08/2020.
 //
 
 import Foundation
 import CoreTelephony
 
-let carrierInfo = CTCarrier()
+let carrierInfo = CTTelephonyNetworkInfo()
 
 struct CellularData {
-    var carrierName = carrierInfo.carrierName
+    let carrierDetail = carrierInfo.serviceSubscriberCellularProviders
 }
