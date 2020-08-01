@@ -10,6 +10,7 @@
 		2C7CA8AB7D619CA488F78496 /* Pods_NetworkArchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E2068283E22FA6F624A304 /* Pods_NetworkArchTests.framework */; };
 		68AB4162713D65584B3F9767 /* Pods_NetworkArch_NetworkArchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5702178074DA592C45149FBA /* Pods_NetworkArch_NetworkArchUITests.framework */; };
 		DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10124D5DA65000DA60F /* CellularData.swift */; };
+		DD95D10524D5E4A3000DA60F /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10424D5E4A3000DA60F /* test.m */; };
 		DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */; };
 		DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD44124D41EB100623F3F /* ContentView.swift */; };
 		DDEBD44424D41EB300623F3F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDEBD44324D41EB300623F3F /* Assets.xcassets */; };
@@ -27,7 +28,6 @@
 		DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */; };
 		DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48824D4A06800623F3F /* CellularDetailView.swift */; };
 		DDEBD48F24D4B25900623F3F /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48E24D4B25900623F3F /* InfoRow.swift */; };
-		DDEBD49124D4BF5900623F3F /* WiFiInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD49024D4BF5900623F3F /* WiFiInformation.swift */; };
 		ED379F628AEA72C8A06FD325 /* Pods_NetworkArch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFA322CB1707064FE7A84E3 /* Pods_NetworkArch.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +58,8 @@
 		86716AC15C9DF766370BEB55 /* Pods-NetworkArchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArchTests.release.xcconfig"; path = "Target Support Files/Pods-NetworkArchTests/Pods-NetworkArchTests.release.xcconfig"; sourceTree = "<group>"; };
 		8AFA322CB1707064FE7A84E3 /* Pods_NetworkArch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD95D10124D5DA65000DA60F /* CellularData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularData.swift; sourceTree = "<group>"; };
+		DD95D10324D5E4A2000DA60F /* NetworkArch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NetworkArch-Bridging-Header.h"; sourceTree = "<group>"; };
+		DD95D10424D5E4A3000DA60F /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		DDEBD43C24D41EB100623F3F /* NetworkArch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkArch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkArchApp.swift; sourceTree = "<group>"; };
 		DDEBD44124D41EB100623F3F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,7 +84,6 @@
 		DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiDetailView.swift; sourceTree = "<group>"; };
 		DDEBD48824D4A06800623F3F /* CellularDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularDetailView.swift; sourceTree = "<group>"; };
 		DDEBD48E24D4B25900623F3F /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
-		DDEBD49024D4BF5900623F3F /* WiFiInformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiInformation.swift; sourceTree = "<group>"; };
 		F5C3CB4F23A54E10070604FD /* Pods-NetworkArch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArch.debug.xcconfig"; path = "Target Support Files/Pods-NetworkArch/Pods-NetworkArch.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,11 +166,13 @@
 				DDEBD48324D43AB800623F3F /* NetworkArch.entitlements */,
 				DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */,
 				DDEBD44124D41EB100623F3F /* ContentView.swift */,
+				DD95D10424D5E4A3000DA60F /* test.m */,
 				DDEBD47F24D4281100623F3F /* Overview */,
 				DDEBD48024D4283800623F3F /* Settings */,
 				DDEBD44324D41EB300623F3F /* Assets.xcassets */,
 				DDEBD44824D41EB300623F3F /* Info.plist */,
 				DDEBD44524D41EB300623F3F /* Preview Content */,
+				DD95D10324D5E4A2000DA60F /* NetworkArch-Bridging-Header.h */,
 			);
 			path = NetworkArch;
 			sourceTree = "<group>";
@@ -206,7 +209,6 @@
 				DDEBD46E24D4234100623F3F /* WiFiHeader.swift */,
 				DDEBD47024D4235B00623F3F /* WiFiSection.swift */,
 				DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */,
-				DDEBD49024D4BF5900623F3F /* WiFiInformation.swift */,
 			);
 			path = "Wi-Fi";
 			sourceTree = "<group>";
@@ -262,7 +264,7 @@
 				DDEBD43824D41EB100623F3F /* Sources */,
 				DDEBD43924D41EB100623F3F /* Frameworks */,
 				DDEBD43A24D41EB100623F3F /* Resources */,
-				32E903B23FE555FFEEC4D63E /* [CP] Embed Pods Frameworks */,
+				F0485FA46016EADBAC0ECB13 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,7 +302,7 @@
 				DDEBD45424D41EB300623F3F /* Sources */,
 				DDEBD45524D41EB300623F3F /* Frameworks */,
 				DDEBD45624D41EB300623F3F /* Resources */,
-				DFA863B5BB612471E48B4BB1 /* [CP] Embed Pods Frameworks */,
+				B461427E17FCCABEF5695939 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -323,6 +325,7 @@
 				TargetAttributes = {
 					DDEBD43B24D41EB100623F3F = {
 						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
 					};
 					DDEBD44C24D41EB300623F3F = {
 						CreatedOnToolsVersion = 12.0;
@@ -425,24 +428,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		32E903B23FE555FFEEC4D63E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DFA863B5BB612471E48B4BB1 /* [CP] Embed Pods Frameworks */ = {
+		B461427E17FCCABEF5695939 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -481,6 +467,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F0485FA46016EADBAC0ECB13 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -489,11 +492,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */,
+				DD95D10524D5E4A3000DA60F /* test.m in Sources */,
 				DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */,
 				DDEBD47724D4243D00623F3F /* ToolsHeader.swift in Sources */,
 				DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */,
 				DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */,
-				DDEBD49124D4BF5900623F3F /* WiFiInformation.swift in Sources */,
 				DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */,
 				DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */,
 				DDEBD47E24D4257100623F3F /* ToolsView.swift in Sources */,
@@ -660,6 +663,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NetworkArch/NetworkArch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"NetworkArch/Preview Content\"";
@@ -673,6 +677,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.HubertJozwiak.NetworkArch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NetworkArch/NetworkArch-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -684,6 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NetworkArch/NetworkArch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"NetworkArch/Preview Content\"";
@@ -697,6 +704,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.HubertJozwiak.NetworkArch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "NetworkArch/NetworkArch-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

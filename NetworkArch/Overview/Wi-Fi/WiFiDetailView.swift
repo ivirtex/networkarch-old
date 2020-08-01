@@ -6,17 +6,13 @@
 //
 
 import SwiftUI
-import IP
-
-let wifiDetail = WiFiInformation()
-let interfaces = try! Interface.all()
-let interface = interfaces[0]
-let message = try! System.retrieveDefaultGatewayMessage(from: interface)
+import FGRoute
 
 struct WiFiDetailView: View {
-    @State var ipv4 = try! Host.current().ipv4s
-    @State var ssid = wifiDetail.getWiFiInfo()?.networkName
-    @State var bssid = wifiDetail.getWiFiInfo()?.macAddress
+    @State var ssid = FGRoute.getSSID()
+    @State var bssid = FGRoute.getBSSID()
+    @State var ipv4 = FGRoute.getIPAddress()
+    @State var defaultGateway = FGRoute.getGatewayIP()
     @State var timer: Timer?
     
     var body: some View {
@@ -26,14 +22,14 @@ struct WiFiDetailView: View {
                 InfoRow(leftSide: "BSSID", rightSide: bssid ?? "Not available")
                 
                 if let safeIPv4 = ipv4 {
-                    InfoRow(leftSide: "Internal IP Address", rightSide: safeIPv4[0].address)
+                    InfoRow(leftSide: "Internal IP Address", rightSide: safeIPv4)
                 }
                 else {
                     InfoRow(leftSide: "Internal IP Address", rightSide: "Not available")
                 }
                 
-                if let safeMessage = message {
-                    InfoRow(leftSide: "Default Gateway", rightSide: String(describing: safeMessage.gateway))
+                if let safeDefaultGateway = defaultGateway {
+                    InfoRow(leftSide: "Default Gateway", rightSide: safeDefaultGateway)
                 }
                 else {
                     InfoRow(leftSide: "Default Gateway", rightSide: "Not available")
@@ -44,9 +40,10 @@ struct WiFiDetailView: View {
         .onAppear(perform: {
             locationManager.requestWhenInUseAuthorization()
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
-                ssid = wifi.getWiFiInfo()?.networkName
-                bssid = wifi.getWiFiInfo()?.macAddress
-                ipv4 = try! Host.current().ipv4s
+                ssid = FGRoute.getSSID()
+                bssid = FGRoute.getBSSID()
+                ipv4 = FGRoute.getIPAddress()
+                defaultGateway = FGRoute.getGatewayIP()
             })
         })
     }

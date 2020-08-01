@@ -12,4 +12,8 @@ let carrierInfo = CTTelephonyNetworkInfo()
 
 struct CellularData {
     let carrierDetail = carrierInfo.serviceSubscriberCellularProviders
+    
+//    let countryCode = carrierDetail.mobileCountryCode ?? "Not available"
+//    let mobileNetworkName = carrierDetail.mobileNetworkCode ?? "Not available"
+//    let isoCountrycode = carrierDetail.isoCountryCode?.uppercased() ?? "Not available"
 }

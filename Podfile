@@ -7,8 +7,8 @@ target 'NetworkArch' do
 
   # Pods for NetworkArch
   
-  pod 'IP'
-
+  pod "FGRoute"
+  
   target 'NetworkArchTests' do
     inherit! :search_paths
     # Pods for testing

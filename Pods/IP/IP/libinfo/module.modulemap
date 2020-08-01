@@ -1,4 +1,0 @@
-module libinfo [system] {
-    header "include.h"
-    export *
-}
