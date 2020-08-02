@@ -11,18 +11,26 @@ let carrierDetail = CellularData()
 
 struct CellularDetailView: View {
     @State var carrierInfo = carrierDetail.carrierDetail
+    @State var carrierRadioTechnologyRaw = carrierDetail.carrierTechnology
     
     var body: some View {
         List {
             Section(header: CellularHeader()) {
                 if let safeCarrierInfo = carrierInfo {
-                    InfoRow(leftSide: "Carrier", rightSide: safeCarrierInfo.first?.value.carrierName ?? "Not available")
+                    InfoRow(leftSide: "Carrier", rightSide: safeCarrierInfo.first?.value.carrierName ?? "N/A")
                     
-                    InfoRow(leftSide: "ISO Country Code", rightSide: safeCarrierInfo.first?.value.isoCountryCode ?? "Not available")
+                    InfoRow(leftSide: "ISO Country Code", rightSide: safeCarrierInfo.first?.value.isoCountryCode ?? "N/A")
                     
-                    InfoRow(leftSide: "Mobile Country Code", rightSide: safeCarrierInfo.first?.value.mobileCountryCode ?? "Not available")
+                    InfoRow(leftSide: "Mobile Country Code", rightSide: safeCarrierInfo.first?.value.mobileCountryCode ?? "N/A")
                     
-                    InfoRow(leftSide: "Mobile Network Code", rightSide: safeCarrierInfo.first?.value.mobileNetworkCode ?? "Not available")
+                    InfoRow(leftSide: "Mobile Network Code", rightSide: safeCarrierInfo.first?.value.mobileNetworkCode ?? "N/A")
+                    
+                    if let safeCarrierRadio = carrierRadioTechnologyRaw {
+                        InfoRow(leftSide: "Radio Access Technology", rightSide: CellularRadioConstants.radioTechnology[safeCarrierRadio.first!.value] ?? "N/A")
+                    }
+                    else {
+                        InfoRow(leftSide: "Radio Access Technology", rightSide: "N/A")
+                    }
                     
                     if safeCarrierInfo.first?.value.allowsVOIP == true {
                         HStack {
@@ -43,15 +51,17 @@ struct CellularDetailView: View {
                 }
                 
                 else {
-                    InfoRow(leftSide: "Carrier", rightSide: "Not available")
+                    InfoRow(leftSide: "Carrier", rightSide: "N/A")
                     
-                    InfoRow(leftSide: "ISO Country Code", rightSide: "Not available")
+                    InfoRow(leftSide: "ISO Country Code", rightSide: "N/A")
                     
-                    InfoRow(leftSide: "Mobile Country Code", rightSide: "Not available")
+                    InfoRow(leftSide: "Mobile Country Code", rightSide: "N/A")
                     
-                    InfoRow(leftSide: "Mobile Network Code", rightSide: "Not available")
+                    InfoRow(leftSide: "Mobile Network Code", rightSide: "N/A")
                     
-                    InfoRow(leftSide: "VoIP Support", rightSide: "Not available")
+                    InfoRow(leftSide: "VoIP Support", rightSide: "N/A")
+                    
+                    InfoRow(leftSide: "Radio Access Technology", rightSide: "N/A")
 
                 }
             }

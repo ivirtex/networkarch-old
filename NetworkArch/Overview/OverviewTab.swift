@@ -41,6 +41,9 @@ struct OverviewTab: View {
                 
                 Section(header: ToolsHeader()) {
                     NavigationLink(destination: ToolsView()) {
+                        Text("Ping")
+                    }
+                    NavigationLink(destination: ToolsView()) {
                         Text("LAN Scan")
                     }
                     NavigationLink(destination: ToolsView()) {

@@ -14,6 +14,7 @@ struct WiFiDetailView: View {
     @State var ipv4 = FGRoute.getIPAddress()
     @State var defaultGateway = FGRoute.getGatewayIP()
     @State var connectionStatus = FGRoute.isWifiConnected()
+    @State var extIPv4: String? = nil
     @State var timer: Timer?
     
     var body: some View {
@@ -24,7 +25,7 @@ struct WiFiDetailView: View {
                         Text("Status")
                             .font(.subheadline)
                         Spacer()
-                        StatusView(backgroundColor: Color.green, text: "Online")
+                        StatusView(backgroundColor: Color.green, text: "Connected")
                     }
                 }
                 else {
@@ -32,33 +33,47 @@ struct WiFiDetailView: View {
                         Text("Status")
                             .font(.subheadline)
                         Spacer()
-                        StatusView(backgroundColor: Color.red, text: "Offline")
+                        StatusView(backgroundColor: Color.red, text: "Not connected")
                     }
                 }
                
-                InfoRow(leftSide: "SSID", rightSide: ssid ?? "Not available")
-                InfoRow(leftSide: "BSSID", rightSide: bssid ?? "Not available")
+                InfoRow(leftSide: "SSID", rightSide: ssid ?? "N/A")
+                InfoRow(leftSide: "BSSID", rightSide: bssid ?? "N/A")
                 
                 if let safeDefaultGateway = defaultGateway {
                     InfoRow(leftSide: "Default Gateway", rightSide: safeDefaultGateway)
                 }
                 else {
-                    InfoRow(leftSide: "Default Gateway", rightSide: "Not available")
+                    InfoRow(leftSide: "Default Gateway", rightSide: "N/A")
                 }
                 
                 if ipv4 != "error" {
-                    InfoRow(leftSide: "Internal IP Adress", rightSide: ipv4!)
+                    InfoRow(leftSide: "Internal IP Address", rightSide: ipv4!)
                 }
                 else {
-                    InfoRow(leftSide: "Internal IP Adress", rightSide: "Not available")
+                    InfoRow(leftSide: "Internal IP Address", rightSide: "N/A")
                 }
                 
-                
+                if connectionStatus == true {
+                    if extIPv4 == nil {
+                        InfoRow(leftSide: "External IP Address", rightSide: "Loading")
+                    }
+                    else {
+                        InfoRow(leftSide: "External IP Address", rightSide: extIPv4!)
+                    }
+                }
+                else {
+                    InfoRow(leftSide: "External IP Address", rightSide: "N/A")
+                }
             }
         }
         .listStyle(InsetGroupedListStyle())
         .onAppear(perform: {
             locationManager.requestWhenInUseAuthorization()
+            DispatchQueue.main.async {
+                extIPv4 = getExtIPv4()
+            }
+            
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
                 ssid = FGRoute.getSSID()
                 bssid = FGRoute.getBSSID()
