@@ -3,14 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		2C7CA8AB7D619CA488F78496 /* Pods_NetworkArchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E2068283E22FA6F624A304 /* Pods_NetworkArchTests.framework */; };
 		68AB4162713D65584B3F9767 /* Pods_NetworkArch_NetworkArchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5702178074DA592C45149FBA /* Pods_NetworkArch_NetworkArchUITests.framework */; };
+		DD0C3DC824D8215100E90022 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = DD0C3DC724D8215100E90022 /* SwiftUIPullToRefresh */; };
+		DD0C3DCE24DA0FB000E90022 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DCD24DA0FB000E90022 /* SearchBar.swift */; };
+		DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD124DAB62300E90022 /* SimplePing.m */; };
+		DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */; };
+		DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD624DB2EE800E90022 /* PingManager.swift */; };
 		DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */; };
 		DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */; };
+		DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAD24D7539600DE9780 /* PingView.swift */; };
 		DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10124D5DA65000DA60F /* CellularData.swift */; };
 		DD95D10524D5E4A3000DA60F /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10424D5E4A3000DA60F /* test.m */; };
 		DD95D10F24D60FA9000DA60F /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10E24D60FA9000DA60F /* StatusView.swift */; };
@@ -22,11 +28,8 @@
 		DDEBD45D24D41EB300623F3F /* NetworkArchUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD45C24D41EB300623F3F /* NetworkArchUITests.swift */; };
 		DDEBD46B24D41FF700623F3F /* OverviewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD46A24D41FF700623F3F /* OverviewTab.swift */; };
 		DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD46C24D4200E00623F3F /* SettingsTab.swift */; };
-		DDEBD46F24D4234100623F3F /* WiFiHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD46E24D4234100623F3F /* WiFiHeader.swift */; };
 		DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47024D4235B00623F3F /* WiFiSection.swift */; };
-		DDEBD47324D423D000623F3F /* CellularHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47224D423D000623F3F /* CellularHeader.swift */; };
 		DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47424D423F900623F3F /* CellularSection.swift */; };
-		DDEBD47724D4243D00623F3F /* ToolsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47624D4243D00623F3F /* ToolsHeader.swift */; };
 		DDEBD47E24D4257100623F3F /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47D24D4257100623F3F /* ToolsView.swift */; };
 		DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */; };
 		DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48824D4A06800623F3F /* CellularDetailView.swift */; };
@@ -60,9 +63,15 @@
 		70E2068283E22FA6F624A304 /* Pods_NetworkArchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86716AC15C9DF766370BEB55 /* Pods-NetworkArchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArchTests.release.xcconfig"; path = "Target Support Files/Pods-NetworkArchTests/Pods-NetworkArchTests.release.xcconfig"; sourceTree = "<group>"; };
 		8AFA322CB1707064FE7A84E3 /* Pods_NetworkArch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0C3DCD24DA0FB000E90022 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		DD0C3DD124DAB62300E90022 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
+		DD0C3DD224DAB62400E90022 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
+		DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePingClient.swift; sourceTree = "<group>"; };
+		DD0C3DD624DB2EE800E90022 /* PingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingManager.swift; sourceTree = "<group>"; };
 		DD8E0EA824D6144100DE9780 /* NetworkArch-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkArch-Bridging-Header.h"; sourceTree = "<group>"; };
 		DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularRadioConstants.swift; sourceTree = "<group>"; };
 		DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiExternalIP.swift; sourceTree = "<group>"; };
+		DD8E0EAD24D7539600DE9780 /* PingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingView.swift; sourceTree = "<group>"; };
 		DD95D10124D5DA65000DA60F /* CellularData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularData.swift; sourceTree = "<group>"; };
 		DD95D10424D5E4A3000DA60F /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		DD95D10E24D60FA9000DA60F /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
@@ -80,11 +89,8 @@
 		DDEBD45E24D41EB300623F3F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDEBD46A24D41FF700623F3F /* OverviewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewTab.swift; sourceTree = "<group>"; };
 		DDEBD46C24D4200E00623F3F /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
-		DDEBD46E24D4234100623F3F /* WiFiHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiHeader.swift; sourceTree = "<group>"; };
 		DDEBD47024D4235B00623F3F /* WiFiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSection.swift; sourceTree = "<group>"; };
-		DDEBD47224D423D000623F3F /* CellularHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularHeader.swift; sourceTree = "<group>"; };
 		DDEBD47424D423F900623F3F /* CellularSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularSection.swift; sourceTree = "<group>"; };
-		DDEBD47624D4243D00623F3F /* ToolsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsHeader.swift; sourceTree = "<group>"; };
 		DDEBD47D24D4257100623F3F /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
 		DDEBD48324D43AB800623F3F /* NetworkArch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetworkArch.entitlements; sourceTree = "<group>"; };
 		DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiDetailView.swift; sourceTree = "<group>"; };
@@ -98,6 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0C3DC824D8215100E90022 /* SwiftUIPullToRefresh in Frameworks */,
 				ED379F628AEA72C8A06FD325 /* Pods_NetworkArch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +149,18 @@
 				86716AC15C9DF766370BEB55 /* Pods-NetworkArchTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD8E0EB124D754BC00DE9780 /* Ping */ = {
+			isa = PBXGroup;
+			children = (
+				DD8E0EAD24D7539600DE9780 /* PingView.swift */,
+				DD0C3DD624DB2EE800E90022 /* PingManager.swift */,
+				DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */,
+				DD0C3DD224DAB62400E90022 /* SimplePing.h */,
+				DD0C3DD124DAB62300E90022 /* SimplePing.m */,
+			);
+			path = Ping;
 			sourceTree = "<group>";
 		};
 		DDEBD43324D41EB100623F3F = {
@@ -212,7 +231,6 @@
 		DDEBD47824D4248F00623F3F /* Wi-Fi */ = {
 			isa = PBXGroup;
 			children = (
-				DDEBD46E24D4234100623F3F /* WiFiHeader.swift */,
 				DDEBD47024D4235B00623F3F /* WiFiSection.swift */,
 				DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */,
 				DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */,
@@ -223,7 +241,6 @@
 		DDEBD47924D424A300623F3F /* Cellular */ = {
 			isa = PBXGroup;
 			children = (
-				DDEBD47224D423D000623F3F /* CellularHeader.swift */,
 				DDEBD47424D423F900623F3F /* CellularSection.swift */,
 				DDEBD48824D4A06800623F3F /* CellularDetailView.swift */,
 				DD95D10124D5DA65000DA60F /* CellularData.swift */,
@@ -235,8 +252,9 @@
 		DDEBD47A24D424AF00623F3F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				DDEBD47624D4243D00623F3F /* ToolsHeader.swift */,
 				DDEBD47D24D4257100623F3F /* ToolsView.swift */,
+				DD0C3DCD24DA0FB000E90022 /* SearchBar.swift */,
+				DD8E0EB124D754BC00DE9780 /* Ping */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -245,8 +263,8 @@
 			isa = PBXGroup;
 			children = (
 				DDEBD46A24D41FF700623F3F /* OverviewTab.swift */,
-				DDEBD48E24D4B25900623F3F /* InfoRow.swift */,
 				DD95D10E24D60FA9000DA60F /* StatusView.swift */,
+				DDEBD48E24D4B25900623F3F /* InfoRow.swift */,
 				DDEBD47824D4248F00623F3F /* Wi-Fi */,
 				DDEBD47924D424A300623F3F /* Cellular */,
 				DDEBD47A24D424AF00623F3F /* Tools */,
@@ -280,6 +298,9 @@
 			dependencies = (
 			);
 			name = NetworkArch;
+			packageProductDependencies = (
+				DD0C3DC724D8215100E90022 /* SwiftUIPullToRefresh */,
+			);
 			productName = NetworkArch;
 			productReference = DDEBD43C24D41EB100623F3F /* NetworkArch.app */;
 			productType = "com.apple.product-type.application";
@@ -355,6 +376,9 @@
 				Base,
 			);
 			mainGroup = DDEBD43324D41EB100623F3F;
+			packageReferences = (
+				DD0C3DC624D8215100E90022 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */,
+			);
 			productRefGroup = DDEBD43D24D41EB100623F3F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -501,22 +525,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */,
+				DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */,
 				DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */,
 				DD95D10524D5E4A3000DA60F /* test.m in Sources */,
+				DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */,
 				DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */,
 				DD95D10F24D60FA9000DA60F /* StatusView.swift in Sources */,
+				DD0C3DCE24DA0FB000E90022 /* SearchBar.swift in Sources */,
 				DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */,
-				DDEBD47724D4243D00623F3F /* ToolsHeader.swift in Sources */,
 				DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */,
+				DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */,
 				DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */,
 				DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */,
 				DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */,
 				DDEBD47E24D4257100623F3F /* ToolsView.swift in Sources */,
 				DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */,
 				DDEBD46B24D41FF700623F3F /* OverviewTab.swift in Sources */,
-				DDEBD47324D423D000623F3F /* CellularHeader.swift in Sources */,
 				DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */,
-				DDEBD46F24D4234100623F3F /* WiFiHeader.swift in Sources */,
+				DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */,
 				DDEBD48F24D4B25900623F3F /* InfoRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -850,6 +876,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DD0C3DC624D8215100E90022 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppPear/SwiftUI-PullToRefresh";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DD0C3DC724D8215100E90022 /* SwiftUIPullToRefresh */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD0C3DC624D8215100E90022 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */;
+			productName = SwiftUIPullToRefresh;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DDEBD43424D41EB100623F3F /* Project object */;
 }

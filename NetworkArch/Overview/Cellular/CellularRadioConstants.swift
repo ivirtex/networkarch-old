@@ -15,6 +15,7 @@ struct CellularRadioConstants {
                                   "CTRadioAccessTechnologyHSUPA": "HSUPA",
                                   "CTRadioAccessTechnologyLTE": "LTE",
                                   "CTRadioAccessTechnologyWCDMA": "WCDMA",
-                                  "CTRadioAccessTechnologyeHRPD": "eHRDP"
+                                  "CTRadioAccessTechnologyeHRPD": "eHRDP",
+                                  "N/A": "N/A"
     ]
 }

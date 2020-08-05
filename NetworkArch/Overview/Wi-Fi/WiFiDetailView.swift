@@ -19,7 +19,7 @@ struct WiFiDetailView: View {
     
     var body: some View {
         List {
-            Section(header: WiFiHeader()) {
+            Section {
                 if connectionStatus == true {
                     HStack {
                         Text("Status")
@@ -68,6 +68,7 @@ struct WiFiDetailView: View {
             }
         }
         .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle("Wi-Fi")
         .onAppear(perform: {
             locationManager.requestWhenInUseAuthorization()
             DispatchQueue.main.async {

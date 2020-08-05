@@ -12,10 +12,11 @@ let carrierDetail = CellularData()
 struct CellularDetailView: View {
     @State var carrierInfo = carrierDetail.carrierDetail
     @State var carrierRadioTechnologyRaw = carrierDetail.carrierTechnology
+    @State var timer: Timer?
     
     var body: some View {
         List {
-            Section(header: CellularHeader()) {
+            Section {
                 if let safeCarrierInfo = carrierInfo {
                     InfoRow(leftSide: "Carrier", rightSide: safeCarrierInfo.first?.value.carrierName ?? "N/A")
                     
@@ -26,7 +27,7 @@ struct CellularDetailView: View {
                     InfoRow(leftSide: "Mobile Network Code", rightSide: safeCarrierInfo.first?.value.mobileNetworkCode ?? "N/A")
                     
                     if let safeCarrierRadio = carrierRadioTechnologyRaw {
-                        InfoRow(leftSide: "Radio Access Technology", rightSide: CellularRadioConstants.radioTechnology[safeCarrierRadio.first!.value] ?? "N/A")
+                        InfoRow(leftSide: "Radio Access Technology", rightSide: CellularRadioConstants.radioTechnology[safeCarrierRadio.first?.value ?? "N/A"] ?? "N/A")
                     }
                     else {
                         InfoRow(leftSide: "Radio Access Technology", rightSide: "N/A")
@@ -62,11 +63,18 @@ struct CellularDetailView: View {
                     InfoRow(leftSide: "VoIP Support", rightSide: "N/A")
                     
                     InfoRow(leftSide: "Radio Access Technology", rightSide: "N/A")
-
+                    
                 }
             }
         }
         .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle("Cellular Network")
+        .onAppear(perform: {
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
+                carrierInfo = carrier.carrierDetail
+                carrierRadioTechnologyRaw = carrier.carrierTechnology
+            })
+        })
     }
 }
 

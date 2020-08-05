@@ -32,14 +32,6 @@ struct WiFiSection: View {
                     .padding(.top)
             }
             .padding(.bottom)
-            
-//            VStack {
-//                Text("More Info")
-//                    .frame(width: UIScreen.main.bounds.width - 85)
-//                    .padding(5)
-//                    .background(Color(.secondarySystemFill))
-//                    .cornerRadius(5)
-//            }
         }
         
         NavigationLink(destination: WiFiDetailView()) {
@@ -56,3 +48,5 @@ struct WiFiSection_Previews: PreviewProvider {
         WiFiSection(ssid: "SSID", wifiImage: "wifi", ipAddress: "0.0.0.0")
     }
 }
+
+

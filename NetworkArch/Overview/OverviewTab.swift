@@ -16,6 +16,7 @@ struct OverviewTab: View {
     @State var ipv4 = FGRoute.getIPAddress()
     @State var ssid = FGRoute.getSSID()
     @State var carrierInfo = carrier.carrierDetail
+    @State var carrierRadioTechnologyRaw = carrier.carrierTechnology
     @State var timer: Timer?
     
     var body: some View {
@@ -26,21 +27,21 @@ struct OverviewTab: View {
                         WiFiSection(ssid: String(describing: safeSSID), wifiImage: "wifi", ipAddress: safeIPv4)
                     }
                     else {
-                        WiFiSection(ssid: "SSID not available", wifiImage: "wifi.slash", ipAddress: "Not available")
+                        WiFiSection(ssid: "SSID not available", wifiImage: "wifi.slash", ipAddress: "N/A")
                     }
                 }
                 
                 Section(header: CellularHeader()) {
-                    if let safeCarrierInfo = carrierInfo {
-                        CellularSection(carrier: String(describing: safeCarrierInfo.first?.value.carrierName ?? "Not available"), cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "0.0.0.0")
+                    if let safeCarrierInfo = carrierInfo, let safeCarrierRadio = carrierRadioTechnologyRaw {
+                        CellularSection(carrier: String(describing: safeCarrierInfo.first?.value.carrierName ?? "Not available"), cellularImage: "antenna.radiowaves.left.and.right", radioTechnology: CellularRadioConstants.radioTechnology[safeCarrierRadio.first?.value ?? "N/A"] ?? "N/A")
                     }
                     else {
-                        CellularSection(carrier: "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "Not available")
+                        CellularSection(carrier: "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", radioTechnology: "Not available")
                     }
                 }
                 
                 Section(header: ToolsHeader()) {
-                    NavigationLink(destination: ToolsView()) {
+                    NavigationLink(destination: PingView(searchBarIP: "")) {
                         Text("Ping")
                     }
                     NavigationLink(destination: ToolsView()) {
@@ -69,6 +70,7 @@ struct OverviewTab: View {
                 ssid = FGRoute.getSSID()
                 ipv4 = FGRoute.getIPAddress()
                 carrierInfo = carrier.carrierDetail
+                carrierRadioTechnologyRaw = carrier.carrierTechnology
             })
         })
     }
@@ -77,5 +79,23 @@ struct OverviewTab: View {
 struct OverviewTab_Previews: PreviewProvider {
     static var previews: some View {
         OverviewTab()
+    }
+}
+
+struct WiFiHeader: View {
+    var body: some View {
+        Text("Wi-Fi")
+    }
+}
+
+struct CellularHeader: View {
+    var body: some View {
+        Text("Cellular Network")
+    }
+}
+
+struct ToolsHeader: View {
+    var body: some View {
+        Text("Tools")
     }
 }
