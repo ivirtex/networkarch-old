@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct PingView: View {
+    @ObservedObject var ping = PingManager()
     @State var searchBarIP: String
     @State var timer: Timer?
-    @ObservedObject var ping = PingManager()
+    @State var finalIP: String?
+    @State var shouldDisplayList = false
     
     var body: some View {
         VStack {
@@ -27,7 +29,10 @@ struct PingView: View {
                     ping.pingResult = []
                     timer?.invalidate()
                     timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
+                        finalIP = ipToPing
                         ping.ping(address: ipToPing)
+                        shouldDisplayList = true
+                        
                     })
                 }) {
                     Text("Start")
@@ -39,11 +44,27 @@ struct PingView: View {
                 })
             
             List {
-                ForEach(ping.pingResult, id: \.self) { ping in
-                    Text("\(ping) ms")
+                if shouldDisplayList == true {
+                    if self.ping.pingResult != [] {
+                        ForEach(ping.pingResult, id: \.self) { ping in
+                            HStack {
+                                StatusView(backgroundColor: .green, text: "Online")
+                                Spacer()
+                                Text(finalIP ?? "")
+                                Spacer()
+                                Text("\(ping) ms")
+                            }
+                        }
+                    }
+                    else {
+                        Text("Failed to resolve IP Address")
+                    }
                 }
             }
             .listStyle(InsetGroupedListStyle())
+            .onDisappear(perform: {
+                timer?.invalidate()
+            })
         }
     }
 }
@@ -54,20 +75,6 @@ struct PingView_Previews: PreviewProvider {
         PingView(searchBarIP: "")
     }
 }
-
-//struct PingData {
-//    func ping(address: String) {
-//        SimplePingClient.ping(hostname: address) { result in
-//            switch result {
-//            case .success(let latency):
-//                let nLatency = String(format: "%.1f", latency)
-//                print("Latency: \(nLatency) ms")
-//            case .failure(let error):
-//                print("Ping got error: \(error.localizedDescription)")
-//            }
-//        }
-//    }
-//}
 
 #if canImport(UIKit)
 extension View {

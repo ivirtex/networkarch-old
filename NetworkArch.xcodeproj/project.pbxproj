@@ -18,7 +18,6 @@
 		DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */; };
 		DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAD24D7539600DE9780 /* PingView.swift */; };
 		DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10124D5DA65000DA60F /* CellularData.swift */; };
-		DD95D10524D5E4A3000DA60F /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10424D5E4A3000DA60F /* test.m */; };
 		DD95D10F24D60FA9000DA60F /* StatusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10E24D60FA9000DA60F /* StatusView.swift */; };
 		DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */; };
 		DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD44124D41EB100623F3F /* ContentView.swift */; };
@@ -73,7 +72,6 @@
 		DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiExternalIP.swift; sourceTree = "<group>"; };
 		DD8E0EAD24D7539600DE9780 /* PingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingView.swift; sourceTree = "<group>"; };
 		DD95D10124D5DA65000DA60F /* CellularData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularData.swift; sourceTree = "<group>"; };
-		DD95D10424D5E4A3000DA60F /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		DD95D10E24D60FA9000DA60F /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
 		DDEBD43C24D41EB100623F3F /* NetworkArch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkArch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkArchApp.swift; sourceTree = "<group>"; };
@@ -191,7 +189,6 @@
 				DDEBD48324D43AB800623F3F /* NetworkArch.entitlements */,
 				DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */,
 				DDEBD44124D41EB100623F3F /* ContentView.swift */,
-				DD95D10424D5E4A3000DA60F /* test.m */,
 				DDEBD47F24D4281100623F3F /* Overview */,
 				DDEBD48024D4283800623F3F /* Settings */,
 				DDEBD44324D41EB300623F3F /* Assets.xcassets */,
@@ -527,7 +524,6 @@
 				DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */,
 				DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */,
 				DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */,
-				DD95D10524D5E4A3000DA60F /* test.m in Sources */,
 				DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */,
 				DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */,
 				DD95D10F24D60FA9000DA60F /* StatusView.swift in Sources */,

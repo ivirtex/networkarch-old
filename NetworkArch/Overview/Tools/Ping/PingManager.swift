@@ -9,6 +9,7 @@ import Foundation
 
 class PingManager: ObservableObject {
     @Published var pingResult = [String]()
+    @Published var errorResult = [String]()
     
     func ping(address: String) {
         SimplePingClient.ping(hostname: address) { result in
@@ -18,7 +19,7 @@ class PingManager: ObservableObject {
                 self.pingResult.append(nLatency)
                 print("Latency: \(nLatency) ms")
             case .failure(let error):
-                self.pingResult.append(error.localizedDescription)
+                self.errorResult.append(error.localizedDescription)
                 print("Ping got error: \(error.localizedDescription)")
             }
         }
