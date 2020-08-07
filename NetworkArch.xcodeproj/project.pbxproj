@@ -14,6 +14,11 @@
 		DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD124DAB62300E90022 /* SimplePing.m */; };
 		DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */; };
 		DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD624DB2EE800E90022 /* PingManager.swift */; };
+		DD73DBEC24DE15D400892524 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBEB24DE15D400892524 /* ScannerView.swift */; };
+		DD73DBEE24DE160100892524 /* WoLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBED24DE160100892524 /* WoLView.swift */; };
+		DD73DBF024DE162000892524 /* TracerouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBEF24DE162000892524 /* TracerouteView.swift */; };
+		DD73DBF224DE163100892524 /* DNSLookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBF124DE163100892524 /* DNSLookupView.swift */; };
+		DD73DBF424DE165800892524 /* SpeedTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBF324DE165800892524 /* SpeedTestView.swift */; };
 		DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */; };
 		DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */; };
 		DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAD24D7539600DE9780 /* PingView.swift */; };
@@ -29,7 +34,6 @@
 		DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD46C24D4200E00623F3F /* SettingsTab.swift */; };
 		DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47024D4235B00623F3F /* WiFiSection.swift */; };
 		DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47424D423F900623F3F /* CellularSection.swift */; };
-		DDEBD47E24D4257100623F3F /* ToolsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD47D24D4257100623F3F /* ToolsView.swift */; };
 		DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */; };
 		DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48824D4A06800623F3F /* CellularDetailView.swift */; };
 		DDEBD48F24D4B25900623F3F /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD48E24D4B25900623F3F /* InfoRow.swift */; };
@@ -67,6 +71,11 @@
 		DD0C3DD224DAB62400E90022 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePingClient.swift; sourceTree = "<group>"; };
 		DD0C3DD624DB2EE800E90022 /* PingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingManager.swift; sourceTree = "<group>"; };
+		DD73DBEB24DE15D400892524 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
+		DD73DBED24DE160100892524 /* WoLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoLView.swift; sourceTree = "<group>"; };
+		DD73DBEF24DE162000892524 /* TracerouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerouteView.swift; sourceTree = "<group>"; };
+		DD73DBF124DE163100892524 /* DNSLookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSLookupView.swift; sourceTree = "<group>"; };
+		DD73DBF324DE165800892524 /* SpeedTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedTestView.swift; sourceTree = "<group>"; };
 		DD8E0EA824D6144100DE9780 /* NetworkArch-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkArch-Bridging-Header.h"; sourceTree = "<group>"; };
 		DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularRadioConstants.swift; sourceTree = "<group>"; };
 		DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiExternalIP.swift; sourceTree = "<group>"; };
@@ -89,7 +98,6 @@
 		DDEBD46C24D4200E00623F3F /* SettingsTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTab.swift; sourceTree = "<group>"; };
 		DDEBD47024D4235B00623F3F /* WiFiSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiSection.swift; sourceTree = "<group>"; };
 		DDEBD47424D423F900623F3F /* CellularSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularSection.swift; sourceTree = "<group>"; };
-		DDEBD47D24D4257100623F3F /* ToolsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsView.swift; sourceTree = "<group>"; };
 		DDEBD48324D43AB800623F3F /* NetworkArch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NetworkArch.entitlements; sourceTree = "<group>"; };
 		DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiDetailView.swift; sourceTree = "<group>"; };
 		DDEBD48824D4A06800623F3F /* CellularDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularDetailView.swift; sourceTree = "<group>"; };
@@ -147,6 +155,46 @@
 				86716AC15C9DF766370BEB55 /* Pods-NetworkArchTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DD73DBE224DE14DB00892524 /* LAN Scanner */ = {
+			isa = PBXGroup;
+			children = (
+				DD73DBEB24DE15D400892524 /* ScannerView.swift */,
+			);
+			path = "LAN Scanner";
+			sourceTree = "<group>";
+		};
+		DD73DBE724DE153A00892524 /* Wake on LAN */ = {
+			isa = PBXGroup;
+			children = (
+				DD73DBED24DE160100892524 /* WoLView.swift */,
+			);
+			path = "Wake on LAN";
+			sourceTree = "<group>";
+		};
+		DD73DBE824DE154C00892524 /* Traceroute */ = {
+			isa = PBXGroup;
+			children = (
+				DD73DBEF24DE162000892524 /* TracerouteView.swift */,
+			);
+			path = Traceroute;
+			sourceTree = "<group>";
+		};
+		DD73DBE924DE157400892524 /* DNS Lookup */ = {
+			isa = PBXGroup;
+			children = (
+				DD73DBF124DE163100892524 /* DNSLookupView.swift */,
+			);
+			path = "DNS Lookup";
+			sourceTree = "<group>";
+		};
+		DD73DBEA24DE158A00892524 /* Speed Test */ = {
+			isa = PBXGroup;
+			children = (
+				DD73DBF324DE165800892524 /* SpeedTestView.swift */,
+			);
+			path = "Speed Test";
 			sourceTree = "<group>";
 		};
 		DD8E0EB124D754BC00DE9780 /* Ping */ = {
@@ -249,9 +297,13 @@
 		DDEBD47A24D424AF00623F3F /* Tools */ = {
 			isa = PBXGroup;
 			children = (
-				DDEBD47D24D4257100623F3F /* ToolsView.swift */,
 				DD0C3DCD24DA0FB000E90022 /* SearchBar.swift */,
 				DD8E0EB124D754BC00DE9780 /* Ping */,
+				DD73DBE224DE14DB00892524 /* LAN Scanner */,
+				DD73DBE724DE153A00892524 /* Wake on LAN */,
+				DD73DBE824DE154C00892524 /* Traceroute */,
+				DD73DBE924DE157400892524 /* DNS Lookup */,
+				DD73DBEA24DE158A00892524 /* Speed Test */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -523,6 +575,7 @@
 			files = (
 				DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */,
 				DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */,
+				DD73DBF424DE165800892524 /* SpeedTestView.swift in Sources */,
 				DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */,
 				DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */,
 				DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */,
@@ -530,11 +583,14 @@
 				DD0C3DCE24DA0FB000E90022 /* SearchBar.swift in Sources */,
 				DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */,
 				DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */,
+				DD73DBEC24DE15D400892524 /* ScannerView.swift in Sources */,
+				DD73DBF224DE163100892524 /* DNSLookupView.swift in Sources */,
 				DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */,
 				DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */,
+				DD73DBEE24DE160100892524 /* WoLView.swift in Sources */,
 				DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */,
+				DD73DBF024DE162000892524 /* TracerouteView.swift in Sources */,
 				DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */,
-				DDEBD47E24D4257100623F3F /* ToolsView.swift in Sources */,
 				DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */,
 				DDEBD46B24D41FF700623F3F /* OverviewTab.swift in Sources */,
 				DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */,
@@ -700,6 +756,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NetworkArch/NetworkArch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"NetworkArch/Preview Content\"";
 				DEVELOPMENT_TEAM = BH7H9XV2FA;
 				ENABLE_PREVIEWS = YES;
@@ -727,6 +784,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NetworkArch/NetworkArch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"NetworkArch/Preview Content\"";
 				DEVELOPMENT_TEAM = BH7H9XV2FA;
 				ENABLE_PREVIEWS = YES;

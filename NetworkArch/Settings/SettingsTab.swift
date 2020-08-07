@@ -9,7 +9,13 @@ import SwiftUI
 
 struct SettingsTab: View {
     var body: some View {
-        Text("Hello, Settings!")
+        NavigationView {
+            List {
+                Text("PPDJ")
+            }
+            .listStyle(InsetGroupedListStyle())
+            .navigationBarTitle("Settings")
+        }
     }
 }
 
