@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct SearchBar: View {
     @Binding var text: String
     var placeholder: String
@@ -20,7 +19,7 @@ struct SearchBar: View {
                 Image(systemName: "xmark.circle.fill")
                     .imageScale(.medium)
                     .foregroundColor(backgroundColor)
-                    .padding(3)
+//                    .padding(3)
                     .onTapGesture {
                         withAnimation {
                             self.text = ""
@@ -28,10 +27,8 @@ struct SearchBar: View {
                     }
             }
         }
-        .padding(10)
         .background(Color(.systemGray6))
         .cornerRadius(12)
-        .padding(.vertical, 10)
     }
     
     @Environment(\.colorScheme) var colorScheme

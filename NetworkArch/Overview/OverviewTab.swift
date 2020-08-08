@@ -44,11 +44,14 @@ struct OverviewTab: View {
                     NavigationLink(destination: PingView(searchBarIP: "")) {
                         Text("Ping")
                     }
-                    NavigationLink(destination: ScannerView()) {
-                        Text("LAN Scan")
-                    }
                     NavigationLink(destination: WoLView()) {
                         Text("Wake on LAN")
+                    }
+                    NavigationLink(destination: WhoisView(ipWhois: "")) {
+                        Text("Whois")
+                    }
+                    NavigationLink(destination: ScannerView()) {
+                        Text("LAN Scan")
                     }
                     NavigationLink(destination: TracerouteView()) {
                         Text("Visual Traceroute")

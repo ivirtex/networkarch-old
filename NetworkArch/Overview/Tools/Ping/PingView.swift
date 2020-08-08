@@ -15,36 +15,15 @@ struct PingView: View {
     @State var shouldDisplayList = false
     
     var body: some View {
-        VStack {
-            SearchBar(text: $searchBarIP, placeholder: "IP Address / Host Name")
-                .padding(.horizontal, 15)
+        let ipToPing = searchBarIP
+        
+        List {
+            Section {
+                SearchBar(text: $searchBarIP, placeholder: "IP Address / Host Name")
+            }
             
-            let ipToPing = searchBarIP
-            
-            Spacer()
-                .navigationBarTitle("Ping")
-                .navigationBarItems(trailing: Button(action: {
-                    hideKeyboard()
-                    searchBarIP = ""
-                    ping.pingResult = []
-                    timer?.invalidate()
-                    timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
-                        finalIP = ipToPing
-                        ping.ping(address: ipToPing)
-                        shouldDisplayList = true
-                        
-                    })
-                }) {
-                    Text("Start")
-                        .font(.system(size: 14, weight: .regular))
-                        .foregroundColor(.white)
-                        .padding(5)
-                        .background(Color.green)
-                        .cornerRadius(10)
-                })
-            
-            List {
-                if shouldDisplayList == true {
+            if shouldDisplayList {
+                Section {
                     if self.ping.pingResult != [] {
                         ForEach(ping.pingResult, id: \.self) { ping in
                             HStack {
@@ -61,11 +40,32 @@ struct PingView: View {
                     }
                 }
             }
-            .listStyle(InsetGroupedListStyle())
-            .onDisappear(perform: {
-                timer?.invalidate()
-            })
         }
+        
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle("Ping")
+        .navigationBarItems(trailing: Button(action: {
+            hideKeyboard()
+            searchBarIP = ""
+            ping.pingResult = []
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
+                finalIP = ipToPing
+                ping.ping(address: ipToPing)
+                shouldDisplayList = true
+                
+            })
+        }) {
+            Text("Start")
+                .font(.system(size: 14, weight: .regular))
+                .foregroundColor(.white)
+                .padding(5)
+                .background(Color.green)
+                .cornerRadius(10)
+        })
+        .onDisappear(perform: {
+            timer?.invalidate()
+        })
     }
 }
 
