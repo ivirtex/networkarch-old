@@ -14,7 +14,6 @@
 		DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD124DAB62300E90022 /* SimplePing.m */; };
 		DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */; };
 		DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD624DB2EE800E90022 /* PingManager.swift */; };
-		DD73DBEC24DE15D400892524 /* ScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBEB24DE15D400892524 /* ScannerView.swift */; };
 		DD73DBEE24DE160100892524 /* WoLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBED24DE160100892524 /* WoLView.swift */; };
 		DD73DBF024DE162000892524 /* TracerouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBEF24DE162000892524 /* TracerouteView.swift */; };
 		DD73DBF224DE163100892524 /* DNSLookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBF124DE163100892524 /* DNSLookupView.swift */; };
@@ -77,7 +76,6 @@
 		DD0C3DD224DAB62400E90022 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePingClient.swift; sourceTree = "<group>"; };
 		DD0C3DD624DB2EE800E90022 /* PingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingManager.swift; sourceTree = "<group>"; };
-		DD73DBEB24DE15D400892524 /* ScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerView.swift; sourceTree = "<group>"; };
 		DD73DBED24DE160100892524 /* WoLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoLView.swift; sourceTree = "<group>"; };
 		DD73DBEF24DE162000892524 /* TracerouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerouteView.swift; sourceTree = "<group>"; };
 		DD73DBF124DE163100892524 /* DNSLookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSLookupView.swift; sourceTree = "<group>"; };
@@ -167,14 +165,6 @@
 				86716AC15C9DF766370BEB55 /* Pods-NetworkArchTests.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		DD73DBE224DE14DB00892524 /* LAN Scanner */ = {
-			isa = PBXGroup;
-			children = (
-				DD73DBEB24DE15D400892524 /* ScannerView.swift */,
-			);
-			path = "LAN Scanner";
 			sourceTree = "<group>";
 		};
 		DD73DBE724DE153A00892524 /* Wake on LAN */ = {
@@ -318,7 +308,6 @@
 				DD8E0EB124D754BC00DE9780 /* Ping */,
 				DD73DBE724DE153A00892524 /* Wake on LAN */,
 				DD73DBF724DF0FD200892524 /* Whois */,
-				DD73DBE224DE14DB00892524 /* LAN Scanner */,
 				DD73DBE824DE154C00892524 /* Traceroute */,
 				DD73DBE924DE157400892524 /* DNS Lookup */,
 			);
@@ -606,7 +595,6 @@
 				DD9F035E24E57EB90006C658 /* Constants.swift in Sources */,
 				DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */,
 				DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */,
-				DD73DBEC24DE15D400892524 /* ScannerView.swift in Sources */,
 				DD73DBF224DE163100892524 /* DNSLookupView.swift in Sources */,
 				DD73DBFB24DF0FF200892524 /* WhoisManager.swift in Sources */,
 				DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */,
