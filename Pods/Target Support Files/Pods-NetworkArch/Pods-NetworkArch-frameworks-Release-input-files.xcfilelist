@@ -1,2 +1,4 @@
 ${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/FGRoute/FGRoute.framework
+${BUILT_PRODUCTS_DIR}/Networking/Networking.framework
+${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework

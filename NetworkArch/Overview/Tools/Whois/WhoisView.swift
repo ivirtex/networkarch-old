@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WhoisView: View {
-    @State var ipWhois: String
+    @State var ipWhois: String = ""
     @State var shouldDisplayList = false
     @ObservedObject var whois = WhoisManager()
     
@@ -19,27 +19,45 @@ struct WhoisView: View {
             }
             
             if shouldDisplayList {
-                Section {
-                    Text(String(describing: whois.response ?? "Loading" as NSObject))
+                if whois.error == false {
+                    Section {
+                        if whois.response == "" {
+                            ProgressView()
+                                .multilineTextAlignment(.center)
+                        }
+                        else {
+                            Text(whois.response)
+                                .font(.subheadline)
+                        }
+                    }
+                }
+                else {
+                    Section {
+                        ErrorView(text: "Invalid Domain")
+                    }
                 }
             }
         }
         .listStyle(InsetGroupedListStyle())
         .navigationBarItems(trailing: Button(action: {
+            shouldDisplayList = false
+            shouldDisplayList = true
             DispatchQueue.main.async {
-                shouldDisplayList.toggle()
-                whois.fetchWhois()
+                whois.fetchWhois(domainName: ipWhois)
+                hideKeyboard()
             }
         })
         {
             Text("Start")
-        })
+        }
+        .disabled(self.ipWhois.isEmpty)
+        )
         .navigationBarTitle("Whois")
     }
 }
 
 struct WhoisView_Previews: PreviewProvider {
     static var previews: some View {
-        WhoisView(ipWhois: "")
+        WhoisView()
     }
 }

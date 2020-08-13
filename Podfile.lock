@@ -1,16 +1,24 @@
 PODS:
   - FGRoute (1.0.5)
+  - Networking (4.4.0)
+  - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - FGRoute
+  - Networking (~> 4)
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - FGRoute
+    - Networking
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
   FGRoute: 012077ebabb2841d2af3baf63b30e72841f35ba1
+  Networking: cbef47ab030af248248c26a696adb88989b52ef1
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 355613f199385492338b717599bc15e78414960e
+PODFILE CHECKSUM: 350ee362841845be7fd9724713fed1be02e104fd
 
 COCOAPODS: 1.9.3

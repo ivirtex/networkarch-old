@@ -41,26 +41,23 @@ struct OverviewTab: View {
                 }
                 
                 Section(header: ToolsHeader()) {
-                    NavigationLink(destination: PingView(searchBarIP: "")) {
+                    NavigationLink(destination: PingView()) {
                         Text("Ping")
                     }
                     NavigationLink(destination: WoLView()) {
                         Text("Wake on LAN")
                     }
-                    NavigationLink(destination: WhoisView(ipWhois: "")) {
+                    NavigationLink(destination: WhoisView()) {
                         Text("Whois")
-                    }
-                    NavigationLink(destination: ScannerView()) {
-                        Text("LAN Scan")
-                    }
-                    NavigationLink(destination: TracerouteView()) {
-                        Text("Visual Traceroute")
                     }
                     NavigationLink(destination: DNSLookupView()) {
                         Text("DNS Lookup")
                     }
-                    NavigationLink(destination: SpeedTestView()) {
-                        Text("Speed Test")
+//                    NavigationLink(destination: ScannerView()) {
+//                        Text("LAN Scan")
+//                    }
+                    NavigationLink(destination: TracerouteView()) {
+                        Text("Visual Traceroute")
                     }
                 }
             }

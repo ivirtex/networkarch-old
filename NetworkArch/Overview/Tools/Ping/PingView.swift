@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PingView: View {
     @ObservedObject var ping = PingManager()
-    @State var searchBarIP: String
+    @State var searchBarIP: String = ""
     @State var timer: Timer?
     @State var finalIP: String?
     @State var shouldDisplayList = false
@@ -28,7 +28,6 @@ struct PingView: View {
                         ForEach(ping.pingResult, id: \.self) { ping in
                             HStack {
                                 StatusView(backgroundColor: .green, text: "Online")
-                                Spacer()
                                 Text(finalIP ?? "")
                                 Spacer()
                                 Text("\(ping) ms")
@@ -36,7 +35,7 @@ struct PingView: View {
                         }
                     }
                     else {
-                        Text("Failed to resolve IP Address")
+                        ErrorView(text: "Failed to resolve IP address")
                     }
                 }
             }
@@ -49,10 +48,12 @@ struct PingView: View {
             searchBarIP = ""
             ping.pingResult = []
             timer?.invalidate()
+            shouldDisplayList = true
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
                 finalIP = ipToPing
-                ping.ping(address: ipToPing)
-                shouldDisplayList = true
+                DispatchQueue.main.async {
+                    ping.ping(address: ipToPing)
+                }
                 
             })
         }) {
@@ -72,7 +73,7 @@ struct PingView: View {
 
 struct PingView_Previews: PreviewProvider {
     static var previews: some View {
-        PingView(searchBarIP: "")
+        PingView()
     }
 }
 

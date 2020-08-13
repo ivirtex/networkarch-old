@@ -7,7 +7,9 @@ target 'NetworkArch' do
 
   # Pods for NetworkArch
   
-  pod "FGRoute"
+  pod 'FGRoute'
+  pod 'SwiftyJSON', '~> 4.0'
+  pod 'Networking', '~> 4'
   
   target 'NetworkArchTests' do
     inherit! :search_paths

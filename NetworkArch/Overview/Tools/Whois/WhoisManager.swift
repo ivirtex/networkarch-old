@@ -6,41 +6,39 @@
 //
 
 import Foundation
+import Networking
+import SwiftyJSON
 
 class WhoisManager: ObservableObject {
-    @Published var error: NSObject?
-    @Published var response: NSObject?
+    @Published var response: String = ""
+    @Published var error = false
     
-    let headers = [
-        "x-rapidapi-host": "nettools.p.rapidapi.com",
-        "x-rapidapi-key": "5c663e1b2dmshe202385e147402bp1a5e77jsncb6568671272"
-    ]
+    let whoisURL = "https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=\(whoisAPIKey)&outputFormat=JSON"
     
-    let request = NSMutableURLRequest(url: NSURL(string: "https://nettools.p.rapidapi.com/whois/%7Bquery%7D")! as URL,
-                                      cachePolicy: .useProtocolCachePolicy,
-                                      timeoutInterval: 10.0)
-    
-    func fetchWhois() {
-        request.httpMethod = "GET"
-        request.allHTTPHeaderFields = headers
-        performRequest()
+    func fetchWhois(domainName: String) {
+        let urlString = "\(whoisURL)&domainName=\(domainName)"
+        performRequest(with: urlString)
     }
     
-    func performRequest() {
-        let session = URLSession.shared
-        let dataTask = session.dataTask(with: request as URLRequest, completionHandler: { (data, response, error) -> Void in
-            if (error != nil) {
-                print(error as Any)
-                self.error = error as NSObject?
-            } else {
-                let httpResponse = response as? HTTPURLResponse
-                print(httpResponse as Any)
-                DispatchQueue.main.async {
-                    self.response = httpResponse
+    func performRequest(with urlString: String) {
+        let networking = Networking(baseURL: urlString)
+        networking.get("/get") { result in
+            switch result {
+            case .success(let response):
+                let json = response.dictionaryBody
+                let finalJson = JSON(json)
+                if let whoisRawText = finalJson["WhoisRecord"]["rawText"].string {
+                    self.response = whoisRawText
+                    print(whoisRawText)
+                    self.error = false
                 }
+                else {
+                    print(finalJson["WhoisRecord"]["rawText"].error!)
+                    self.error = true
+                }
+            case .failure(let response):
+                print(response)
             }
-        })
-        dataTask.resume()
+        }
     }
-    
 }

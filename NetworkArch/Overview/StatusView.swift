@@ -14,7 +14,6 @@ struct StatusView: View {
     var body: some View {
         Text(text)
             .font(.system(size: 12, weight: .regular))
-            .lineLimit(2)
             .foregroundColor(.white)
             .padding(5)
             .background(backgroundColor)

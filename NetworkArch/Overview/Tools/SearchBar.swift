@@ -27,7 +27,7 @@ struct SearchBar: View {
                     }
             }
         }
-        .background(Color(.systemGray6))
+//        .background(Color(.systemGray6))
         .cornerRadius(12)
     }
     
