@@ -15,6 +15,7 @@ struct SearchBar: View {
         HStack {
             Image(systemName: "magnifyingglass").foregroundColor(.secondary)
             TextField(placeholder, text: $text)
+                .keyboardType(.URL)
             if text != "" {
                 Image(systemName: "xmark.circle.fill")
                     .imageScale(.medium)

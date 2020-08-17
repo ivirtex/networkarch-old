@@ -13,7 +13,7 @@ class WhoisManager: ObservableObject {
     @Published var response: String = ""
     @Published var error = false
     
-    let whoisURL = "https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=\(whoisAPIKey)&outputFormat=JSON"
+    let whoisURL = "https://www.whoisxmlapi.com/whoisserver/WhoisService?apiKey=\(xmlAPIKey)&outputFormat=JSON"
     
     func fetchWhois(domainName: String) {
         let urlString = "\(whoisURL)&domainName=\(domainName)"

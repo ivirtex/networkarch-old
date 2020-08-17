@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct WiFiSection: View {
-    var ssid: String
-    var wifiImage: String
-    var ipAddress: String
+    let ssid: String
+    let wifiImage: String
+    let ipAddress: String
     
     var body: some View {
         

@@ -22,8 +22,11 @@ struct WhoisView: View {
                 if whois.error == false {
                     Section {
                         if whois.response == "" {
-                            ProgressView()
-                                .multilineTextAlignment(.center)
+                            HStack {
+                                Spacer()
+                                ProgressView()
+                                Spacer()
+                            }
                         }
                         else {
                             Text(whois.response)
@@ -40,15 +43,16 @@ struct WhoisView: View {
         }
         .listStyle(InsetGroupedListStyle())
         .navigationBarItems(trailing: Button(action: {
-            shouldDisplayList = false
+            whois.response = ""
             shouldDisplayList = true
+            hideKeyboard()
             DispatchQueue.main.async {
                 whois.fetchWhois(domainName: ipWhois)
-                hideKeyboard()
             }
         })
         {
             Text("Start")
+                .accentColor(Color(.systemGreen))
         }
         .disabled(self.ipWhois.isEmpty)
         )

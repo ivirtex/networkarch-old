@@ -58,12 +58,10 @@ struct PingView: View {
             })
         }) {
             Text("Start")
-                .font(.system(size: 14, weight: .regular))
-                .foregroundColor(.white)
-                .padding(5)
-                .background(Color.green)
-                .cornerRadius(10)
-        })
+                .accentColor(Color(.systemGreen))
+        }
+        .disabled(self.searchBarIP.isEmpty)
+        )
         .onDisappear(perform: {
             timer?.invalidate()
         })

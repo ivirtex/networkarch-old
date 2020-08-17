@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-import FGRoute
 
 struct WoLView: View {
-    @State var isWifiConnected = FGRoute.isWifiConnected()
     @State var timer: Timer?
     @State var mac: String = ""
     @State var broadcastAddr: String = ""
@@ -44,11 +42,15 @@ struct WoLView: View {
         .navigationBarTitle("Wake on LAN")
         .navigationBarItems(trailing: Button(action: {
             let finalPort = UInt16(port)
-            let computer = Awake.Device(MAC: mac, BroadcastAddr: broadcastAddr, Port: finalPort ?? 0)
+            var finalBroadcast = broadcastAddr
+            finalMac = mac
+            if self.broadcastAddr.isEmpty && self.finalMac.count == 17 {
+                finalBroadcast = "255.255.255.0"
+            }
+            let computer = Awake.Device(MAC: finalMac, BroadcastAddr: finalBroadcast, Port: finalPort ?? 9)
             shouldDisplayList = true
             hideKeyboard()
             pError = Awake.target(device: computer)
-            finalMac = mac
             
             if let error = pError {
                 print(error)
@@ -61,14 +63,10 @@ struct WoLView: View {
         })
         {
             Text("Send packet")
+                .accentColor(Color(.systemGreen))
         }
-        .disabled(!isWifiConnected || self.mac.isEmpty)
+        .disabled(self.mac.isEmpty)
         )
-        .onAppear(perform: {
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
-                isWifiConnected = FGRoute.isWifiConnected()
-            })
-        })
     }
 }
 
