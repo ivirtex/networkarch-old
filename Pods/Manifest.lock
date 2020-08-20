@@ -1,24 +1,70 @@
 PODS:
   - FGRoute (1.0.5)
+  - Google-Mobile-Ads-SDK (7.64.0):
+    - GoogleAppMeasurement (~> 6.0)
+    - GoogleUserMessagingPlatform (~> 1.1)
+  - GoogleAppMeasurement (6.7.2):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.7)
+    - GoogleUtilities/MethodSwizzler (~> 6.7)
+    - GoogleUtilities/Network (~> 6.7)
+    - "GoogleUtilities/NSData+zlib (~> 6.7)"
+    - nanopb (~> 1.30905.0)
+  - GoogleUserMessagingPlatform (1.1.0)
+  - GoogleUtilities/AppDelegateSwizzler (6.7.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.7.1):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (6.7.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.7.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.7.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.7.1)"
+  - GoogleUtilities/Reachability (6.7.1):
+    - GoogleUtilities/Logger
+  - nanopb (1.30905.0):
+    - nanopb/decode (= 1.30905.0)
+    - nanopb/encode (= 1.30905.0)
+  - nanopb/decode (1.30905.0)
+  - nanopb/encode (1.30905.0)
   - Networking (4.4.0)
+  - PromisesObjC (1.2.9)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - FGRoute
+  - Google-Mobile-Ads-SDK
   - Networking (~> 4)
   - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   trunk:
     - FGRoute
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUserMessagingPlatform
+    - GoogleUtilities
+    - nanopb
     - Networking
+    - PromisesObjC
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   FGRoute: 012077ebabb2841d2af3baf63b30e72841f35ba1
+  Google-Mobile-Ads-SDK: aec52559ce73ddf1e6478d1904dd71a741f1bc61
+  GoogleAppMeasurement: 3def7652b1f5b5a576178dc332e2a36a260fbef6
+  GoogleUserMessagingPlatform: 9dc714d2e1f0aa727b9cc52d266dc1b155f4c3f2
+  GoogleUtilities: e121a3867449ce16b0e35ddf1797ea7a389ffdf2
+  nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   Networking: cbef47ab030af248248c26a696adb88989b52ef1
+  PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 350ee362841845be7fd9724713fed1be02e104fd
+PODFILE CHECKSUM: 5e7d767c7f7ffc8d8ee5119a285854d69f40a360
 
 COCOAPODS: 1.9.3

@@ -8,7 +8,6 @@
 import Foundation
 
 let extIPv4URL = URL(string: "https://api.ipify.org")
-let extIPv6URL = URL(string: "https://api6.ipify.org")
 
 func getExtIPv4() -> String? {
     do {
