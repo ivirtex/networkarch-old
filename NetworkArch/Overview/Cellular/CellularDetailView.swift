@@ -12,6 +12,8 @@ let carrierDetail = CellularData()
 struct CellularDetailView: View {
     @State var carrierInfo = carrierDetail.carrierDetail
     @State var carrierRadioTechnologyRaw = carrierDetail.carrierTechnology
+    @State var cellularIPv4 = UIDevice.current.ipv4(for: .cellular)
+    @State var cellularIPv6 = UIDevice.current.ipv6(for: .cellular)
     @State var timer: Timer?
     
     var body: some View {
@@ -31,6 +33,20 @@ struct CellularDetailView: View {
                     }
                     else {
                         InfoRow(leftSide: "Radio Access Technology", rightSide: "N/A")
+                    }
+                    
+                    if let safeCellularIPv4 = cellularIPv4 {
+                        InfoRow(leftSide: "IPv4 Address", rightSide: safeCellularIPv4)
+                    }
+                    else {
+                        InfoRow(leftSide: "IPv4 Address", rightSide: "N/A")
+                    }
+                    
+                    if let safeCellularIPv6 = cellularIPv6 {
+                        InfoRow(leftSide: "IPv6 Address", rightSide: safeCellularIPv6)
+                    }
+                    else {
+                        InfoRow(leftSide: "IPv6 Address", rightSide: "N/A")
                     }
                     
                     if safeCarrierInfo.first?.value.allowsVOIP == true {
@@ -62,6 +78,10 @@ struct CellularDetailView: View {
                     
                     InfoRow(leftSide: "VoIP Support", rightSide: "N/A")
                     
+                    InfoRow(leftSide: "IPv4 Address", rightSide: "N/A")
+                    
+                    InfoRow(leftSide: "IPv6 Address", rightSide: "N/A")
+                    
                     InfoRow(leftSide: "Radio Access Technology", rightSide: "N/A")
                     
                 }
@@ -71,8 +91,10 @@ struct CellularDetailView: View {
         .navigationBarTitle("Cellular Network")
         .onAppear(perform: {
             timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
-                carrierInfo = carrier.carrierDetail
+                carrierInfo = carrierDetail.carrierDetail
                 carrierRadioTechnologyRaw = carrier.carrierTechnology
+                cellularIPv4 = UIDevice.current.ipv4(for: .cellular)
+                cellularIPv6 = UIDevice.current.ipv6(for: .cellular)
             })
         })
     }

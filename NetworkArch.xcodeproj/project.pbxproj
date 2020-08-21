@@ -35,6 +35,7 @@
 		DDB95ACD24E9C05600DC7A89 /* SOADNSTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95ACC24E9C05600DC7A89 /* SOADNSTypeView.swift */; };
 		DDB95ACF24EAE4CD00DC7A89 /* TXTDNSTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95ACE24EAE4CD00DC7A89 /* TXTDNSTypeView.swift */; };
 		DDB95AD124EE889800DC7A89 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD024EE889700DC7A89 /* Banner.swift */; };
+		DDB95AD324EFBB8F00DC7A89 /* InterfacesAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */; };
 		DDE3497724E0999100BEE1BA /* PacketSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3497624E0999100BEE1BA /* PacketSection.swift */; };
 		DDE3497924E09A2600BEE1BA /* ErrorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3497824E09A2600BEE1BA /* ErrorSection.swift */; };
 		DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */; };
@@ -106,6 +107,7 @@
 		DDB95ACC24E9C05600DC7A89 /* SOADNSTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOADNSTypeView.swift; sourceTree = "<group>"; };
 		DDB95ACE24EAE4CD00DC7A89 /* TXTDNSTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXTDNSTypeView.swift; sourceTree = "<group>"; };
 		DDB95AD024EE889700DC7A89 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
+		DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacesAddresses.swift; sourceTree = "<group>"; };
 		DDE3497624E0999100BEE1BA /* PacketSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketSection.swift; sourceTree = "<group>"; };
 		DDE3497824E09A2600BEE1BA /* ErrorSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSection.swift; sourceTree = "<group>"; };
 		DDEBD43C24D41EB100623F3F /* NetworkArch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkArch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -345,6 +347,7 @@
 				DD95D10E24D60FA9000DA60F /* StatusView.swift */,
 				DDEBD48E24D4B25900623F3F /* InfoRow.swift */,
 				DD9F035F24E5BA350006C658 /* ErrorView.swift */,
+				DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */,
 				DDEBD47824D4248F00623F3F /* Wi-Fi */,
 				DDEBD47924D424A300623F3F /* Cellular */,
 				DDEBD47A24D424AF00623F3F /* Tools */,
@@ -610,6 +613,7 @@
 				DDB65BB524E9AEF100235519 /* MXDNSTypeView.swift in Sources */,
 				DDE3497924E09A2600BEE1BA /* ErrorSection.swift in Sources */,
 				DDB95ACF24EAE4CD00DC7A89 /* TXTDNSTypeView.swift in Sources */,
+				DDB95AD324EFBB8F00DC7A89 /* InterfacesAddresses.swift in Sources */,
 				DDE3497724E0999100BEE1BA /* PacketSection.swift in Sources */,
 				DD8AB27A24E5EC980090DD47 /* DNSManager.swift in Sources */,
 				DD9F036024E5BA350006C658 /* ErrorView.swift in Sources */,
@@ -800,7 +804,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NetworkArch/NetworkArch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"NetworkArch/Preview Content\"";
 				DEVELOPMENT_TEAM = BH7H9XV2FA;
 				ENABLE_PREVIEWS = YES;
@@ -828,7 +832,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = NetworkArch/NetworkArch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_ASSET_PATHS = "\"NetworkArch/Preview Content\"";
 				DEVELOPMENT_TEAM = BH7H9XV2FA;
 				ENABLE_PREVIEWS = YES;

@@ -16,7 +16,7 @@ struct OverviewTab: View {
     @State var ipv4 = FGRoute.getIPAddress()
     @State var ssid = FGRoute.getSSID()
     @State var carrierInfo = carrier.carrierDetail
-    @State var carrierRadioTechnologyRaw = carrier.carrierTechnology
+    @State var cellularIP = UIDevice.current.ipv4(for: .cellular)
     @State var timer: Timer?
     
     var body: some View {
@@ -32,11 +32,11 @@ struct OverviewTab: View {
                 }
                 
                 Section(header: Text("Cellular Network")) {
-                    if let safeCarrierInfo = carrierInfo, let safeCarrierRadio = carrierRadioTechnologyRaw {
-                        CellularSection(carrier: String(describing: safeCarrierInfo.first?.value.carrierName ?? "Not available"), cellularImage: "antenna.radiowaves.left.and.right", radioTechnology: CellularRadioConstants.radioTechnology[safeCarrierRadio.first?.value ?? "N/A"] ?? "N/A")
+                    if let safeCarrierInfo = carrierInfo, let safeCarrierIP = cellularIP {
+                        CellularSection(carrier: safeCarrierInfo.first?.value.carrierName ?? "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: safeCarrierIP)
                     }
                     else {
-                        CellularSection(carrier: "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", radioTechnology: "Not available")
+                        CellularSection(carrier: "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "N/A")
                     }
                 }
                 
@@ -74,7 +74,7 @@ struct OverviewTab: View {
                 ssid = FGRoute.getSSID()
                 ipv4 = FGRoute.getIPAddress()
                 carrierInfo = carrier.carrierDetail
-                carrierRadioTechnologyRaw = carrier.carrierTechnology
+                cellularIP = UIDevice.current.ipv4(for: .cellular)
             })
         })
     }

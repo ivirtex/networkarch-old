@@ -3,3 +3,4 @@
 //
 
 #include "SimplePing.h"
+#include <ifaddrs.h>

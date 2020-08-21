@@ -11,7 +11,26 @@ struct SettingsTab: View {
     var body: some View {
         NavigationView {
             List {
-                Text("PPDJ")
+                Section {
+                    Button("Restore Purchases") {
+                        //
+                    }
+                }
+                
+                Section(header: Text("Purchases")) {
+                    Button("Remove Ads") {
+                        //
+                    }
+                    
+                    Button("Unlock Whois") {
+                        //
+                    }
+                    
+                    Button("Unlock DNS Lookup") {
+                        //
+                    }
+                }
+                
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Settings")

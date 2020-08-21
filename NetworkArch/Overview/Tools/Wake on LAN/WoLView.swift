@@ -38,6 +38,7 @@ struct WoLView: View {
                 }
             }
         }
+        .animation(.default)
         .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Wake on LAN")
         .navigationBarItems(trailing: Button(action: {

@@ -10,7 +10,7 @@ import SwiftUI
 struct CellularSection: View {
     var carrier: String
     var cellularImage: String
-    var radioTechnology: String
+    var ipAddress: String
     
     var body: some View {
         VStack {
@@ -24,10 +24,10 @@ struct CellularSection: View {
             .padding(.top, 5)
             
             HStack {
-                Text("Radio Access Technology")
+                Text("IP Address")
                     .padding(.top)
                 Spacer()
-                Text(radioTechnology)
+                Text(ipAddress)
                     .padding(.top)
             }
             .padding(.bottom)
@@ -43,6 +43,6 @@ struct CellularSection: View {
 
 struct CellularSection_Previews: PreviewProvider {
     static var previews: some View {
-        CellularSection(carrier: "brand", cellularImage: "antenna.radiowaves.left.and.right", radioTechnology: "LTE")
+        CellularSection(carrier: "brand", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "0.0.0.0")
     }
 }

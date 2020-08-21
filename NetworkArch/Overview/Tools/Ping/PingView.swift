@@ -40,7 +40,7 @@ struct PingView: View {
                 }
             }
         }
-        
+        .animation(.default)
         .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Ping")
         .navigationBarItems(trailing: Button(action: {
