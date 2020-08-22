@@ -11,6 +11,7 @@ target 'NetworkArch' do
   pod 'SwiftyJSON', '~> 4.0'
   pod 'Networking', '~> 4'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'SwiftyStoreKit'
   
   target 'NetworkArchTests' do
     inherit! :search_paths

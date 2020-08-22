@@ -35,12 +35,14 @@ PODS:
   - Networking (4.4.0)
   - PromisesObjC (1.2.9)
   - SwiftyJSON (4.3.0)
+  - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
   - FGRoute
   - Google-Mobile-Ads-SDK
   - Networking (~> 4)
   - SwiftyJSON (~> 4.0)
+  - SwiftyStoreKit
 
 SPEC REPOS:
   trunk:
@@ -53,6 +55,7 @@ SPEC REPOS:
     - Networking
     - PromisesObjC
     - SwiftyJSON
+    - SwiftyStoreKit
 
 SPEC CHECKSUMS:
   FGRoute: 012077ebabb2841d2af3baf63b30e72841f35ba1
@@ -64,7 +67,8 @@ SPEC CHECKSUMS:
   Networking: cbef47ab030af248248c26a696adb88989b52ef1
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 5e7d767c7f7ffc8d8ee5119a285854d69f40a360
+PODFILE CHECKSUM: be0d95ae7872fd70d120fc55e7f2c8baeda23d18
 
 COCOAPODS: 1.9.3

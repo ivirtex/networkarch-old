@@ -17,7 +17,6 @@ enum Network: String {
 
 // get ipv4 or ipv6 address
 extension UIDevice {
-    
     func address(family: Int32, for network: Network) -> String? {
         var address: String?
 

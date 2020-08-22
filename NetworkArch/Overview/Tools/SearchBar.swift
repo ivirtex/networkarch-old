@@ -13,7 +13,8 @@ struct SearchBar: View {
     
     var body: some View {
         HStack {
-            Image(systemName: "magnifyingglass").foregroundColor(.secondary)
+            Image(systemName: "magnifyingglass")
+                .foregroundColor(.secondary)
             TextField(placeholder, text: $text)
                 .keyboardType(.URL)
             if text != "" {

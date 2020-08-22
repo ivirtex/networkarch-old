@@ -36,6 +36,7 @@
 		DDB95ACF24EAE4CD00DC7A89 /* TXTDNSTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95ACE24EAE4CD00DC7A89 /* TXTDNSTypeView.swift */; };
 		DDB95AD124EE889800DC7A89 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD024EE889700DC7A89 /* Banner.swift */; };
 		DDB95AD324EFBB8F00DC7A89 /* InterfacesAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */; };
+		DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB95AD424F0582300DC7A89 /* StoreKit.framework */; };
 		DDE3497724E0999100BEE1BA /* PacketSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3497624E0999100BEE1BA /* PacketSection.swift */; };
 		DDE3497924E09A2600BEE1BA /* ErrorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3497824E09A2600BEE1BA /* ErrorSection.swift */; };
 		DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */; };
@@ -108,6 +109,7 @@
 		DDB95ACE24EAE4CD00DC7A89 /* TXTDNSTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXTDNSTypeView.swift; sourceTree = "<group>"; };
 		DDB95AD024EE889700DC7A89 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacesAddresses.swift; sourceTree = "<group>"; };
+		DDB95AD424F0582300DC7A89 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DDE3497624E0999100BEE1BA /* PacketSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketSection.swift; sourceTree = "<group>"; };
 		DDE3497824E09A2600BEE1BA /* ErrorSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSection.swift; sourceTree = "<group>"; };
 		DDEBD43C24D41EB100623F3F /* NetworkArch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkArch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,6 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */,
 				DD0C3DC824D8215100E90022 /* SwiftUIPullToRefresh in Frameworks */,
 				ED379F628AEA72C8A06FD325 /* Pods_NetworkArch.framework in Frameworks */,
 			);
@@ -165,6 +168,7 @@
 		0729737DDBCC4E7AC930A254 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDB95AD424F0582300DC7A89 /* StoreKit.framework */,
 				8AFA322CB1707064FE7A84E3 /* Pods_NetworkArch.framework */,
 				5702178074DA592C45149FBA /* Pods_NetworkArch_NetworkArchUITests.framework */,
 				70E2068283E22FA6F624A304 /* Pods_NetworkArchTests.framework */,
