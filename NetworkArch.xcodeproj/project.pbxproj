@@ -14,6 +14,7 @@
 		DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD124DAB62300E90022 /* SimplePing.m */; };
 		DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */; };
 		DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD624DB2EE800E90022 /* PingManager.swift */; };
+		DD68FFDC24F7022300FEBA87 /* WhoisModalBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68FFDB24F7022300FEBA87 /* WhoisModalBuyView.swift */; };
 		DD73DBEE24DE160100892524 /* WoLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBED24DE160100892524 /* WoLView.swift */; };
 		DD73DBF024DE162000892524 /* TracerouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBEF24DE162000892524 /* TracerouteView.swift */; };
 		DD73DBF224DE163100892524 /* DNSLookupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBF124DE163100892524 /* DNSLookupView.swift */; };
@@ -86,6 +87,7 @@
 		DD0C3DD224DAB62400E90022 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
 		DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePingClient.swift; sourceTree = "<group>"; };
 		DD0C3DD624DB2EE800E90022 /* PingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingManager.swift; sourceTree = "<group>"; };
+		DD68FFDB24F7022300FEBA87 /* WhoisModalBuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoisModalBuyView.swift; sourceTree = "<group>"; };
 		DD73DBED24DE160100892524 /* WoLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoLView.swift; sourceTree = "<group>"; };
 		DD73DBEF24DE162000892524 /* TracerouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerouteView.swift; sourceTree = "<group>"; };
 		DD73DBF124DE163100892524 /* DNSLookupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSLookupView.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 			isa = PBXGroup;
 			children = (
 				DD73DBF824DF0FE300892524 /* WhoisView.swift */,
+				DD68FFDB24F7022300FEBA87 /* WhoisModalBuyView.swift */,
 				DD73DBFA24DF0FF200892524 /* WhoisManager.swift */,
 			);
 			path = Whois;
@@ -613,6 +616,7 @@
 			files = (
 				DD73DBF924DF0FE300892524 /* WhoisView.swift in Sources */,
 				DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */,
+				DD68FFDC24F7022300FEBA87 /* WhoisModalBuyView.swift in Sources */,
 				DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */,
 				DDB65BB524E9AEF100235519 /* MXDNSTypeView.swift in Sources */,
 				DDE3497924E09A2600BEE1BA /* ErrorSection.swift in Sources */,

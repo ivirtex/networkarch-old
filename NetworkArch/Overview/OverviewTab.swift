@@ -13,11 +13,16 @@ let locationManager = CLLocationManager()
 let carrier = CellularData()
 
 struct OverviewTab: View {
+    @AppStorage("Whois unlock") var isWhoisUnlocked = false
+    @AppStorage("DNS unlock") var isDNSUnlocked = false
+    @AppStorage("Ads remove") var areAdsRemoved = false
+    @State private var isPresented = false
     @State var ipv4 = FGRoute.getIPAddress()
     @State var ssid = FGRoute.getSSID()
     @State var carrierInfo = carrier.carrierDetail
     @State var cellularIP = UIDevice.current.ipv4(for: .cellular)
     @State var timer: Timer?
+    
     
     var body: some View {
         NavigationView {
@@ -40,29 +45,51 @@ struct OverviewTab: View {
                     }
                 }
                 
-                Section {
-                    Banner()
+                if !areAdsRemoved {
+                    Section {
+                        Banner()
+                    }
                 }
                 
                 Section(header: Text("Tools")) {
                     NavigationLink(destination: PingView()) {
                         Text("Ping")
                     }
+                    
                     NavigationLink(destination: WoLView()) {
                         Text("Wake on LAN")
                     }
-                    NavigationLink(destination: WhoisView()) {
-                        Text("Whois")
+                    
+                    if isWhoisUnlocked {
+                        NavigationLink(destination: WhoisView()) {
+                            Text("Whois")
+                        }
                     }
-                    NavigationLink(destination: DNSLookupView()) {
+                    else {
+                        Button("Whois") {
+                            self.isPresented.toggle()
+                        }
+                        .sheet(isPresented: $isPresented) {
+                            WhoisModalBuyView()
+                        }
+                    }
+                    
+                    if isDNSUnlocked {
+                        NavigationLink(destination: DNSLookupView()) {
+                            Text("DNS Lookup")
+                        }
+                    }
+                    else {
                         Text("DNS Lookup")
+                            .bold()
                     }
-//                    NavigationLink(destination: ScannerView()) {
-//                        Text("LAN Scan")
-//                    }
-//                    NavigationLink(destination: TracerouteView()) {
-//                        Text("Visual Traceroute")
-//                    }
+                    
+                    //                    NavigationLink(destination: ScannerView()) {
+                    //                        Text("LAN Scan")
+                    //                    }
+                    //                    NavigationLink(destination: TracerouteView()) {
+                    //                        Text("Visual Traceroute")
+                    //                    }
                 }
             }
             .listStyle(InsetGroupedListStyle())
