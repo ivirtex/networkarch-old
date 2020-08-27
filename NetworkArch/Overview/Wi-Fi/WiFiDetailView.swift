@@ -64,11 +64,16 @@ struct WiFiDetailView: View {
                 }
                 
                 if connectionStatus == true {
-                    if extIPv4 == nil {
-                        InfoRow(leftSide: "External IPv4", rightSide: "Loading")
+                    if let safeExtIPv4 = extIPv4 {
+                        InfoRow(leftSide: "External IPv4", rightSide: safeExtIPv4)
                     }
                     else {
-                        InfoRow(leftSide: "External IPv4", rightSide: extIPv4!)
+                        HStack {
+                            Text("External IPv4")
+                                .font(.subheadline)
+                            Spacer()
+                            ProgressView()
+                        }
                     }
                 }
                 else {
@@ -79,8 +84,7 @@ struct WiFiDetailView: View {
         .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Wi-Fi")
         .onAppear(perform: {
-            locationManager.requestWhenInUseAuthorization()
-            DispatchQueue.main.async {
+            DispatchQueue.global().async {
                 extIPv4 = getExtIPv4()
             }
             
