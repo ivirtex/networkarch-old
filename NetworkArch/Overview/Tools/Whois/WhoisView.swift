@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct WhoisView: View {
-    @State var ipWhois: String = ""
-    @State var shouldDisplayList = false
+    @State private var ipWhois: String = ""
+    @State private var shouldDisplayList = false
     @ObservedObject var whois = WhoisManager()
     
     var body: some View {

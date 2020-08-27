@@ -9,14 +9,14 @@ import SwiftUI
 import FGRoute
 
 struct WiFiDetailView: View {
-    @State var ssid = FGRoute.getSSID()
-    @State var bssid = FGRoute.getBSSID()
-    @State var ipv4 = UIDevice.current.ipv4(for: .wifi)
-    @State var ipv6 = UIDevice.current.ipv6(for: .wifi)?.split(by: 15)
-    @State var defaultGateway = FGRoute.getGatewayIP()
-    @State var connectionStatus = FGRoute.isWifiConnected()
-    @State var extIPv4: String? = nil
-    @State var timer: Timer?
+    @State private var ssid = FGRoute.getSSID()
+    @State private var bssid = FGRoute.getBSSID()
+    @State private var ipv4 = UIDevice.current.ipv4(for: .wifi)
+    @State private var ipv6 = UIDevice.current.ipv6(for: .wifi)?.split(by: 15)
+    @State private var defaultGateway = FGRoute.getGatewayIP()
+    @State private var connectionStatus = FGRoute.isWifiConnected()
+    @State private var extIPv4: String? = nil
+    @State private var timer: Timer?
     
     var body: some View {
         List {

@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct PingView: View {
-    @ObservedObject var ping = PingManager()
-    @State var searchBarIP: String = ""
-    @State var timer: Timer?
-    @State var finalIP: String?
-    @State var shouldDisplayList = false
+    @ObservedObject private var ping = PingManager()
+    @State private var searchBarIP: String = ""
+    @State private var timer: Timer?
+    @State private var finalIP: String?
+    @State private var shouldDisplayList = false
+    @State private var isPinging = false
     
     var body: some View {
         let ipToPing = searchBarIP
@@ -44,24 +45,33 @@ struct PingView: View {
         .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Ping")
         .navigationBarItems(trailing: Button(action: {
-            hideKeyboard()
-            searchBarIP = ""
-            ping.pingResult = []
-            timer?.invalidate()
-            shouldDisplayList = true
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
-                finalIP = ipToPing
-                DispatchQueue.main.async {
-                    ping.ping(address: ipToPing)
-                }
-                
-            })
+            if !isPinging {
+                isPinging = true
+                hideKeyboard()
+                searchBarIP = ""
+                ping.pingResult = []
+                timer?.invalidate()
+                shouldDisplayList = true
+                timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
+                    finalIP = ipToPing
+                    DispatchQueue.main.async {
+                        ping.ping(address: ipToPing)
+                    }
+                })
+            }
+            else {
+                timer?.invalidate()
+                isPinging = false
+            }
         }) {
-            Text("Start")
-                .accentColor(Color(.systemGreen))
-        }
-        .disabled(self.searchBarIP.isEmpty)
-        )
+            if !isPinging {
+                Text("Start")
+                    .accentColor(Color(.systemGreen))
+            }
+            else {
+                Text("Stop")
+                    .accentColor(Color(.systemRed))
+            }})
         .onDisappear(perform: {
             timer?.invalidate()
         })

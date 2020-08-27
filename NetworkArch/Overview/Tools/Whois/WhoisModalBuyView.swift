@@ -19,7 +19,7 @@ struct WhoisModalBuyView: View {
                 .padding()
             Spacer()
             Button(action: {
-                SwiftyStoreKit.purchaseProduct(whoisProductID, quantity: 1, atomically: true) { (result) in
+                SwiftyStoreKit.purchaseProduct(Constants.ProductID.whoisProductID, quantity: 1, atomically: true) { (result) in
                     switch result {
                     case .success(let purchase):
                         overview.isWhoisUnlocked = true

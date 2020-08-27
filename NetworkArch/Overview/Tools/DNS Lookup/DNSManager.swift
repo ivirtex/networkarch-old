@@ -45,7 +45,7 @@ class DNSManager: ObservableObject {
     @Published var txtDNSTypeStrings = ""
     @Published var txtDNSTypeTTL: Int?
     
-    let dnsUrl = "https://www.whoisxmlapi.com/whoisserver/DNSService?apiKey=\(xmlAPIKey)&type=_all&outputFormat=JSON"
+    let dnsUrl = "https://www.whoisxmlapi.com/whoisserver/DNSService?apiKey=\(Constants.xmlAPIKey)&type=_all&outputFormat=JSON"
     
     func fetchIP(domainName: String) {
         let urlString = "\(dnsUrl)&domainName=\(domainName)&"

@@ -17,12 +17,11 @@ struct OverviewTab: View {
     @AppStorage("DNS unlock") var isDNSUnlocked = false
     @AppStorage("Ads remove") var areAdsRemoved = false
     @State private var isPresented = false
-    @State var ipv4 = FGRoute.getIPAddress()
-    @State var ssid = FGRoute.getSSID()
-    @State var carrierInfo = carrier.carrierDetail
-    @State var cellularIP = UIDevice.current.ipv4(for: .cellular)
-    @State var timer: Timer?
-    
+    @State private var ipv4 = FGRoute.getIPAddress()
+    @State private var ssid = FGRoute.getSSID()
+    @State private var carrierInfo = carrier.carrierDetail
+    @State private var cellularIP = UIDevice.current.ipv4(for: .cellular)
+    @State private var timer: Timer?
     
     var body: some View {
         NavigationView {

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct WoLView: View {
-    @State var timer: Timer?
-    @State var mac: String = ""
-    @State var broadcastAddr: String = ""
-    @State var port: String = ""
-    @State var finalMac: String = ""
-    @State var pError: Error?
-    @State var shouldDisplayList = false
-    @State var packetsList = [String]()
+    @State private var timer: Timer?
+    @State private var mac: String = ""
+    @State private var broadcastAddr: String = ""
+    @State private var port: String = ""
+    @State private var finalMac: String = ""
+    @State private var pError: Error?
+    @State private var shouldDisplayList = false
+    @State private var packetsList = [String]()
     
     var body: some View {
         List {
@@ -44,6 +44,10 @@ struct WoLView: View {
         .navigationBarItems(trailing: Button(action: {
             let finalPort = UInt16(port)
             var finalBroadcast = broadcastAddr
+            
+            mac = ""
+            broadcastAddr = ""
+            port = ""
             finalMac = mac
             if self.broadcastAddr.isEmpty && self.finalMac.count == 17 {
                 finalBroadcast = "255.255.255.0"

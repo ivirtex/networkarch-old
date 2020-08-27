@@ -10,11 +10,11 @@ import SwiftUI
 let carrierDetail = CellularData()
 
 struct CellularDetailView: View {
-    @State var carrierInfo = carrierDetail.carrierDetail
-    @State var carrierRadioTechnologyRaw = carrierDetail.carrierTechnology
-    @State var cellularIPv4 = UIDevice.current.ipv4(for: .cellular)
-    @State var cellularIPv6 = UIDevice.current.ipv6(for: .cellular)
-    @State var timer: Timer?
+    @State private var carrierInfo = carrierDetail.carrierDetail
+    @State private var carrierRadioTechnologyRaw = carrierDetail.carrierTechnology
+    @State private var cellularIPv4 = UIDevice.current.ipv4(for: .cellular)
+    @State private var cellularIPv6 = UIDevice.current.ipv6(for: .cellular)
+    @State private var timer: Timer?
     
     var body: some View {
         List {

@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct DNSLookupView: View {
-    @ObservedObject var dns = DNSManager()
-    @State var domainName: String = ""
-    @State var shouldDisplayList = false
+    @ObservedObject private var dns = DNSManager()
+    @State private var domainName: String = ""
+    @State private var shouldDisplayList = false
     
     var body: some View {
         List {

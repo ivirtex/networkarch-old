@@ -26,11 +26,11 @@ struct SettingsTab: View {
                                 showingAlert = true
                                 for item in results.restoredPurchases {
                                     switch item.productId {
-                                    case adsProductID:
+                                    case Constants.ProductID.adsProductID:
                                         overview.areAdsRemoved = true
-                                    case whoisProductID:
+                                    case Constants.ProductID.whoisProductID:
                                         overview.isWhoisUnlocked = true
-                                    case dnsProductID:
+                                    case Constants.ProductID.dnsProductID:
                                         overview.isDNSUnlocked = true
                                     default:
                                         break
@@ -50,7 +50,7 @@ struct SettingsTab: View {
                 
                 Section(header: Text("Purchases")) {
                     Button("Remove Ads") {
-                        SwiftyStoreKit.purchaseProduct(adsProductID, quantity: 1, atomically: true) { (result) in
+                        SwiftyStoreKit.purchaseProduct(Constants.ProductID.adsProductID, quantity: 1, atomically: true) { (result) in
                             switch result {
                             case .success(let purchase):
                                 overview.areAdsRemoved = true
@@ -74,7 +74,7 @@ struct SettingsTab: View {
                     .disabled(overview.areAdsRemoved)
                     
                     Button("Unlock Whois") {
-                        SwiftyStoreKit.purchaseProduct(whoisProductID, quantity: 1, atomically: true) { (result) in
+                        SwiftyStoreKit.purchaseProduct(Constants.ProductID.whoisProductID, quantity: 1, atomically: true) { (result) in
                             switch result {
                             case .success(let purchase):
                                 overview.isWhoisUnlocked = true
@@ -98,7 +98,7 @@ struct SettingsTab: View {
                     .disabled(overview.isWhoisUnlocked)
                     
                     Button("Unlock DNS Lookup") {
-                        SwiftyStoreKit.purchaseProduct(dnsProductID, quantity: 1, atomically: true) { (result) in
+                        SwiftyStoreKit.purchaseProduct(Constants.ProductID.dnsProductID, quantity: 1, atomically: true) { (result) in
                             switch result {
                             case .success(let purchase):
                                 overview.isDNSUnlocked = true
