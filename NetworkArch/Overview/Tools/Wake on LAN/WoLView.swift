@@ -45,9 +45,6 @@ struct WoLView: View {
             let finalPort = UInt16(port)
             var finalBroadcast = broadcastAddr
             
-            mac = ""
-            broadcastAddr = ""
-            port = ""
             finalMac = mac
             if self.broadcastAddr.isEmpty && self.finalMac.count == 17 {
                 finalBroadcast = "255.255.255.0"

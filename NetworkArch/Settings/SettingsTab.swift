@@ -7,10 +7,13 @@
 
 import SwiftUI
 import SwiftyStoreKit
+import MessageUI
 
 struct SettingsTab: View {
     let overview = OverviewTab()
     @State private var showingAlert = false
+    @State var result: Result<MFMailComposeResult, Error>? = nil
+    @State var isShowingMailView = false
     
     var body: some View {
         NavigationView {
@@ -120,6 +123,21 @@ struct SettingsTab: View {
                         }
                     }
                     .disabled(overview.isDNSUnlocked)
+                }
+                
+                Section(header: Text("Support")) {
+                    Button(action: {
+                        self.isShowingMailView.toggle()
+                    }) {
+                        HStack {
+                            Image(systemName: "envelope")
+                            Text("Send an email")
+                        }
+                    }
+                    .disabled(!MFMailComposeViewController.canSendMail())
+                    .sheet(isPresented: $isShowingMailView) {
+                        MailView(result: self.$result)
+                    }
                 }
                 
                 Section(header: Text("App Info"), footer: Text("Made with ❤️ by ivirtex")) {

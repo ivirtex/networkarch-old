@@ -16,13 +16,14 @@ struct OverviewTab: View {
     @AppStorage("Whois unlock") var isWhoisUnlocked = false
     @AppStorage("DNS unlock") var isDNSUnlocked = false
     @AppStorage("Ads remove") var areAdsRemoved = false
-    @State private var isPresented = false
+    @State var isWhoisPresented = false
+    @State var isDNSPresented = false
     @State private var ipv4 = FGRoute.getIPAddress()
     @State private var ssid = FGRoute.getSSID()
     @State private var carrierInfo = carrier.carrierDetail
     @State private var cellularIP = UIDevice.current.ipv4(for: .cellular)
     @State private var timer: Timer?
-    
+
     var body: some View {
         NavigationView {
             List {
@@ -71,10 +72,10 @@ struct OverviewTab: View {
                     }
                     else {
                         Button("Whois") {
-                            self.isPresented.toggle()
+                            self.isWhoisPresented = true
                         }
-                        .sheet(isPresented: $isPresented) {
-                            WhoisModalBuyView()
+                        .sheet(isPresented: $isWhoisPresented) {
+                            WhoisModalBuyView(isPresented: $isWhoisPresented)
                         }
                     }
                     
@@ -84,8 +85,12 @@ struct OverviewTab: View {
                         }
                     }
                     else {
-                        Text("DNS Lookup")
-                            .bold()
+                        Button("DNS Lookup") {
+                            self.isDNSPresented = true
+                        }
+                        .sheet(isPresented: $isDNSPresented) {
+                            DNSModalBuyView(isPresented: $isDNSPresented)
+                        }
                     }
                     
                     //                    NavigationLink(destination: ScannerView()) {

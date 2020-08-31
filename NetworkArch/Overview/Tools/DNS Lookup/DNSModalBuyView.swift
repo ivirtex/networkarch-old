@@ -1,36 +1,36 @@
 //
-//  WhoisModalBuyView.swift
+//  DNSModalBuyView.swift
 //  NetworkArch
 //
-//  Created by Hubert Jóźwiak on 26/08/2020.
+//  Created by Hubert Jóźwiak on 30/08/2020.
 //
 
 import SwiftUI
 import SwiftyStoreKit
 
-struct WhoisModalBuyView: View {
+struct DNSModalBuyView: View {
     var overview = OverviewTab()
     @Binding var isPresented: Bool
     
     var body: some View {
         VStack(alignment: .center) {
-            Text("Whois")
+            Text("DNS Lookup")
                 .font(.title)
                 .bold()
                 .padding()
                 .padding(.top, 10)
             Spacer()
-            Text("Whois is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name, an IP address block or an autonomous system.")
+            Text("DNS Lookup is the process of sending a query for a specific domain or IP and getting the records that corresponds to it.")
                 .padding(.horizontal, 20)
                 .multilineTextAlignment(.leading)
-            Image("whoisModal")
+            Image("dnsModal")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Button(action: {
-                SwiftyStoreKit.purchaseProduct(Constants.ProductID.whoisProductID, quantity: 1, atomically: true) { (result) in
+                SwiftyStoreKit.purchaseProduct(Constants.ProductID.dnsProductID, quantity: 1, atomically: true) { (result) in
                     switch result {
                     case .success(let purchase):
-                        overview.isWhoisUnlocked = true
+                        overview.isDNSUnlocked = true
                         self.isPresented = false
                         print("Purchase Success: \(purchase.productId)")
                     case .error(let error):
@@ -64,8 +64,8 @@ struct WhoisModalBuyView: View {
     }
 }
 
-//struct WhoisModalBuyView_Previews: PreviewProvider {
+//struct DNSModalBuyView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        WhoisModalBuyView(isPresented: //)
+//        DNSModalBuyView()
 //    }
 //}

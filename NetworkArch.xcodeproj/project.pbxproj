@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2C7CA8AB7D619CA488F78496 /* Pods_NetworkArchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70E2068283E22FA6F624A304 /* Pods_NetworkArchTests.framework */; };
 		68AB4162713D65584B3F9767 /* Pods_NetworkArch_NetworkArchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5702178074DA592C45149FBA /* Pods_NetworkArch_NetworkArchUITests.framework */; };
+		DD09A41E24F95EBD007DFC41 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09A41D24F95EBC007DFC41 /* MailView.swift */; };
+		DD09A42024FBE842007DFC41 /* DNSModalBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09A41F24FBE842007DFC41 /* DNSModalBuyView.swift */; };
 		DD0C3DC824D8215100E90022 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = DD0C3DC724D8215100E90022 /* SwiftUIPullToRefresh */; };
 		DD0C3DCE24DA0FB000E90022 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DCD24DA0FB000E90022 /* SearchBar.swift */; };
 		DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD124DAB62300E90022 /* SimplePing.m */; };
@@ -82,6 +84,8 @@
 		70E2068283E22FA6F624A304 /* Pods_NetworkArchTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArchTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		86716AC15C9DF766370BEB55 /* Pods-NetworkArchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArchTests.release.xcconfig"; path = "Target Support Files/Pods-NetworkArchTests/Pods-NetworkArchTests.release.xcconfig"; sourceTree = "<group>"; };
 		8AFA322CB1707064FE7A84E3 /* Pods_NetworkArch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD09A41D24F95EBC007DFC41 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
+		DD09A41F24FBE842007DFC41 /* DNSModalBuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSModalBuyView.swift; sourceTree = "<group>"; };
 		DD0C3DCD24DA0FB000E90022 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		DD0C3DD124DAB62300E90022 /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
 		DD0C3DD224DAB62400E90022 /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
@@ -214,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				DD73DBF124DE163100892524 /* DNSLookupView.swift */,
+				DD09A41F24FBE842007DFC41 /* DNSModalBuyView.swift */,
 				DD8AB27924E5EC980090DD47 /* DNSManager.swift */,
 				DD8AB27B24E6BFBF0090DD47 /* ADNSTypeView.swift */,
 				DDB65BB024E9AA2C00235519 /* AAAADNSTypeView.swift */,
@@ -366,6 +371,7 @@
 			isa = PBXGroup;
 			children = (
 				DDEBD46C24D4200E00623F3F /* SettingsTab.swift */,
+				DD09A41D24F95EBC007DFC41 /* MailView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -651,6 +657,8 @@
 				DDEBD46B24D41FF700623F3F /* OverviewTab.swift in Sources */,
 				DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */,
 				DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */,
+				DD09A42024FBE842007DFC41 /* DNSModalBuyView.swift in Sources */,
+				DD09A41E24F95EBD007DFC41 /* MailView.swift in Sources */,
 				DDEBD48F24D4B25900623F3F /* InfoRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

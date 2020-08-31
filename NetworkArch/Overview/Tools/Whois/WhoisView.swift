@@ -10,7 +10,7 @@ import SwiftUI
 struct WhoisView: View {
     @State private var ipWhois: String = ""
     @State private var shouldDisplayList = false
-    @ObservedObject var whois = WhoisManager()
+    @ObservedObject private var whois = WhoisManager()
     
     var body: some View {
         List {
