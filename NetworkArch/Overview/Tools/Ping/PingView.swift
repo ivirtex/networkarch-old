@@ -17,11 +17,14 @@ struct PingView: View {
     @State private var shouldDisplayStats = false
     @State private var pingSummed: Float = 0
     @State private var packetsNumber: Float = 0
-    private var avgPing: Float {
-        return pingSummed / packetsNumber
-    }
-    private var minPing: Float {
-        return ping.pingResult.map{$0.latency}.min()!
+    @State private var minPing: [Float] = []
+    private var avgPing: Float? {
+        if !packetsNumber.isZero {
+            return pingSummed / packetsNumber
+        }
+        else {
+            return nil
+        }
     }
     private var maxPing: Float {
         return ping.pingResult.map{$0.latency}.max()!
@@ -41,22 +44,27 @@ struct PingView: View {
                         HStack {
                             Text("Minimum")
                             Spacer()
-                            Text(String(format: "%.1f", minPing) + " ms")
+                            Text(String(format: "%.1f", minPing.min() ?? "N/A") + " ms")
                         }
                         HStack {
                             Text("Average")
                             Spacer()
-                            if avgPing < 50 {
-                                Text(String(format: "%.1f", avgPing) + " ms")
-                                    .foregroundColor(.green)
-                            }
-                            else if avgPing < 100 {
-                                Text(String(format: "%.1f", avgPing) + " ms")
-                                    .foregroundColor(.yellow)
+                            if let safeAvgPing = avgPing {
+                                if safeAvgPing < 50 {
+                                    Text(String(format: "%.1f", safeAvgPing) + " ms")
+                                        .foregroundColor(.green)
+                                }
+                                else if safeAvgPing < 100 {
+                                    Text(String(format: "%.1f", safeAvgPing) + " ms")
+                                        .foregroundColor(.yellow)
+                                }
+                                else {
+                                    Text(String(format: "%.1f", safeAvgPing) + " ms")
+                                        .foregroundColor(.red)
+                                }
                             }
                             else {
-                                Text(String(format: "%.1f", avgPing) + " ms")
-                                    .foregroundColor(.red)
+                                Text("N/A")
                             }
                         }
                         HStack {
@@ -80,8 +88,8 @@ struct PingView: View {
                             }
                             else {
                                 StatusView(backgroundColor: .red, text: "Offline")
+                                Text(finalIP ?? "")
                                 Spacer()
-                                Text("Failed to resolve IP address")
                             }
                         }
                     }
@@ -101,6 +109,7 @@ struct PingView: View {
                 ping.pingResult = []
                 pingSummed = 0
                 packetsNumber = 0
+                minPing = []
                 timer?.invalidate()
                 shouldDisplayList = true
                 timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
@@ -119,6 +128,7 @@ struct PingView: View {
                         if result.isSuccessfull {
                             pingSummed += result.latency
                             packetsNumber += 1
+                            minPing.append(result.latency)
                         }
                     }
                 }
@@ -131,7 +141,8 @@ struct PingView: View {
             else {
                 Text("Stop")
                     .accentColor(Color(.systemRed))
-            }})
+            }
+        })
         .onDisappear(perform: {
             timer?.invalidate()
         })
