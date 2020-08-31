@@ -8,18 +8,23 @@
 import Foundation
 
 class PingManager: ObservableObject {
-    @Published var pingResult = [String]()
-    @Published var errorResult = [String]()
+    struct Result: Identifiable {
+        var id = UUID()
+        var latency: Float
+        var isSuccessfull: Bool
+    }
+    
+    @Published var pingResult = [Result]()
     
     func ping(address: String) {
         SimplePingClient.ping(hostname: address) { result in
             switch result {
             case .success(let latency):
-                let nLatency = String(format: "%.1f", latency)
-                self.pingResult.append(nLatency)
+                let nLatency = Float(String(format: "%.1f", latency))!
+                self.pingResult.append(Result(latency: nLatency, isSuccessfull: true))
                 print("Latency: \(nLatency) ms")
             case .failure(let error):
-                self.errorResult.append(error.localizedDescription)
+                self.pingResult.append(Result(latency: 0, isSuccessfull: false))
                 print("Ping got error: \(error.localizedDescription)")
             }
         }
