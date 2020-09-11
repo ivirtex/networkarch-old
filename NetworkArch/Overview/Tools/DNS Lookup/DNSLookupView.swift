@@ -75,13 +75,18 @@ struct DNSLookupView: View {
         }
         .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("DNS Lookup")
+        .animation(.linear)
         .navigationBarItems(trailing: Button(action: {
+            let finalDomain = domainName
+            domainName = ""
             dns.areRecordsAvailable = false
+            dns.networkingError = false
+            dns.jsonError = false
             shouldDisplayList = true
             resetRecords()
             hideKeyboard()
             DispatchQueue.global().async {
-                dns.fetchIP(domainName: domainName)
+                dns.fetchIP(domainName: finalDomain)
             }
         })
         {

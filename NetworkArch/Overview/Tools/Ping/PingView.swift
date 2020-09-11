@@ -17,7 +17,8 @@ struct PingView: View {
     @State private var shouldDisplayStats = false
     @State private var pingSummed: Float = 0
     @State private var packetsNumber: Float = 0
-    @State private var minPing: [Float] = []
+    @State private var latency: [Float] = []
+    @State private var runner: (() -> ())?
     private var avgPing: Float? {
         if !packetsNumber.isZero {
             return pingSummed / packetsNumber
@@ -25,9 +26,6 @@ struct PingView: View {
         else {
             return nil
         }
-    }
-    private var maxPing: Float {
-        return ping.pingResult.map{$0.latency}.max()!
     }
     
     var body: some View {
@@ -44,7 +42,7 @@ struct PingView: View {
                         HStack {
                             Text("Minimum")
                             Spacer()
-                            Text(String(format: "%.1f", minPing.min() ?? "N/A") + " ms")
+                            Text(String(format: "%.1f", latency.min() ?? "N/A") + " ms")
                         }
                         HStack {
                             Text("Average")
@@ -70,7 +68,7 @@ struct PingView: View {
                         HStack {
                             Text("Maximum")
                             Spacer()
-                            Text(String(format: "%.1f", maxPing) + " ms")
+                            Text(String(format: "%.1f", latency.max() ?? "N/A") + " ms")
                         }
                     }
                 }
@@ -88,7 +86,7 @@ struct PingView: View {
                             }
                             else {
                                 StatusView(backgroundColor: .red, text: "Offline")
-                                Text(finalIP ?? "")
+                                Text(finalIP ?? "Failed to resolve IP address")
                                 Spacer()
                             }
                         }
@@ -109,11 +107,11 @@ struct PingView: View {
                 ping.pingResult = []
                 pingSummed = 0
                 packetsNumber = 0
-                minPing = []
+                latency = []
                 timer?.invalidate()
                 shouldDisplayList = true
+                finalIP = ipToPing
                 timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
-                    finalIP = ipToPing
                     DispatchQueue.main.async {
                         ping.ping(address: ipToPing)
                     }
@@ -128,7 +126,7 @@ struct PingView: View {
                         if result.isSuccessfull {
                             pingSummed += result.latency
                             packetsNumber += 1
-                            minPing.append(result.latency)
+                            latency.append(result.latency)
                         }
                     }
                 }

@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct WhoisView: View {
-    @State private var ipWhois: String = ""
+    @State private var addressWhois: String = ""
     @State private var shouldDisplayList = false
     @ObservedObject private var whois = WhoisManager()
     
     var body: some View {
         List {
             Section {
-                SearchBar(text: $ipWhois, placeholder: "IP / AS / Domain Name")
+                SearchBar(text: $addressWhois, placeholder: "IP / AS / Domain Name")
             }
             
             if shouldDisplayList {
@@ -43,20 +43,24 @@ struct WhoisView: View {
         }
         .listStyle(InsetGroupedListStyle())
         .navigationBarItems(trailing: Button(action: {
+            let finalAddress = addressWhois
+            whois.error = false
+            addressWhois = ""
             whois.response = ""
             shouldDisplayList = true
             hideKeyboard()
             DispatchQueue.main.async {
-                whois.fetchWhois(domainName: ipWhois)
+                whois.fetchWhois(domainName: finalAddress)
             }
         })
         {
             Text("Start")
                 .accentColor(Color(.systemGreen))
         }
-        .disabled(self.ipWhois.isEmpty)
+        .disabled(self.addressWhois.isEmpty)
         )
         .navigationBarTitle("Whois")
+        .animation(.default)
     }
 }
 
