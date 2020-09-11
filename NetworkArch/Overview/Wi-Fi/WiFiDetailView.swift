@@ -9,6 +9,7 @@ import SwiftUI
 import FGRoute
 
 struct WiFiDetailView: View {
+    @AppStorage("Data usage") var isDataUsageAccepted = false
     @State private var ssid = FGRoute.getSSID()
     @State private var bssid = FGRoute.getBSSID()
     @State private var ipv4 = UIDevice.current.ipv4(for: .wifi)
@@ -16,6 +17,8 @@ struct WiFiDetailView: View {
     @State private var defaultGateway = FGRoute.getGatewayIP()
     @State private var connectionStatus = FGRoute.isWifiConnected()
     @State private var extIPv4: String? = nil
+    @State private var wifiReceived = DataUsage.getDataUsage().wifiReceived
+    @State private var wifiSent = DataUsage.getDataUsage().wifiSent
     @State private var timer: Timer?
     
     var body: some View {
@@ -26,7 +29,7 @@ struct WiFiDetailView: View {
                         Text("Status")
                             .font(.subheadline)
                         Spacer()
-                        StatusView(backgroundColor: Color.green, text: "Connected")
+                        StatusView(backgroundColor: Color(.systemGreen), text: "Connected")
                     }
                 }
                 else {
@@ -34,10 +37,10 @@ struct WiFiDetailView: View {
                         Text("Status")
                             .font(.subheadline)
                         Spacer()
-                        StatusView(backgroundColor: Color.red, text: "Not connected")
+                        StatusView(backgroundColor: Color(.systemRed), text: "Not connected")
                     }
                 }
-               
+                
                 InfoRow(leftSide: "SSID", rightSide: ssid ?? "N/A")
                 
                 InfoRow(leftSide: "BSSID", rightSide: bssid ?? "N/A")
@@ -80,6 +83,32 @@ struct WiFiDetailView: View {
                     InfoRow(leftSide: "External IPv4", rightSide: "N/A")
                 }
             }
+            
+            Section(header: Text("Data usage")) {
+                InfoRow(leftSide: "Wi-Fi data received", rightSide: String(wifiReceived / 1000000) + "MB")
+                
+                InfoRow(leftSide: "Wi-Fi data sent", rightSide: String(wifiSent / 1000000) + "MB")
+            }
+            
+            if !isDataUsageAccepted {
+                Section {
+                    HStack {
+                        Image(systemName: "exclamationmark.triangle")
+                            .padding(.trailing, 5)
+                        Text("Data usage is measured since the device's last boot")
+                        Button(action: {
+                            isDataUsageAccepted = true
+                        })
+                        {
+                            Text("OK")
+                                .bold()
+                                .padding(.horizontal)
+                        }
+                    }
+                    .foregroundColor(.black)
+                }
+                .listRowBackground(Color(.systemYellow))
+            }
         }
         .listStyle(InsetGroupedListStyle())
         .navigationBarTitle("Wi-Fi")
@@ -95,6 +124,8 @@ struct WiFiDetailView: View {
                 ipv6 = UIDevice.current.ipv6(for: .wifi)?.split(by: 15)
                 defaultGateway = FGRoute.getGatewayIP()
                 connectionStatus = FGRoute.isWifiConnected()
+                wifiReceived = DataUsage.getDataUsage().wifiReceived
+                wifiSent = DataUsage.getDataUsage().wifiSent
             })
         })
     }
@@ -110,13 +141,13 @@ extension String {
     func split(by length: Int) -> [String] {
         var startIndex = self.startIndex
         var results = [Substring]()
-
+        
         while startIndex < self.endIndex {
             let endIndex = self.index(startIndex, offsetBy: length, limitedBy: self.endIndex) ?? self.endIndex
             results.append(self[startIndex..<endIndex])
             startIndex = endIndex
         }
-
+        
         return results.map { String($0) }
     }
 }

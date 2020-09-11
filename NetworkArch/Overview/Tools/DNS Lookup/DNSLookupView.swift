@@ -68,7 +68,15 @@ struct DNSLookupView: View {
                 }
                 else {
                     Section {
-                        ErrorView(text: "Invalid Domain")
+                        HStack {
+                            Image(systemName: "xmark.circle")
+                                .foregroundColor(.white)
+                            Spacer()
+                            Text("Invalid domain")
+                                .foregroundColor(.white)
+                            Spacer()
+                        }
+                        .listRowBackground(Color(.systemRed))
                     }
                 }
             }
