@@ -10,6 +10,7 @@ import FGRoute
 
 struct WiFiDetailView: View {
     @AppStorage("Data usage") var isDataUsageAccepted = false
+    @State private var isShowing = true
     @State private var ssid = FGRoute.getSSID()
     @State private var bssid = FGRoute.getBSSID()
     @State private var ipv4 = UIDevice.current.ipv4(for: .wifi)
@@ -91,22 +92,20 @@ struct WiFiDetailView: View {
             }
             
             if !isDataUsageAccepted {
-                Section {
-                    HStack {
-                        Image(systemName: "exclamationmark.triangle")
-                            .padding(.trailing, 5)
-                        Text("Data usage is measured since the device's last boot")
-                        Button(action: {
-                            isDataUsageAccepted = true
-                        })
-                        {
-                            Text("OK")
-                                .bold()
-                                .padding(.horizontal)
-                        }
+                HStack {
+                    Image(systemName: "exclamationmark.triangle")
+                        .padding(.trailing, 5)
+                    Text("Data usage is measured since the device's last boot")
+                    Button(action: {
+                        isDataUsageAccepted = true
+                    })
+                    {
+                        Text("OK")
+                            .bold()
+                            .padding(.horizontal)
                     }
-                    .foregroundColor(.black)
                 }
+                .foregroundColor(.black)
                 .listRowBackground(Color(.systemYellow))
             }
         }

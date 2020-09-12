@@ -8,12 +8,15 @@
 import SwiftUI
 
 let carrierDetail = CellularData()
+let wifiDetailView = WiFiDetailView()
 
 struct CellularDetailView: View {
     @State private var carrierInfo = carrierDetail.carrierDetail
     @State private var carrierRadioTechnologyRaw = carrierDetail.carrierTechnology
     @State private var cellularIPv4 = UIDevice.current.ipv4(for: .cellular)
     @State private var cellularIPv6 = UIDevice.current.ipv6(for: .cellular)
+    @State private var cellularReceived = DataUsage.getDataUsage().wirelessWanDataReceived
+    @State private var cellularSent = DataUsage.getDataUsage().wirelessWanDataSent
     @State private var timer: Timer?
     
     var body: some View {
@@ -83,8 +86,31 @@ struct CellularDetailView: View {
                     InfoRow(leftSide: "IPv6 Address", rightSide: "N/A")
                     
                     InfoRow(leftSide: "Radio Access Technology", rightSide: "N/A")
-                    
                 }
+            }
+            
+            Section(header: Text("Data usage")) {
+                InfoRow(leftSide: "Cellular data received", rightSide: String(cellularReceived / 1000000) + "MB")
+                
+                InfoRow(leftSide: "Cellular data sent", rightSide: String(cellularSent / 1000000) + "MB")
+            }
+            
+            if !wifiDetailView.isDataUsageAccepted {
+                HStack {
+                    Image(systemName: "exclamationmark.triangle")
+                        .padding(.trailing, 5)
+                    Text("Data usage is measured since the device's last boot")
+                    Button(action: {
+                        wifiDetailView.isDataUsageAccepted = true
+                    })
+                    {
+                        Text("OK")
+                            .bold()
+                            .padding(.horizontal)
+                    }
+                }
+                .foregroundColor(.black)
+                .listRowBackground(Color(.systemYellow))
             }
         }
         .listStyle(InsetGroupedListStyle())
@@ -95,6 +121,8 @@ struct CellularDetailView: View {
                 carrierRadioTechnologyRaw = carrier.carrierTechnology
                 cellularIPv4 = UIDevice.current.ipv4(for: .cellular)
                 cellularIPv6 = UIDevice.current.ipv6(for: .cellular)
+                cellularReceived = DataUsage.getDataUsage().wirelessWanDataReceived
+                cellularSent = DataUsage.getDataUsage().wirelessWanDataSent
             })
         })
     }
