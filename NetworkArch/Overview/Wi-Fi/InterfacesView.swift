@@ -9,15 +9,62 @@ import SwiftUI
 import NetUtils
 
 struct InterfacesView: View {
-    var interfaces = NetUtils.Interface.allInterfaces()
+    @State private var interfaces = NetUtils.Interface.allInterfaces()
     
     var body: some View {
-        Text("Hello, World!")
-            .onAppear(perform: {
-                for interface in interfaces {
-                    print(interface.name)
+        List {
+            ForEach(interfaces) { interface in
+                Section {
+                    if interface.isUp {
+                        if interface.isRunning {
+                            HStack {
+                                StatusView(backgroundColor: Color(.systemGreen), text: "Up")
+                                StatusView(backgroundColor: Color(.systemGreen), text: "Running")
+                                Text("\(interface.name)/\(interface.family.toString())")
+                                    .font(.headline)
+                                Spacer()
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundColor(Color(.systemGreen))
+                            }
+                            HStack {
+                                Text("Address")
+                                Spacer()
+                                Text(interface.address ?? "N/A")
+                            }
+//                            HStack {
+//                                Text("Interface netmask")
+//                                Spacer()
+//                                Text(String(describing: interface.addressBytes))
+//                            }
+                        }
+                        else {
+                            HStack {
+                                StatusView(backgroundColor: Color(.systemGreen), text: "Up")
+                                StatusView(backgroundColor: Color(.systemRed), text: "Not running")
+                                Text(interface.name)
+                                    .font(.headline)
+                                Spacer()
+                                Image(systemName: "checkmark.circle")
+                                    .foregroundColor(Color(.systemYellow))
+                            }
+                        }
+                    }
+                    else {
+                        HStack {
+                            StatusView(backgroundColor: Color(.systemRed), text: "Not up")
+                            StatusView(backgroundColor: Color(.systemRed), text: "Not running")
+                            Text(interface.name)
+                                .font(.headline)
+                            Spacer()
+                            Image(systemName: "checkmark.circle")
+                                .foregroundColor(Color(.systemRed))
+                        }
+                    }
                 }
-            })
+            }
+        }
+        .listStyle(InsetGroupedListStyle())
+        .navigationBarTitle("Interfaces")
     }
 }
 
