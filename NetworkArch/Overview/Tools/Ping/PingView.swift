@@ -14,6 +14,7 @@ struct PingView: View {
     @State private var finalIP: String?
     @State private var shouldDisplayList = false
     @State private var isPinging = false
+    @State private var shouldBeLocked = true
     @State private var shouldDisplayStats = false
     @State private var pingSummed: Float = 0
     @State private var packetsNumber: Float = 0
@@ -102,6 +103,7 @@ struct PingView: View {
             if !isPinging {
                 isPinging = true
                 shouldDisplayStats = false
+                shouldBeLocked = false
                 hideKeyboard()
                 searchBarIP = ""
                 ping.pingResult = []
@@ -121,6 +123,7 @@ struct PingView: View {
                 timer?.invalidate()
                 isPinging = false
                 shouldDisplayStats = true
+                shouldBeLocked = true
                 if !ping.pingResult.isEmpty {
                     for result in ping.pingResult {
                         if result.isSuccessfull {
@@ -140,7 +143,9 @@ struct PingView: View {
                 Text("Stop")
                     .accentColor(Color(.systemRed))
             }
-        })
+        }
+        .disabled(searchBarIP.isEmpty && shouldBeLocked)
+        )
         .onDisappear(perform: {
             timer?.invalidate()
         })
