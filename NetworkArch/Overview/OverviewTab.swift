@@ -56,7 +56,7 @@ struct OverviewTab: View {
                     }
                 }
                 
-                Section(header: Text("Tools")) {
+                Section(header: Text("Utilities")) {
                     NavigationLink(destination: PingView()) {
                         Text("Ping")
                     }

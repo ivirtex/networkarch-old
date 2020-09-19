@@ -83,6 +83,10 @@ struct WiFiDetailView: View {
                 else {
                     InfoRow(leftSide: "External IPv4", rightSide: "N/A")
                 }
+                
+                NavigationLink(destination: InterfacesView()) {
+                    Text("Interfaces")
+                }
             }
             
             Section(header: Text("Data usage")) {

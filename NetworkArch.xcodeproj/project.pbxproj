@@ -11,7 +11,6 @@
 		68AB4162713D65584B3F9767 /* Pods_NetworkArch_NetworkArchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5702178074DA592C45149FBA /* Pods_NetworkArch_NetworkArchUITests.framework */; };
 		DD09A41E24F95EBD007DFC41 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09A41D24F95EBC007DFC41 /* MailView.swift */; };
 		DD09A42024FBE842007DFC41 /* DNSModalBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09A41F24FBE842007DFC41 /* DNSModalBuyView.swift */; };
-		DD0C3DC824D8215100E90022 /* SwiftUIPullToRefresh in Frameworks */ = {isa = PBXBuildFile; productRef = DD0C3DC724D8215100E90022 /* SwiftUIPullToRefresh */; };
 		DD0C3DCE24DA0FB000E90022 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DCD24DA0FB000E90022 /* SearchBar.swift */; };
 		DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD124DAB62300E90022 /* SimplePing.m */; };
 		DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */; };
@@ -39,6 +38,8 @@
 		DDB95AD124EE889800DC7A89 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD024EE889700DC7A89 /* Banner.swift */; };
 		DDB95AD324EFBB8F00DC7A89 /* InterfacesAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */; };
 		DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB95AD424F0582300DC7A89 /* StoreKit.framework */; };
+		DDD129BC25163D3D00B886C0 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD129BB25163D3D00B886C0 /* InterfacesView.swift */; };
+		DDD129C5251640CE00B886C0 /* NetUtils in Frameworks */ = {isa = PBXBuildFile; productRef = DDD129C4251640CE00B886C0 /* NetUtils */; };
 		DDD75535250C03520033C0D5 /* DataUsageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD75534250C03520033C0D5 /* DataUsageManager.swift */; };
 		DDE3497724E0999100BEE1BA /* PacketSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3497624E0999100BEE1BA /* PacketSection.swift */; };
 		DDE3497924E09A2600BEE1BA /* ErrorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3497824E09A2600BEE1BA /* ErrorSection.swift */; };
@@ -115,6 +116,7 @@
 		DDB95AD024EE889700DC7A89 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacesAddresses.swift; sourceTree = "<group>"; };
 		DDB95AD424F0582300DC7A89 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		DDD129BB25163D3D00B886C0 /* InterfacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacesView.swift; sourceTree = "<group>"; };
 		DDD75534250C03520033C0D5 /* DataUsageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataUsageManager.swift; sourceTree = "<group>"; };
 		DDE3497624E0999100BEE1BA /* PacketSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketSection.swift; sourceTree = "<group>"; };
 		DDE3497824E09A2600BEE1BA /* ErrorSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorSection.swift; sourceTree = "<group>"; };
@@ -146,8 +148,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDD129C5251640CE00B886C0 /* NetUtils in Frameworks */,
 				DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */,
-				DD0C3DC824D8215100E90022 /* SwiftUIPullToRefresh in Frameworks */,
 				ED379F628AEA72C8A06FD325 /* Pods_NetworkArch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -324,6 +326,7 @@
 				DDEBD47024D4235B00623F3F /* WiFiSection.swift */,
 				DDEBD48624D46D4600623F3F /* WiFiDetailView.swift */,
 				DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */,
+				DDD129BB25163D3D00B886C0 /* InterfacesView.swift */,
 			);
 			path = "Wi-Fi";
 			sourceTree = "<group>";
@@ -395,7 +398,7 @@
 			);
 			name = NetworkArch;
 			packageProductDependencies = (
-				DD0C3DC724D8215100E90022 /* SwiftUIPullToRefresh */,
+				DDD129C4251640CE00B886C0 /* NetUtils */,
 			);
 			productName = NetworkArch;
 			productReference = DDEBD43C24D41EB100623F3F /* NetworkArch.app */;
@@ -473,7 +476,7 @@
 			);
 			mainGroup = DDEBD43324D41EB100623F3F;
 			packageReferences = (
-				DD0C3DC624D8215100E90022 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */,
+				DDD129C3251640CE00B886C0 /* XCRemoteSwiftPackageReference "swift-netutils" */,
 			);
 			productRefGroup = DDEBD43D24D41EB100623F3F /* Products */;
 			projectDirPath = "";
@@ -636,6 +639,7 @@
 				DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */,
 				DD8AB27C24E6BFBF0090DD47 /* ADNSTypeView.swift in Sources */,
 				DD95D10F24D60FA9000DA60F /* StatusView.swift in Sources */,
+				DDD129BC25163D3D00B886C0 /* InterfacesView.swift in Sources */,
 				DD0C3DCE24DA0FB000E90022 /* SearchBar.swift in Sources */,
 				DDB95ACD24E9C05600DC7A89 /* SOADNSTypeView.swift in Sources */,
 				DD73DBF624DF081A00892524 /* WoLManager.swift in Sources */,
@@ -996,21 +1000,21 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DD0C3DC624D8215100E90022 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */ = {
+		DDD129C3251640CE00B886C0 /* XCRemoteSwiftPackageReference "swift-netutils" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AppPear/SwiftUI-PullToRefresh";
+			repositoryURL = "https://github.com/svdo/swift-netutils.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 4.1.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DD0C3DC724D8215100E90022 /* SwiftUIPullToRefresh */ = {
+		DDD129C4251640CE00B886C0 /* NetUtils */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DD0C3DC624D8215100E90022 /* XCRemoteSwiftPackageReference "SwiftUI-PullToRefresh" */;
-			productName = SwiftUIPullToRefresh;
+			package = DDD129C3251640CE00B886C0 /* XCRemoteSwiftPackageReference "swift-netutils" */;
+			productName = NetUtils;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
