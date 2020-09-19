@@ -15,6 +15,7 @@
 		DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD124DAB62300E90022 /* SimplePing.m */; };
 		DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */; };
 		DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD624DB2EE800E90022 /* PingManager.swift */; };
+		DD64A9CC25164DCD006BFE9F /* NetUtils in Frameworks */ = {isa = PBXBuildFile; productRef = DD64A9CB25164DCD006BFE9F /* NetUtils */; };
 		DD68FFDC24F7022300FEBA87 /* WhoisModalBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68FFDB24F7022300FEBA87 /* WhoisModalBuyView.swift */; };
 		DD73DBEE24DE160100892524 /* WoLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBED24DE160100892524 /* WoLView.swift */; };
 		DD73DBF024DE162000892524 /* TracerouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBEF24DE162000892524 /* TracerouteView.swift */; };
@@ -39,7 +40,6 @@
 		DDB95AD324EFBB8F00DC7A89 /* InterfacesAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */; };
 		DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB95AD424F0582300DC7A89 /* StoreKit.framework */; };
 		DDD129BC25163D3D00B886C0 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD129BB25163D3D00B886C0 /* InterfacesView.swift */; };
-		DDD129C5251640CE00B886C0 /* NetUtils in Frameworks */ = {isa = PBXBuildFile; productRef = DDD129C4251640CE00B886C0 /* NetUtils */; };
 		DDD75535250C03520033C0D5 /* DataUsageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD75534250C03520033C0D5 /* DataUsageManager.swift */; };
 		DDE3497724E0999100BEE1BA /* PacketSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3497624E0999100BEE1BA /* PacketSection.swift */; };
 		DDE3497924E09A2600BEE1BA /* ErrorSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDE3497824E09A2600BEE1BA /* ErrorSection.swift */; };
@@ -148,7 +148,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDD129C5251640CE00B886C0 /* NetUtils in Frameworks */,
+				DD64A9CC25164DCD006BFE9F /* NetUtils in Frameworks */,
 				DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */,
 				ED379F628AEA72C8A06FD325 /* Pods_NetworkArch.framework in Frameworks */,
 			);
@@ -398,7 +398,7 @@
 			);
 			name = NetworkArch;
 			packageProductDependencies = (
-				DDD129C4251640CE00B886C0 /* NetUtils */,
+				DD64A9CB25164DCD006BFE9F /* NetUtils */,
 			);
 			productName = NetworkArch;
 			productReference = DDEBD43C24D41EB100623F3F /* NetworkArch.app */;
@@ -476,7 +476,7 @@
 			);
 			mainGroup = DDEBD43324D41EB100623F3F;
 			packageReferences = (
-				DDD129C3251640CE00B886C0 /* XCRemoteSwiftPackageReference "swift-netutils" */,
+				DD64A9CA25164DCD006BFE9F /* XCRemoteSwiftPackageReference "swift-netutils" */,
 			);
 			productRefGroup = DDEBD43D24D41EB100623F3F /* Products */;
 			projectDirPath = "";
@@ -1000,9 +1000,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DDD129C3251640CE00B886C0 /* XCRemoteSwiftPackageReference "swift-netutils" */ = {
+		DD64A9CA25164DCD006BFE9F /* XCRemoteSwiftPackageReference "swift-netutils" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/svdo/swift-netutils.git";
+			repositoryURL = "https://github.com/ivirtex/swift-netutils.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.1.0;
@@ -1011,9 +1011,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DDD129C4251640CE00B886C0 /* NetUtils */ = {
+		DD64A9CB25164DCD006BFE9F /* NetUtils */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDD129C3251640CE00B886C0 /* XCRemoteSwiftPackageReference "swift-netutils" */;
+			package = DD64A9CA25164DCD006BFE9F /* XCRemoteSwiftPackageReference "swift-netutils" */;
 			productName = NetUtils;
 		};
 /* End XCSwiftPackageProductDependency section */

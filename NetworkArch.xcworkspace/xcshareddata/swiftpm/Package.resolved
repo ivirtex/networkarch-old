@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "NetUtils",
-        "repositoryURL": "https://github.com/svdo/swift-netutils.git",
+        "repositoryURL": "https://github.com/ivirtex/swift-netutils.git",
         "state": {
           "branch": null,
-          "revision": "d1251a380f41088547e4cfc8dc718a90c861a42b",
-          "version": "4.1.0"
+          "revision": "95ed1c16420d206d87eb3e5cc189913a2b80ea62",
+          "version": "4.2.0"
         }
       }
     ]

@@ -90,9 +90,9 @@ struct CellularDetailView: View {
             }
             
             Section(header: Text("Data usage")) {
-                InfoRow(leftSide: "Cellular data received", rightSide: String(cellularReceived / 1000000) + "MB")
+                InfoRow(leftSide: "Cellular data received", rightSide: ByteCountFormatter.string(fromByteCount: Int64(cellularReceived), countStyle: .binary))
                 
-                InfoRow(leftSide: "Cellular data sent", rightSide: String(cellularSent / 1000000) + "MB")
+                InfoRow(leftSide: "Cellular data sent", rightSide: ByteCountFormatter.string(fromByteCount: Int64(cellularSent), countStyle: .binary))
             }
             
             if !wifiDetailView.isDataUsageAccepted {

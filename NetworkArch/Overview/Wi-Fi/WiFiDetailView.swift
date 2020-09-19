@@ -7,6 +7,7 @@
 
 import SwiftUI
 import FGRoute
+import NetUtils
 
 struct WiFiDetailView: View {
     @AppStorage("Data usage") var isDataUsageAccepted = false
@@ -14,12 +15,13 @@ struct WiFiDetailView: View {
     @State private var ssid = FGRoute.getSSID()
     @State private var bssid = FGRoute.getBSSID()
     @State private var ipv4 = UIDevice.current.ipv4(for: .wifi)
-    @State private var ipv6 = UIDevice.current.ipv6(for: .wifi)?.split(by: 15)
+    @State private var ipv6 = NetUtils.Interface.allInterfaces().first(where: {$0.name == "en0" && $0.family.toString() == "IPv6"})
     @State private var defaultGateway = FGRoute.getGatewayIP()
     @State private var connectionStatus = FGRoute.isWifiConnected()
     @State private var extIPv4: String? = nil
     @State private var wifiReceived = DataUsage.getDataUsage().wifiReceived
     @State private var wifiSent = DataUsage.getDataUsage().wifiSent
+    @State private var en0 = NetUtils.Interface.allInterfaces().first(where: {$0.name == "en0" && $0.family.toString() == "IPv4"})
     @State private var timer: Timer?
     
     var body: some View {
@@ -53,6 +55,13 @@ struct WiFiDetailView: View {
                     InfoRow(leftSide: "Default Gateway", rightSide: "N/A")
                 }
                 
+                if let safeEn0 = en0 {
+                    InfoRow(leftSide: "Subnet Mask", rightSide: safeEn0.netmask ?? "N/A")
+                }
+                else {
+                    InfoRow(leftSide: "Subnet Mask", rightSide: "N/A")
+                }
+                
                 if let finalIPv4 = ipv4 {
                     InfoRow(leftSide: "Internal IPv4", rightSide: finalIPv4)
                 }
@@ -60,8 +69,8 @@ struct WiFiDetailView: View {
                     InfoRow(leftSide: "Internal IPv4", rightSide: "N/A")
                 }
                 
-                if let finalIPv6 = ipv6 {
-                    InfoRow(leftSide: "Internal IPv6", rightSide: "\(finalIPv6[0])\n\(finalIPv6[1])")
+                if let safeIPv6 = ipv6 {
+                    InfoRow(leftSide: "Internal IPv6", rightSide: safeIPv6.address ?? "N/A")
                 }
                 else {
                     InfoRow(leftSide: "Internal IPv6", rightSide: "N/A")
@@ -86,13 +95,14 @@ struct WiFiDetailView: View {
                 
                 NavigationLink(destination: InterfacesView()) {
                     Text("Interfaces")
+                        .font(.subheadline)
                 }
             }
             
             Section(header: Text("Data usage")) {
-                InfoRow(leftSide: "Wi-Fi data received", rightSide: String(wifiReceived / 1000000) + "MB")
+                InfoRow(leftSide: "Wi-Fi data received", rightSide: ByteCountFormatter.string(fromByteCount: Int64(wifiReceived), countStyle: .binary))
                 
-                InfoRow(leftSide: "Wi-Fi data sent", rightSide: String(wifiSent / 1000000) + "MB")
+                InfoRow(leftSide: "Wi-Fi data sent", rightSide: ByteCountFormatter.string(fromByteCount: Int64(wifiSent), countStyle: .binary))
             }
             
             if !isDataUsageAccepted {
@@ -124,11 +134,12 @@ struct WiFiDetailView: View {
                 ssid = FGRoute.getSSID()
                 bssid = FGRoute.getBSSID()
                 ipv4 = UIDevice.current.ipv4(for: .wifi)
-                ipv6 = UIDevice.current.ipv6(for: .wifi)?.split(by: 15)
+                ipv6 = NetUtils.Interface.allInterfaces().first(where: {$0.name == "en0" && $0.family.toString() == "IPv6"})
                 defaultGateway = FGRoute.getGatewayIP()
                 connectionStatus = FGRoute.isWifiConnected()
                 wifiReceived = DataUsage.getDataUsage().wifiReceived
                 wifiSent = DataUsage.getDataUsage().wifiSent
+                en0 = NetUtils.Interface.allInterfaces().first(where: {$0.name == "en0" && $0.family.toString() == "IPv4"})
             })
         })
     }
@@ -140,17 +151,3 @@ struct WiFiDetailView_Previews: PreviewProvider {
     }
 }
 
-extension String {
-    func split(by length: Int) -> [String] {
-        var startIndex = self.startIndex
-        var results = [Substring]()
-        
-        while startIndex < self.endIndex {
-            let endIndex = self.index(startIndex, offsetBy: length, limitedBy: self.endIndex) ?? self.endIndex
-            results.append(self[startIndex..<endIndex])
-            startIndex = endIndex
-        }
-        
-        return results.map { String($0) }
-    }
-}

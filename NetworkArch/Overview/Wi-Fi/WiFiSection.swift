@@ -13,7 +13,6 @@ struct WiFiSection: View {
     let ipAddress: String
     
     var body: some View {
-        
         VStack {
             HStack {
                 Text(ssid)
