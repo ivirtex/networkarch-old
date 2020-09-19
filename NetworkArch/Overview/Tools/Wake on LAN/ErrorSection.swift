@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ErrorSection: View {
+    var errorReason: Error
+    
     var body: some View {
         HStack {
-            Text("Can't assign \nrequested address")
+            Text(errorReason.localizedDescription)
             
             Spacer()
             
@@ -19,8 +21,8 @@ struct ErrorSection: View {
     }
 }
 
-struct ErrorSection_Previews: PreviewProvider {
-    static var previews: some View {
-        ErrorSection()
-    }
-}
+//struct ErrorSection_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ErrorSection()
+//    }
+//}

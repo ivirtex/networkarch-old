@@ -7,6 +7,19 @@
 
 import Foundation
 
+extension Awake.WakeError: LocalizedError {
+    public var errorDescription: String? {
+        switch self {
+        case .SocketSetupFailed:
+            return NSLocalizedString("Socket setup failed.", comment: "")
+        case .SetSocketOptionsFailed:
+            return NSLocalizedString("Set socket options failed.", comment: "")
+        case .SendMagicPacketFailed:
+            return NSLocalizedString("The operation couldn't be completed. \nCheck inputs.", comment: "")
+        }
+    }
+}
+
 class Awake {
     struct Device {
         var MAC: String
@@ -14,10 +27,10 @@ class Awake {
         var Port: UInt16 = 9
     }
     
-    enum WakeError: Error {
-        case SocketSetupFailed(reason: String)
-        case SetSocketOptionsFailed(reason: String)
-        case SendMagicPacketFailed(reason: String)
+    public enum WakeError: Error {
+        case SocketSetupFailed
+        case SetSocketOptionsFailed
+        case SendMagicPacketFailed
     }
     
     static func target(device: Device) -> Error? {
@@ -33,8 +46,7 @@ class Awake {
         // Setup the packet socket
         sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP)
         if sock < 0 {
-            let err = String(utf8String: strerror(errno)) ?? ""
-            return WakeError.SocketSetupFailed(reason: err)
+            return WakeError.SocketSetupFailed
         }
         
         let packet = Awake.createMagicPacket(mac: device.MAC)
@@ -45,16 +57,14 @@ class Awake {
         var broadcast = 1
         if setsockopt(sock, SOL_SOCKET, SO_BROADCAST, &broadcast, intLen) == -1 {
             close(sock)
-            let err = String(utf8String: strerror(errno)) ?? ""
-            return WakeError.SetSocketOptionsFailed(reason: err)
+            return WakeError.SetSocketOptionsFailed
         }
         
         // Send magic packet
         var targetCast = unsafeBitCast(target, to: sockaddr.self)
         if sendto(sock, packet, packet.count, 0, &targetCast, sockaddrLen) != packet.count {
             close(sock)
-            let err = String(utf8String: strerror(errno)) ?? ""
-            return WakeError.SendMagicPacketFailed(reason: err)
+            return WakeError.SendMagicPacketFailed
         }
         
         close(sock)
@@ -85,3 +95,4 @@ class Awake {
         return buffer
     }
 }
+

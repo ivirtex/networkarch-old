@@ -14,8 +14,14 @@ struct WoLView: View {
     @State private var port: String = ""
     @State private var finalMac: String = ""
     @State private var pError: Error?
-    @State private var shouldDisplayList = false
-    @State private var packetsList = [String]()
+    @State private var packetsList: [Result] = []
+    
+    struct Result: Identifiable {
+        var id = UUID()
+        var mac: String = ""
+        var isSuccessfull: Bool
+        var error: Error?
+    }
     
     var body: some View {
         List {
@@ -25,15 +31,13 @@ struct WoLView: View {
                 TextField("Port (optional)", text: $port)
             }
             
-            if shouldDisplayList {
-                Section {
-                    ForEach(packetsList, id: \.self) { packet in
-                        if packet == "success" {
-                            PacketSection(mac: mac)
-                        }
-                        else {
-                            ErrorSection()
-                        }
+            Section {
+                ForEach(packetsList) { packet in
+                    if packet.isSuccessfull {
+                        PacketSection(mac: packet.mac)
+                    }
+                    else {
+                        ErrorSection(errorReason: packet.error!)
                     }
                 }
             }
@@ -50,17 +54,16 @@ struct WoLView: View {
                 finalBroadcast = "255.255.255.0"
             }
             let computer = Awake.Device(MAC: finalMac, BroadcastAddr: finalBroadcast, Port: finalPort ?? 9)
-            shouldDisplayList = true
             hideKeyboard()
             pError = Awake.target(device: computer)
             
             if let error = pError {
-                print(error)
-                packetsList.append("fail")
+                packetsList.append(Result(mac: finalMac, isSuccessfull: false, error: error))
             }
             else {
                 print("WoL packet successfully sent")
-                packetsList.append("success")
+                packetsList.append(Result(mac: finalMac, isSuccessfull: true))
+                finalMac = ""
             }
         })
         {
