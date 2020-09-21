@@ -110,6 +110,7 @@ struct WiFiDetailView: View {
                     Image(systemName: "exclamationmark.triangle")
                         .padding(.trailing, 5)
                     Text("Data usage is measured since the device's last boot")
+                    Spacer()
                     Button(action: {
                         isDataUsageAccepted = true
                     })
