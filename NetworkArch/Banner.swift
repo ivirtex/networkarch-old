@@ -10,11 +10,10 @@ import GoogleMobileAds
 import AppTrackingTransparency
 import UIKit
 
-final private class BannerVC: UIViewControllerRepresentable {
-
+final private class BannerVC: UIViewControllerRepresentable  {
     func makeUIViewController(context: Context) -> UIViewController {
         let view = GADBannerView(adSize: kGADAdSizeBanner)
-
+        
         let viewController = UIViewController()
         view.adUnitID = Constants.adUnitID
         view.rootViewController = viewController
@@ -23,18 +22,18 @@ final private class BannerVC: UIViewControllerRepresentable {
         ATTrackingManager.requestTrackingAuthorization { (status) in
             view.load(GADRequest())
         }
-
         return viewController
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {}
 }
 
-struct Banner: View {
-    var body: some View {
-        HStack {
-            BannerVC()
-                .frame(width: 320, height: 50, alignment: .center)
+struct Banner: View{
+    var body: some View{
+        HStack{
+            Spacer()
+            BannerVC().frame(width: 320, height: 50, alignment: .center)
+            Spacer()
         }
     }
 }

@@ -18,8 +18,7 @@ struct PingView: View {
     @State private var shouldDisplayStats = false
     @State private var pingSummed: Float = 0
     @State private var packetsNumber: Float = 0
-    @State private var latency: [Float] = []
-    @State private var runner: (() -> ())?
+    @State private var latency: [Double] = []
     private var avgPing: Float? {
         if !packetsNumber.isZero {
             return pingSummed / packetsNumber
@@ -49,18 +48,8 @@ struct PingView: View {
                             Text("Average")
                             Spacer()
                             if let safeAvgPing = avgPing {
-                                if safeAvgPing < 50 {
-                                    Text(String(format: "%.1f", safeAvgPing) + " ms")
-                                        .foregroundColor(.green)
-                                }
-                                else if safeAvgPing < 100 {
-                                    Text(String(format: "%.1f", safeAvgPing) + " ms")
-                                        .foregroundColor(.yellow)
-                                }
-                                else {
-                                    Text(String(format: "%.1f", safeAvgPing) + " ms")
-                                        .foregroundColor(.red)
-                                }
+                                Text(String(format: "%.1f", safeAvgPing) + " ms")
+                                    .foregroundColor(latencyColor(latency: safeAvgPing))
                             }
                             else {
                                 Text("N/A")
@@ -70,6 +59,10 @@ struct PingView: View {
                             Text("Maximum")
                             Spacer()
                             Text(String(format: "%.1f", latency.max() ?? "N/A") + " ms")
+                        }
+                        
+                        NavigationLink(destination: PingGraph(pingData: latency, addr: finalIP!)) {
+                            Text("Latency graph")
                         }
                     }
                 }
@@ -83,16 +76,17 @@ struct PingView: View {
                                 StatusView(backgroundColor: .green, text: "Online")
                                 Text(finalIP ?? "")
                                 Spacer()
-                                Text(String(format: "%.1f", result.latency) + " ms")
+                                Text(String(format: "%.1f", result.latency!) + " ms")
                             }
                             else {
                                 StatusView(backgroundColor: .red, text: "Offline")
                                 Text(finalIP ?? "Failed to resolve IP address")
                                 Spacer()
+                                Text("N/A")
+                                    .foregroundColor(Color(.systemRed))
                             }
                         }
                     }
-                    
                 }
             }
         }
@@ -122,14 +116,14 @@ struct PingView: View {
             else {
                 timer?.invalidate()
                 isPinging = false
-                shouldDisplayStats = true
                 shouldBeLocked = true
                 if !ping.pingResult.isEmpty {
                     for result in ping.pingResult {
                         if result.isSuccessfull {
-                            pingSummed += result.latency
+                            shouldDisplayStats = true
+                            pingSummed += result.latency!
                             packetsNumber += 1
-                            latency.append(result.latency)
+                            latency.append(Double(result.latency!))
                         }
                     }
                 }
@@ -149,6 +143,18 @@ struct PingView: View {
         .onDisappear(perform: {
             timer?.invalidate()
         })
+    }
+    
+    func latencyColor(latency: Float) -> Color {
+        if latency < 50 {
+            return .green
+        }
+        else if latency < 100 {
+            return .yellow
+        }
+        else {
+            return .red
+        }
     }
 }
 

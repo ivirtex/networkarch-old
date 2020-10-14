@@ -10,7 +10,7 @@ import Foundation
 class PingManager: ObservableObject {
     struct Result: Identifiable {
         var id = UUID()
-        var latency: Float
+        var latency: Float?
         var isSuccessfull: Bool
     }
     
@@ -24,7 +24,7 @@ class PingManager: ObservableObject {
                 self.pingResult.append(Result(latency: nLatency, isSuccessfull: true))
                 print("Latency: \(nLatency) ms")
             case .failure(let error):
-                self.pingResult.append(Result(latency: 0, isSuccessfull: false))
+                self.pingResult.append(Result(isSuccessfull: false))
                 print("Ping got error: \(error.localizedDescription)")
             }
         }

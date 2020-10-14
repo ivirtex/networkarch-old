@@ -8,6 +8,7 @@
 import SwiftUI
 import CoreLocation
 import FGRoute
+import GoogleMobileAds
 
 let locationManager = CLLocationManager()
 let carrier = CellularData()
@@ -16,14 +17,16 @@ struct OverviewTab: View {
     @AppStorage("Whois unlock") var isWhoisUnlocked = false
     @AppStorage("DNS unlock") var isDNSUnlocked = false
     @AppStorage("Ads remove") var areAdsRemoved = false
-    @State var isWhoisPresented = false
-    @State var isDNSPresented = false
+    @AppStorage("Whois ads watched") var whoisAdWatchedTimes = 0
+    @AppStorage("DNS ads watched") var DNSadWatchedTimes = 0
     @State private var ipv4 = FGRoute.getIPAddress()
     @State private var ssid = FGRoute.getSSID()
+    @State var isWhoisPresented = false
+    @State var isDNSPresented = false
     @State private var carrierInfo = carrier.carrierDetail
     @State private var cellularIP = UIDevice.current.ipv4(for: .cellular)
     @State private var timer: Timer?
-
+    
     var body: some View {
         NavigationView {
             List {
@@ -52,7 +55,9 @@ struct OverviewTab: View {
                 
                 if !areAdsRemoved {
                     Section {
-                        Banner()
+                        HStack {
+                            Banner()
+                        }
                     }
                 }
                 
@@ -65,31 +70,27 @@ struct OverviewTab: View {
                         Text("Wake on LAN")
                     }
                     
-                    if isWhoisUnlocked {
+                    if isWhoisUnlocked || whoisAdWatchedTimes == 1 {
                         NavigationLink(destination: WhoisView()) {
                             Text("Whois")
                         }
                     }
                     else {
-                        Button("Whois") {
-                            self.isWhoisPresented = true
-                        }
-                        .sheet(isPresented: $isWhoisPresented) {
-                            WhoisModalBuyView(isPresented: $isWhoisPresented)
+                        NavigationLink(destination: WhoisModalBuyView()) {
+                            Text("Whois")
+                                .foregroundColor(Color(.systemBlue))
                         }
                     }
                     
-                    if isDNSUnlocked {
+                    if isDNSUnlocked || DNSadWatchedTimes == 1 {
                         NavigationLink(destination: DNSLookupView()) {
                             Text("DNS Lookup")
                         }
                     }
                     else {
-                        Button("DNS Lookup") {
-                            self.isDNSPresented = true
-                        }
-                        .sheet(isPresented: $isDNSPresented) {
-                            DNSModalBuyView(isPresented: $isDNSPresented)
+                        NavigationLink(destination: DNSModalBuyView()) {
+                            Text("DNS Lookup")
+                                .foregroundColor(Color(.systemBlue))
                         }
                     }
                     

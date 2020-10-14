@@ -8,9 +8,12 @@
 import SwiftUI
 import FGRoute
 import NetUtils
+import SwiftUICharts
 
 struct WiFiDetailView: View {
     @AppStorage("Data usage") var isDataUsageAccepted = false
+    @AppStorage("WiFi received") var wifiReceivedTotal: Double = 0
+    @AppStorage("WiFi sent") var wifiSentTotal: Double = 0
     @State private var isShowing = true
     @State private var ssid = FGRoute.getSSID()
     @State private var bssid = FGRoute.getBSSID()
@@ -18,7 +21,7 @@ struct WiFiDetailView: View {
     @State private var ipv6 = NetUtils.Interface.allInterfaces().first(where: {$0.name == "en0" && $0.family.toString() == "IPv6"})
     @State private var defaultGateway = FGRoute.getGatewayIP()
     @State private var connectionStatus = FGRoute.isWifiConnected()
-    @State private var extIPv4: String? = nil
+    @State private var extIPv4: String?
     @State private var wifiReceived = DataUsage.getDataUsage().wifiReceived
     @State private var wifiSent = DataUsage.getDataUsage().wifiSent
     @State private var en0 = NetUtils.Interface.allInterfaces().first(where: {$0.name == "en0" && $0.family.toString() == "IPv4"})
@@ -100,10 +103,11 @@ struct WiFiDetailView: View {
             }
             
             Section(header: Text("Data usage")) {
-                InfoRow(leftSide: "Wi-Fi data received", rightSide: ByteCountFormatter.string(fromByteCount: Int64(wifiReceived), countStyle: .binary))
+                InfoRow(leftSide: "Wi-Fi data received", rightSide: ByteCountFormatter.string(fromByteCount: Int64(wifiReceivedTotal), countStyle: .binary))
                 
-                InfoRow(leftSide: "Wi-Fi data sent", rightSide: ByteCountFormatter.string(fromByteCount: Int64(wifiSent), countStyle: .binary))
+                InfoRow(leftSide: "Wi-Fi data sent", rightSide: ByteCountFormatter.string(fromByteCount: Int64(wifiSentTotal), countStyle: .binary))
             }
+            
             
             if !isDataUsageAccepted {
                 HStack {
@@ -138,9 +142,9 @@ struct WiFiDetailView: View {
                 ipv6 = NetUtils.Interface.allInterfaces().first(where: {$0.name == "en0" && $0.family.toString() == "IPv6"})
                 defaultGateway = FGRoute.getGatewayIP()
                 connectionStatus = FGRoute.isWifiConnected()
-                wifiReceived = DataUsage.getDataUsage().wifiReceived
-                wifiSent = DataUsage.getDataUsage().wifiSent
                 en0 = NetUtils.Interface.allInterfaces().first(where: {$0.name == "en0" && $0.family.toString() == "IPv4"})
+                wifiReceivedTotal = Double(DataUsage.getDataUsage().wifiReceived)
+                wifiSentTotal = Double(DataUsage.getDataUsage().wifiSent)
             })
         })
     }

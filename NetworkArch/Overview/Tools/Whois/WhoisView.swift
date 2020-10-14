@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct WhoisView: View {
+    @ObservedObject private var whois = WhoisManager()
     @State private var addressWhois: String = ""
     @State private var shouldDisplayList = false
-    @ObservedObject private var whois = WhoisManager()
+    private var overview = OverviewTab()
     
     var body: some View {
         List {
@@ -57,6 +58,7 @@ struct WhoisView: View {
             whois.response = ""
             shouldDisplayList = true
             hideKeyboard()
+            overview.whoisAdWatchedTimes = 0
             DispatchQueue.main.async {
                 whois.fetchWhois(domainName: finalAddress)
             }
@@ -65,7 +67,7 @@ struct WhoisView: View {
             Text("Start")
                 .accentColor(Color(.systemGreen))
         }
-        .disabled(self.addressWhois.isEmpty)
+        .disabled(self.addressWhois.isEmpty || overview.whoisAdWatchedTimes == 0)
         )
         .navigationBarTitle("Whois")
         .animation(.default)

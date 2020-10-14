@@ -11,6 +11,8 @@ let carrierDetail = CellularData()
 let wifiDetailView = WiFiDetailView()
 
 struct CellularDetailView: View {
+    @AppStorage("Cellular received") var cellularReceivedTotal: Double = 0
+    @AppStorage("Cellular sent") var cellularSentTotal: Double = 0
     @State private var carrierInfo = carrierDetail.carrierDetail
     @State private var carrierRadioTechnologyRaw = carrierDetail.carrierTechnology
     @State private var cellularIPv4 = UIDevice.current.ipv4(for: .cellular)
@@ -90,9 +92,9 @@ struct CellularDetailView: View {
             }
             
             Section(header: Text("Data usage")) {
-                InfoRow(leftSide: "Cellular data received", rightSide: ByteCountFormatter.string(fromByteCount: Int64(cellularReceived), countStyle: .binary))
+                InfoRow(leftSide: "Cellular data received", rightSide: ByteCountFormatter.string(fromByteCount: Int64(cellularReceivedTotal), countStyle: .binary))
                 
-                InfoRow(leftSide: "Cellular data sent", rightSide: ByteCountFormatter.string(fromByteCount: Int64(cellularSent), countStyle: .binary))
+                InfoRow(leftSide: "Cellular data sent", rightSide: ByteCountFormatter.string(fromByteCount: Int64(cellularSentTotal), countStyle: .binary))
             }
             
             if !wifiDetailView.isDataUsageAccepted {
@@ -121,8 +123,8 @@ struct CellularDetailView: View {
                 carrierRadioTechnologyRaw = carrier.carrierTechnology
                 cellularIPv4 = UIDevice.current.ipv4(for: .cellular)
                 cellularIPv6 = UIDevice.current.ipv6(for: .cellular)
-                cellularReceived = DataUsage.getDataUsage().wirelessWanDataReceived
-                cellularSent = DataUsage.getDataUsage().wirelessWanDataSent
+                cellularReceivedTotal = Double(DataUsage.getDataUsage().wirelessWanDataReceived)
+                cellularSentTotal = Double(DataUsage.getDataUsage().wirelessWanDataSent)
             })
         })
     }
