@@ -19,6 +19,7 @@ struct OverviewTab: View {
     @AppStorage("Ads remove") var areAdsRemoved = false
     @AppStorage("Whois ads watched") var whoisAdWatchedTimes = 0
     @AppStorage("DNS ads watched") var DNSadWatchedTimes = 0
+    @ObservedObject var ad = AdvertisingProvider.shared
     @State private var ipv4 = FGRoute.getIPAddress()
     @State private var ssid = FGRoute.getSSID()
     @State var isWhoisPresented = false
@@ -54,9 +55,15 @@ struct OverviewTab: View {
                 }
                 
                 if !areAdsRemoved {
-                    Section {
-                        HStack {
-                            Banner()
+                    if (ad.isBannerReady) {
+                        Section {
+                            AdvertisingProvider.Banner()
+                                .frame(
+                                    minWidth: 320,
+                                    idealWidth: .infinity,
+                                    minHeight: ad.bannerHeight,
+                                    maxHeight: ad.bannerHeight
+                                )
                         }
                     }
                 }
@@ -100,6 +107,15 @@ struct OverviewTab: View {
                     //                    NavigationLink(destination: TracerouteView()) {
                     //                        Text("Visual Traceroute")
                     //                    }
+                }
+                
+                Section {
+                    Button("whois ad count reset") {
+                        whoisAdWatchedTimes = 0
+                    }
+                    Button("dns ad count reset") {
+                        DNSadWatchedTimes = 0
+                    }
                 }
             }
             .listStyle(InsetGroupedListStyle())

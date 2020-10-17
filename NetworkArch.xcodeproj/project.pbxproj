@@ -17,7 +17,6 @@
 		DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */; };
 		DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD624DB2EE800E90022 /* PingManager.swift */; };
 		DD39DD4B2531EE8C00F9A17D /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39DD4A2531EE8C00F9A17D /* PingGraph.swift */; };
-		DD4A153C2532363200C97BEE /* RewardedAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD4A153B2532363100C97BEE /* RewardedAd.swift */; };
 		DD64A9CC25164DCD006BFE9F /* NetUtils in Frameworks */ = {isa = PBXBuildFile; productRef = DD64A9CB25164DCD006BFE9F /* NetUtils */; };
 		DD68FFDC24F7022300FEBA87 /* WhoisModalBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68FFDB24F7022300FEBA87 /* WhoisModalBuyView.swift */; };
 		DD73DBEE24DE160100892524 /* WoLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBED24DE160100892524 /* WoLView.swift */; };
@@ -26,6 +25,10 @@
 		DD73DBF624DF081A00892524 /* WoLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBF524DF081A00892524 /* WoLManager.swift */; };
 		DD73DBF924DF0FE300892524 /* WhoisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBF824DF0FE300892524 /* WhoisView.swift */; };
 		DD73DBFB24DF0FF200892524 /* WhoisManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBFA24DF0FF200892524 /* WhoisManager.swift */; };
+		DD833015253B44EE007FBBB6 /* AdvertisingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD833014253B44ED007FBBB6 /* AdvertisingProvider.swift */; };
+		DD833042253B49F0007FBBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD833041253B49F0007FBBB6 /* AppDelegate.swift */; };
+		DD833047253B4CD0007FBBB6 /* ApplicationExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD833046253B4CCF007FBBB6 /* ApplicationExtentions.swift */; };
+		DD83304F253B509F007FBBB6 /* FullscreenSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83304E253B509F007FBBB6 /* FullscreenSection.swift */; };
 		DD8AB27A24E5EC980090DD47 /* DNSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AB27924E5EC980090DD47 /* DNSManager.swift */; };
 		DD8AB27C24E6BFBF0090DD47 /* ADNSTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AB27B24E6BFBF0090DD47 /* ADNSTypeView.swift */; };
 		DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */; };
@@ -41,7 +44,6 @@
 		DDB65BB524E9AEF100235519 /* MXDNSTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB65BB424E9AEF100235519 /* MXDNSTypeView.swift */; };
 		DDB95ACD24E9C05600DC7A89 /* SOADNSTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95ACC24E9C05600DC7A89 /* SOADNSTypeView.swift */; };
 		DDB95ACF24EAE4CD00DC7A89 /* TXTDNSTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95ACE24EAE4CD00DC7A89 /* TXTDNSTypeView.swift */; };
-		DDB95AD124EE889800DC7A89 /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD024EE889700DC7A89 /* Banner.swift */; };
 		DDB95AD324EFBB8F00DC7A89 /* InterfacesAddresses.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */; };
 		DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB95AD424F0582300DC7A89 /* StoreKit.framework */; };
 		DDD129BC25163D3D00B886C0 /* InterfacesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDD129BB25163D3D00B886C0 /* InterfacesView.swift */; };
@@ -97,7 +99,6 @@
 		DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePingClient.swift; sourceTree = "<group>"; };
 		DD0C3DD624DB2EE800E90022 /* PingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingManager.swift; sourceTree = "<group>"; };
 		DD39DD4A2531EE8C00F9A17D /* PingGraph.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingGraph.swift; sourceTree = "<group>"; };
-		DD4A153B2532363100C97BEE /* RewardedAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardedAd.swift; sourceTree = "<group>"; };
 		DD68FFDB24F7022300FEBA87 /* WhoisModalBuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoisModalBuyView.swift; sourceTree = "<group>"; };
 		DD73DBED24DE160100892524 /* WoLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoLView.swift; sourceTree = "<group>"; };
 		DD73DBEF24DE162000892524 /* TracerouteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracerouteView.swift; sourceTree = "<group>"; };
@@ -105,6 +106,10 @@
 		DD73DBF524DF081A00892524 /* WoLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoLManager.swift; sourceTree = "<group>"; };
 		DD73DBF824DF0FE300892524 /* WhoisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoisView.swift; sourceTree = "<group>"; };
 		DD73DBFA24DF0FF200892524 /* WhoisManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoisManager.swift; sourceTree = "<group>"; };
+		DD833014253B44ED007FBBB6 /* AdvertisingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingProvider.swift; sourceTree = "<group>"; };
+		DD833041253B49F0007FBBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DD833046253B4CCF007FBBB6 /* ApplicationExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationExtentions.swift; sourceTree = "<group>"; };
+		DD83304E253B509F007FBBB6 /* FullscreenSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenSection.swift; sourceTree = "<group>"; };
 		DD8AB27924E5EC980090DD47 /* DNSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSManager.swift; sourceTree = "<group>"; };
 		DD8AB27B24E6BFBF0090DD47 /* ADNSTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADNSTypeView.swift; sourceTree = "<group>"; };
 		DD8E0EA824D6144100DE9780 /* NetworkArch-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkArch-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -120,7 +125,6 @@
 		DDB65BB424E9AEF100235519 /* MXDNSTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXDNSTypeView.swift; sourceTree = "<group>"; };
 		DDB95ACC24E9C05600DC7A89 /* SOADNSTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOADNSTypeView.swift; sourceTree = "<group>"; };
 		DDB95ACE24EAE4CD00DC7A89 /* TXTDNSTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TXTDNSTypeView.swift; sourceTree = "<group>"; };
-		DDB95AD024EE889700DC7A89 /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		DDB95AD224EFBB8E00DC7A89 /* InterfacesAddresses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacesAddresses.swift; sourceTree = "<group>"; };
 		DDB95AD424F0582300DC7A89 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		DDD129BB25163D3D00B886C0 /* InterfacesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfacesView.swift; sourceTree = "<group>"; };
@@ -290,10 +294,12 @@
 			children = (
 				DDEBD48324D43AB800623F3F /* NetworkArch.entitlements */,
 				DDEBD43F24D41EB100623F3F /* NetworkArchApp.swift */,
-				DDEBD44124D41EB100623F3F /* ContentView.swift */,
-				DDB95AD024EE889700DC7A89 /* Banner.swift */,
-				DD4A153B2532363100C97BEE /* RewardedAd.swift */,
+				DD833041253B49F0007FBBB6 /* AppDelegate.swift */,
+				DD833046253B4CCF007FBBB6 /* ApplicationExtentions.swift */,
 				DD9F035D24E57EB90006C658 /* Constants.swift */,
+				DDEBD44124D41EB100623F3F /* ContentView.swift */,
+				DD833014253B44ED007FBBB6 /* AdvertisingProvider.swift */,
+				DD83304E253B509F007FBBB6 /* FullscreenSection.swift */,
 				DD953A2D25310501002C3F12 /* SKReviewRequest.swift */,
 				DDEBD47F24D4281100623F3F /* Overview */,
 				DDEBD48024D4283800623F3F /* Settings */,
@@ -402,6 +408,7 @@
 				DDEBD43924D41EB100623F3F /* Frameworks */,
 				DDEBD43A24D41EB100623F3F /* Resources */,
 				363BEC686B91DE0E633C54C5 /* [CP] Embed Pods Frameworks */,
+				CA57A8B9CDF89221FB29A2B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -444,6 +451,7 @@
 				DDEBD45524D41EB300623F3F /* Frameworks */,
 				DDEBD45624D41EB300623F3F /* Resources */,
 				E00B583986157A1EEE5B720A /* [CP] Embed Pods Frameworks */,
+				3B6B2835D31FAE58B1FC9FBA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -546,6 +554,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3B6B2835D31FAE58B1FC9FBA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch-NetworkArchUITests/Pods-NetworkArch-NetworkArchUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch-NetworkArchUITests/Pods-NetworkArch-NetworkArchUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkArch-NetworkArchUITests/Pods-NetworkArch-NetworkArchUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		5912E7CB9C94E6F6302807D9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -612,6 +637,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		CA57A8B9CDF89221FB29A2B6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E00B583986157A1EEE5B720A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -658,24 +700,26 @@
 				DD0C3DCE24DA0FB000E90022 /* SearchBar.swift in Sources */,
 				DDB95ACD24E9C05600DC7A89 /* SOADNSTypeView.swift in Sources */,
 				DD73DBF624DF081A00892524 /* WoLManager.swift in Sources */,
+				DD833042253B49F0007FBBB6 /* AppDelegate.swift in Sources */,
 				DD9F035E24E57EB90006C658 /* Constants.swift in Sources */,
 				DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */,
+				DD833015253B44EE007FBBB6 /* AdvertisingProvider.swift in Sources */,
 				DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */,
 				DDB65BB324E9ABEA00235519 /* NSDNSTypeView.swift in Sources */,
 				DD73DBF224DE163100892524 /* DNSLookupView.swift in Sources */,
 				DD73DBFB24DF0FF200892524 /* WhoisManager.swift in Sources */,
 				DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */,
 				DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */,
-				DD4A153C2532363200C97BEE /* RewardedAd.swift in Sources */,
 				DD73DBEE24DE160100892524 /* WoLView.swift in Sources */,
 				DDB65BB124E9AA2D00235519 /* AAAADNSTypeView.swift in Sources */,
 				DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */,
 				DD73DBF024DE162000892524 /* TracerouteView.swift in Sources */,
-				DDB95AD124EE889800DC7A89 /* Banner.swift in Sources */,
 				DDEBD44224D41EB100623F3F /* ContentView.swift in Sources */,
 				DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */,
 				DDEBD46B24D41FF700623F3F /* OverviewTab.swift in Sources */,
 				DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */,
+				DD83304F253B509F007FBBB6 /* FullscreenSection.swift in Sources */,
+				DD833047253B4CD0007FBBB6 /* ApplicationExtentions.swift in Sources */,
 				DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */,
 				DD09A42024FBE842007DFC41 /* DNSModalBuyView.swift in Sources */,
 				DD09A41E24F95EBD007DFC41 /* MailView.swift in Sources */,

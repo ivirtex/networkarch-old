@@ -9,13 +9,9 @@ import SwiftUI
 import SwiftyStoreKit
 
 struct WhoisModalBuyView: View {
-    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var ad = AdvertisingProvider.shared
     private let overview = OverviewTab()
-    private let rewardedAd: Rewarded?
-    
-    init() {
-        rewardedAd = Rewarded()
-    }
     
     var body: some View {
         VStack(alignment: .center) {
@@ -58,15 +54,16 @@ struct WhoisModalBuyView: View {
                 }
                 
                 Button(action: {
-                    rewardedAd?.showAd(rewardFunction: {
+                    ad.presentRewarded { (_) in
                         overview.whoisAdWatchedTimes = 1
-                        self.presentationMode.wrappedValue.dismiss()
-                    })
+                        presentationMode.wrappedValue.dismiss()
+                    }
                 }) {
                     Text("Watch an Ad")
                         .font(.headline)
                         .padding()
                         .frame(minWidth: 0, maxWidth: .infinity)
+                        .background(Capsule().strokeBorder(Color(.systemBlue), lineWidth: 3))
                         .background(Capsule().fill(Color.white))
                 }
             }

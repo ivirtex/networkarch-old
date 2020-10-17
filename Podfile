@@ -12,7 +12,28 @@ target 'NetworkArch' do
   pod 'Networking', '~> 4'
   pod 'Google-Mobile-Ads-SDK'
   pod 'SwiftyStoreKit'
-  
+  pod 'APDAdColonyAdapter', '2.7.4.1' 
+  pod 'APDAmazonAdsAdapter', '2.7.4.1' 
+  pod 'APDAppLovinAdapter', '2.7.4.1' 
+  pod 'APDAppodealAdExchangeAdapter', '2.7.4.1' 
+  pod 'APDChartboostAdapter', '2.7.4.1' 
+  pod 'APDFacebookAudienceAdapter', '2.7.4.1' 
+  pod 'APDGoogleAdMobAdapter', '2.7.4.1' 
+  pod 'APDInMobiAdapter', '2.7.4.1' 
+  pod 'APDInnerActiveAdapter', '2.7.4.1' 
+  pod 'APDIronSourceAdapter', '2.7.4.1' 
+  pod 'APDMyTargetAdapter', '2.7.4.1' 
+  pod 'APDOguryAdapter', '2.7.4.1' 
+  pod 'APDOpenXAdapter', '2.7.4.1' 
+  pod 'APDPubnativeAdapter', '2.7.4.1' 
+  pod 'APDSmaatoAdapter', '2.7.4.2' 
+  pod 'APDStartAppAdapter', '2.7.4.1' 
+  pod 'APDTapjoyAdapter', '2.7.4.1' 
+  pod 'APDUnityAdapter', '2.7.4.1' 
+  pod 'APDVungleAdapter', '2.7.4.1' 
+  pod 'APDYandexAdapter', '2.7.4.1'
+  pod 'StackConsentManager', '~> 1.0.1'
+ 
   target 'NetworkArchTests' do
     inherit! :search_paths
     # Pods for testing

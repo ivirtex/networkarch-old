@@ -6,33 +6,15 @@
 //
 
 import SwiftUI
-import SwiftyStoreKit
+import UIKit
 
 @main
 struct NetworkArchApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear {
-                    SKReviewRequest().showReviewView(afterMinimumLaunchCount: 3)
-                    SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
-                        for purchase in purchases {
-                            switch purchase.transaction.transactionState {
-                            case .purchased, .restored:
-                                if purchase.needsFinishTransaction {
-                                    // Deliver content from server, then:
-                                    SwiftyStoreKit.finishTransaction(purchase.transaction)
-                                }
-                            // Unlock content
-                            case .failed, .purchasing, .deferred:
-                                break // do nothing
-                            
-                            @unknown default:
-                                print("wtf is that case")
-                            }
-                        }
-                    }
-                }
         }
     }
 }

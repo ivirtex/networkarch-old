@@ -9,13 +9,9 @@ import SwiftUI
 import SwiftyStoreKit
 
 struct DNSModalBuyView: View {
-    @Environment(\.presentationMode) private var presentationMode: Binding<PresentationMode>
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @ObservedObject var ad = AdvertisingProvider.shared
     private var overview = OverviewTab()
-    private let rewardedAd: Rewarded?
-    
-    init() {
-        rewardedAd = Rewarded()
-    }
     
     var body: some View {
         VStack(alignment: .center) {
@@ -58,10 +54,12 @@ struct DNSModalBuyView: View {
                 }
                 
                 Button(action: {
-                    rewardedAd?.showAd(rewardFunction: {
+                    ad.presentRewarded { (_) in
                         overview.DNSadWatchedTimes = 1
-                        self.presentationMode.wrappedValue.dismiss()
-                    })
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 25.0) {
+                            self.presentationMode.wrappedValue.dismiss()
+                        }
+                    }
                 }) {
                     Text("Watch an Ad")
                         .font(.headline)
