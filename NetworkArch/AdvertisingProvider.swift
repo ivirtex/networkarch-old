@@ -27,7 +27,7 @@ final class AdvertisingProvider: NSObject, ObservableObject {
     private struct AppodealConstants {
         static let key: String = Constants.AppoDealAPIKey
         static let adTypes: AppodealAdType = [.interstitial, .rewardedVideo, .banner, .nativeAd]
-        static let logLevel: APDLogLevel = .debug
+        static let logLevel: APDLogLevel = .off
         static let testMode: Bool = false
         static let placement: String = "default"
     }
@@ -161,11 +161,11 @@ final class AdvertisingProvider: NSObject, ObservableObject {
         Appodeal.setRewardedVideoDelegate(self)
         
         // Initialise Appodeal SDK with consent report
-        if let consent = STKConsentManager.shared().consent {
+        if STKConsentManager.shared().consent != nil {
             Appodeal.initialize(
                 withApiKey: Constants.AppoDealAPIKey,
                 types: AppodealConstants.adTypes,
-                hasConsent: consent as! Bool
+                hasConsent: true
             )
         } else {
             Appodeal.initialize(
@@ -182,27 +182,29 @@ final class AdvertisingProvider: NSObject, ObservableObject {
     }
     
     private func synchroniseConsent(completion: SynchroniseConsentCompletion?) {
-        STKConsentManager.shared().synchronize(withAppKey: AppodealConstants.key) { error in
-            error.map { print("Error while synchronising consent manager: \($0)") }
-            guard STKConsentManager.shared().shouldShowConsentDialog == .true else {
-                completion?()
-                return
-            }
-            
-            STKConsentManager.shared().loadConsentDialog { [weak self] error in
-                error.map { print("Error while loading consent dialog: \($0)") }
-                guard let controller = UIApplication.shared.rootViewController,
-                      STKConsentManager.shared().isConsentDialogReady
-                else {
+        DispatchQueue.main.async {
+            STKConsentManager.shared().synchronize(withAppKey: AppodealConstants.key) { error in
+                error.map { print("Error while synchronising consent manager: \($0)") }
+                guard STKConsentManager.shared().shouldShowConsentDialog == .true else {
                     completion?()
                     return
                 }
                 
-                self?.synchroniseConsentCompletion = completion
-                STKConsentManager.shared().showConsentDialog(
-                    fromRootViewController: controller,
-                    delegate: self
-                )
+                STKConsentManager.shared().loadConsentDialog { [weak self] error in
+                    error.map { print("Error while loading consent dialog: \($0)") }
+                    guard let controller = UIApplication.shared.rootViewController,
+                          STKConsentManager.shared().isConsentDialogReady
+                    else {
+                        completion?()
+                        return
+                    }
+                    
+                    self?.synchroniseConsentCompletion = completion
+                    STKConsentManager.shared().showConsentDialog(
+                        fromRootViewController: controller,
+                        delegate: self
+                    )
+                }
             }
         }
     }
