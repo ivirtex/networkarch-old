@@ -109,14 +109,14 @@ struct OverviewTab: View {
                     //                    }
                 }
                 
-                Section {
-                    Button("whois ad count reset") {
-                        whoisAdWatchedTimes = 0
-                    }
-                    Button("dns ad count reset") {
-                        DNSadWatchedTimes = 0
-                    }
-                }
+//                Section {
+//                    Button("whois ad count reset") {
+//                        whoisAdWatchedTimes = 0
+//                    }
+//                    Button("dns ad count reset") {
+//                        DNSadWatchedTimes = 0
+//                    }
+//                }
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Overview")

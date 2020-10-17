@@ -143,7 +143,7 @@ struct SettingsTab: View {
                 Section(header: Text("App Info"), footer: Text("Made with ❤️ by ivirtex")) {
                     InfoRow(leftSide: "App Name", rightSide: "NetworkArch")
                     InfoRow(leftSide: "Compatibility", rightSide: "iPhone, iPad, Mac (ARM)")
-                    InfoRow(leftSide: "Version", rightSide: "1.2b1")
+                    InfoRow(leftSide: "Version", rightSide: "1.2.1")
                 }
             }
             .listStyle(InsetGroupedListStyle())
