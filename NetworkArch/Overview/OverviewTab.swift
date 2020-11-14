@@ -8,7 +8,6 @@
 import SwiftUI
 import CoreLocation
 import FGRoute
-import GoogleMobileAds
 
 let locationManager = CLLocationManager()
 let carrier = CellularData()
@@ -16,10 +15,6 @@ let carrier = CellularData()
 struct OverviewTab: View {
     @AppStorage("Whois unlock") var isWhoisUnlocked = false
     @AppStorage("DNS unlock") var isDNSUnlocked = false
-    @AppStorage("Ads remove") var areAdsRemoved = false
-    @AppStorage("Whois ads watched") var whoisAdWatchedTimes = 0
-    @AppStorage("DNS ads watched") var DNSadWatchedTimes = 0
-    @ObservedObject var ad = AdvertisingProvider.shared
     @State private var ipv4 = FGRoute.getIPAddress()
     @State private var ssid = FGRoute.getSSID()
     @State var isWhoisPresented = false
@@ -54,20 +49,6 @@ struct OverviewTab: View {
                     }
                 }
                 
-                if !areAdsRemoved {
-                    if (ad.isBannerReady) {
-                        Section {
-                            AdvertisingProvider.Banner()
-                                .frame(
-                                    minWidth: 320,
-                                    idealWidth: .infinity,
-                                    minHeight: ad.bannerHeight,
-                                    maxHeight: ad.bannerHeight
-                                )
-                        }
-                    }
-                }
-                
                 Section(header: Text("Utilities")) {
                     NavigationLink(destination: PingView()) {
                         Text("Ping")
@@ -77,27 +58,31 @@ struct OverviewTab: View {
                         Text("Wake on LAN")
                     }
                     
-                    if isWhoisUnlocked || whoisAdWatchedTimes == 1 {
+                    if isWhoisUnlocked {
                         NavigationLink(destination: WhoisView()) {
                             Text("Whois")
                         }
                     }
                     else {
-                        NavigationLink(destination: WhoisModalBuyView()) {
-                            Text("Whois")
-                                .foregroundColor(Color(.systemBlue))
+                        Button("Whois") {
+                            self.isWhoisPresented = true
+                        }
+                        .sheet(isPresented: $isWhoisPresented) {
+                            WhoisModalBuyView(isPresented: $isWhoisPresented)
                         }
                     }
                     
-                    if isDNSUnlocked || DNSadWatchedTimes == 1 {
+                    if isDNSUnlocked {
                         NavigationLink(destination: DNSLookupView()) {
                             Text("DNS Lookup")
                         }
                     }
                     else {
-                        NavigationLink(destination: DNSModalBuyView()) {
-                            Text("DNS Lookup")
-                                .foregroundColor(Color(.systemBlue))
+                        Button("DNS Lookup") {
+                            self.isDNSPresented = true
+                        }
+                        .sheet(isPresented: $isDNSPresented) {
+                            DNSModalBuyView(isPresented: $isDNSPresented)
                         }
                     }
                     
@@ -108,15 +93,6 @@ struct OverviewTab: View {
                     //                        Text("Visual Traceroute")
                     //                    }
                 }
-                
-//                Section {
-//                    Button("whois ad count reset") {
-//                        whoisAdWatchedTimes = 0
-//                    }
-//                    Button("dns ad count reset") {
-//                        DNSadWatchedTimes = 0
-//                    }
-//                }
             }
             .listStyle(InsetGroupedListStyle())
             .navigationBarTitle("Overview")

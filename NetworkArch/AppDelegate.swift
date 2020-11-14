@@ -5,16 +5,13 @@
 //  Created by Hubert Jóźwiak on 17/10/2020.
 //
 
-import Foundation
 import UIKit
-import Appodeal
 import SwiftyStoreKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
-        Appodeal.disableNetworks(["admob"])
-        AdvertisingProvider.shared.initialize()
         SKReviewRequest().showReviewView(afterMinimumLaunchCount: 3)
+        
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
                 switch purchase.transaction.transactionState {

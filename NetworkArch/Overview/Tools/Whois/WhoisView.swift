@@ -58,7 +58,6 @@ struct WhoisView: View {
             whois.response = ""
             shouldDisplayList = true
             hideKeyboard()
-            overview.whoisAdWatchedTimes = 0
             DispatchQueue.main.async {
                 whois.fetchWhois(domainName: finalAddress)
             }
@@ -67,7 +66,7 @@ struct WhoisView: View {
             Text("Start")
                 .accentColor(Color(.systemGreen))
         }
-        .disabled(self.addressWhois.isEmpty || overview.whoisAdWatchedTimes == 0)
+        .disabled(self.addressWhois.isEmpty)
         )
         .navigationBarTitle("Whois")
         .animation(.default)

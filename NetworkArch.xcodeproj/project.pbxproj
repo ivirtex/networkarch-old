@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D9DE3D0E71BB34E8112C9DC /* Pods_NetworkArch_NetworkArchUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 931148B5DB1D08389D6E8569 /* Pods_NetworkArch_NetworkArchUITests.framework */; };
-		53ECDCE49B7ED68EDC3958B6 /* Pods_NetworkArch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85C989C97A404801BF744738 /* Pods_NetworkArch.framework */; };
+		84648E3AA601BE17B072D079 /* Pods_NetworkArch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 559597FFA88503329C55987B /* Pods_NetworkArch.framework */; };
 		CB8C355C53F70791AE9D35CF /* Pods_NetworkArchTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B46405AE3FEBD5AA7E200088 /* Pods_NetworkArchTests.framework */; };
 		DD09A41E24F95EBD007DFC41 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09A41D24F95EBC007DFC41 /* MailView.swift */; };
 		DD09A42024FBE842007DFC41 /* DNSModalBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD09A41F24FBE842007DFC41 /* DNSModalBuyView.swift */; };
@@ -25,15 +25,19 @@
 		DD73DBF624DF081A00892524 /* WoLManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBF524DF081A00892524 /* WoLManager.swift */; };
 		DD73DBF924DF0FE300892524 /* WhoisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBF824DF0FE300892524 /* WhoisView.swift */; };
 		DD73DBFB24DF0FF200892524 /* WhoisManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBFA24DF0FF200892524 /* WhoisManager.swift */; };
-		DD833015253B44EE007FBBB6 /* AdvertisingProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD833014253B44ED007FBBB6 /* AdvertisingProvider.swift */; };
 		DD833042253B49F0007FBBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD833041253B49F0007FBBB6 /* AppDelegate.swift */; };
 		DD833047253B4CD0007FBBB6 /* ApplicationExtentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD833046253B4CCF007FBBB6 /* ApplicationExtentions.swift */; };
-		DD83304F253B509F007FBBB6 /* FullscreenSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD83304E253B509F007FBBB6 /* FullscreenSection.swift */; };
 		DD8AB27A24E5EC980090DD47 /* DNSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AB27924E5EC980090DD47 /* DNSManager.swift */; };
 		DD8AB27C24E6BFBF0090DD47 /* ADNSTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8AB27B24E6BFBF0090DD47 /* ADNSTypeView.swift */; };
 		DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */; };
 		DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */; };
 		DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAD24D7539600DE9780 /* PingView.swift */; };
+		DD8EC867255F46B100BC0A67 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC866255F46B100BC0A67 /* ViewModifiers.swift */; };
+		DD8EC877256014C500BC0A67 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = DD8EC876256014C500BC0A67 /* Shiny */; };
+		DD8EC87C256040F100BC0A67 /* InformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC87B256040F100BC0A67 /* InformationDetailView.swift */; };
+		DD8EC8812560415F00BC0A67 /* InformationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC8802560415F00BC0A67 /* InformationContainerView.swift */; };
+		DD8EC8862560419700BC0A67 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC8852560419700BC0A67 /* TitleView.swift */; };
+		DD8EC88B2560422D00BC0A67 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC88A2560422D00BC0A67 /* IntroductionView.swift */; };
 		DD953A2E25310501002C3F12 /* SKReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD953A2D25310501002C3F12 /* SKReviewRequest.swift */; };
 		DD953A34253107CB002C3F12 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DD953A33253107CB002C3F12 /* SwiftUICharts */; };
 		DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10124D5DA65000DA60F /* CellularData.swift */; };
@@ -83,10 +87,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09979BDA91863AE3C9BFF7E5 /* Pods-NetworkArch-NetworkArch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArch-NetworkArch.release.xcconfig"; path = "Target Support Files/Pods-NetworkArch-NetworkArch/Pods-NetworkArch-NetworkArch.release.xcconfig"; sourceTree = "<group>"; };
 		36DB0CE4ED101923E014325F /* Pods-NetworkArch-NetworkArchUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArch-NetworkArchUITests.debug.xcconfig"; path = "Target Support Files/Pods-NetworkArch-NetworkArchUITests/Pods-NetworkArch-NetworkArchUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		462BE87EFBD8789972E8D41D /* Pods-NetworkArchTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArchTests.release.xcconfig"; path = "Target Support Files/Pods-NetworkArchTests/Pods-NetworkArchTests.release.xcconfig"; sourceTree = "<group>"; };
+		559597FFA88503329C55987B /* Pods_NetworkArch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		58BAF97FC5A88D6E489BC0D1 /* Pods-NetworkArch-NetworkArch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArch-NetworkArch.debug.xcconfig"; path = "Target Support Files/Pods-NetworkArch-NetworkArch/Pods-NetworkArch-NetworkArch.debug.xcconfig"; sourceTree = "<group>"; };
 		64F178D1D6D80E7817EC27BE /* Pods-NetworkArch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArch.release.xcconfig"; path = "Target Support Files/Pods-NetworkArch/Pods-NetworkArch.release.xcconfig"; sourceTree = "<group>"; };
-		85C989C97A404801BF744738 /* Pods_NetworkArch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		931148B5DB1D08389D6E8569 /* Pods_NetworkArch_NetworkArchUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkArch_NetworkArchUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9879EADCD3D1DD9153843A74 /* Pods-NetworkArchTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArchTests.debug.xcconfig"; path = "Target Support Files/Pods-NetworkArchTests/Pods-NetworkArchTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F5857EAAB08097255033211 /* Pods-NetworkArch-NetworkArchUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkArch-NetworkArchUITests.release.xcconfig"; path = "Target Support Files/Pods-NetworkArch-NetworkArchUITests/Pods-NetworkArch-NetworkArchUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -106,16 +112,19 @@
 		DD73DBF524DF081A00892524 /* WoLManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoLManager.swift; sourceTree = "<group>"; };
 		DD73DBF824DF0FE300892524 /* WhoisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoisView.swift; sourceTree = "<group>"; };
 		DD73DBFA24DF0FF200892524 /* WhoisManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoisManager.swift; sourceTree = "<group>"; };
-		DD833014253B44ED007FBBB6 /* AdvertisingProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvertisingProvider.swift; sourceTree = "<group>"; };
 		DD833041253B49F0007FBBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DD833046253B4CCF007FBBB6 /* ApplicationExtentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationExtentions.swift; sourceTree = "<group>"; };
-		DD83304E253B509F007FBBB6 /* FullscreenSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullscreenSection.swift; sourceTree = "<group>"; };
 		DD8AB27924E5EC980090DD47 /* DNSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSManager.swift; sourceTree = "<group>"; };
 		DD8AB27B24E6BFBF0090DD47 /* ADNSTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADNSTypeView.swift; sourceTree = "<group>"; };
 		DD8E0EA824D6144100DE9780 /* NetworkArch-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NetworkArch-Bridging-Header.h"; sourceTree = "<group>"; };
 		DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularRadioConstants.swift; sourceTree = "<group>"; };
 		DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiExternalIP.swift; sourceTree = "<group>"; };
 		DD8E0EAD24D7539600DE9780 /* PingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingView.swift; sourceTree = "<group>"; };
+		DD8EC866255F46B100BC0A67 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		DD8EC87B256040F100BC0A67 /* InformationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailView.swift; sourceTree = "<group>"; };
+		DD8EC8802560415F00BC0A67 /* InformationContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationContainerView.swift; sourceTree = "<group>"; };
+		DD8EC8852560419700BC0A67 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
+		DD8EC88A2560422D00BC0A67 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
 		DD953A2D25310501002C3F12 /* SKReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReviewRequest.swift; sourceTree = "<group>"; };
 		DD95D10124D5DA65000DA60F /* CellularData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularData.swift; sourceTree = "<group>"; };
 		DD95D10E24D60FA9000DA60F /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
@@ -162,7 +171,8 @@
 				DD64A9CC25164DCD006BFE9F /* NetUtils in Frameworks */,
 				DD953A34253107CB002C3F12 /* SwiftUICharts in Frameworks */,
 				DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */,
-				53ECDCE49B7ED68EDC3958B6 /* Pods_NetworkArch.framework in Frameworks */,
+				DD8EC877256014C500BC0A67 /* Shiny in Frameworks */,
+				84648E3AA601BE17B072D079 /* Pods_NetworkArch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,9 +199,9 @@
 			isa = PBXGroup;
 			children = (
 				DDB95AD424F0582300DC7A89 /* StoreKit.framework */,
-				85C989C97A404801BF744738 /* Pods_NetworkArch.framework */,
 				931148B5DB1D08389D6E8569 /* Pods_NetworkArch_NetworkArchUITests.framework */,
 				B46405AE3FEBD5AA7E200088 /* Pods_NetworkArchTests.framework */,
+				559597FFA88503329C55987B /* Pods_NetworkArch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -205,6 +215,8 @@
 				9F5857EAAB08097255033211 /* Pods-NetworkArch-NetworkArchUITests.release.xcconfig */,
 				9879EADCD3D1DD9153843A74 /* Pods-NetworkArchTests.debug.xcconfig */,
 				462BE87EFBD8789972E8D41D /* Pods-NetworkArchTests.release.xcconfig */,
+				58BAF97FC5A88D6E489BC0D1 /* Pods-NetworkArch-NetworkArch.debug.xcconfig */,
+				09979BDA91863AE3C9BFF7E5 /* Pods-NetworkArch-NetworkArch.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -267,6 +279,17 @@
 			path = Ping;
 			sourceTree = "<group>";
 		};
+		DD8EC88F2560424000BC0A67 /* IntroductionView */ = {
+			isa = PBXGroup;
+			children = (
+				DD8EC87B256040F100BC0A67 /* InformationDetailView.swift */,
+				DD8EC8802560415F00BC0A67 /* InformationContainerView.swift */,
+				DD8EC8852560419700BC0A67 /* TitleView.swift */,
+				DD8EC88A2560422D00BC0A67 /* IntroductionView.swift */,
+			);
+			path = IntroductionView;
+			sourceTree = "<group>";
+		};
 		DDEBD43324D41EB100623F3F = {
 			isa = PBXGroup;
 			children = (
@@ -298,9 +321,9 @@
 				DD833046253B4CCF007FBBB6 /* ApplicationExtentions.swift */,
 				DD9F035D24E57EB90006C658 /* Constants.swift */,
 				DDEBD44124D41EB100623F3F /* ContentView.swift */,
-				DD833014253B44ED007FBBB6 /* AdvertisingProvider.swift */,
-				DD83304E253B509F007FBBB6 /* FullscreenSection.swift */,
 				DD953A2D25310501002C3F12 /* SKReviewRequest.swift */,
+				DD8EC866255F46B100BC0A67 /* ViewModifiers.swift */,
+				DD8EC88F2560424000BC0A67 /* IntroductionView */,
 				DDEBD47F24D4281100623F3F /* Overview */,
 				DDEBD48024D4283800623F3F /* Settings */,
 				DDEBD44324D41EB300623F3F /* Assets.xcassets */,
@@ -408,7 +431,6 @@
 				DDEBD43924D41EB100623F3F /* Frameworks */,
 				DDEBD43A24D41EB100623F3F /* Resources */,
 				363BEC686B91DE0E633C54C5 /* [CP] Embed Pods Frameworks */,
-				CA57A8B9CDF89221FB29A2B6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -418,6 +440,7 @@
 			packageProductDependencies = (
 				DD64A9CB25164DCD006BFE9F /* NetUtils */,
 				DD953A33253107CB002C3F12 /* SwiftUICharts */,
+				DD8EC876256014C500BC0A67 /* Shiny */,
 			);
 			productName = NetworkArch;
 			productReference = DDEBD43C24D41EB100623F3F /* NetworkArch.app */;
@@ -451,7 +474,6 @@
 				DDEBD45524D41EB300623F3F /* Frameworks */,
 				DDEBD45624D41EB300623F3F /* Resources */,
 				E00B583986157A1EEE5B720A /* [CP] Embed Pods Frameworks */,
-				3B6B2835D31FAE58B1FC9FBA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -498,6 +520,7 @@
 			packageReferences = (
 				DD64A9CA25164DCD006BFE9F /* XCRemoteSwiftPackageReference "swift-netutils" */,
 				DD953A32253107CB002C3F12 /* XCRemoteSwiftPackageReference "ChartView" */,
+				DD8EC875256014C500BC0A67 /* XCRemoteSwiftPackageReference "shiny" */,
 			);
 			productRefGroup = DDEBD43D24D41EB100623F3F /* Products */;
 			projectDirPath = "";
@@ -552,23 +575,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3B6B2835D31FAE58B1FC9FBA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch-NetworkArchUITests/Pods-NetworkArch-NetworkArchUITests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch-NetworkArchUITests/Pods-NetworkArch-NetworkArchUITests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkArch-NetworkArchUITests/Pods-NetworkArch-NetworkArchUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5912E7CB9C94E6F6302807D9 /* [CP] Check Pods Manifest.lock */ = {
@@ -637,23 +643,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CA57A8B9CDF89221FB29A2B6 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NetworkArch/Pods-NetworkArch-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		E00B583986157A1EEE5B720A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -684,6 +673,7 @@
 				DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */,
 				DDB65BB524E9AEF100235519 /* MXDNSTypeView.swift in Sources */,
 				DDE3497924E09A2600BEE1BA /* ErrorSection.swift in Sources */,
+				DD8EC8812560415F00BC0A67 /* InformationContainerView.swift in Sources */,
 				DDB95ACF24EAE4CD00DC7A89 /* TXTDNSTypeView.swift in Sources */,
 				DD953A2E25310501002C3F12 /* SKReviewRequest.swift in Sources */,
 				DDB95AD324EFBB8F00DC7A89 /* InterfacesAddresses.swift in Sources */,
@@ -693,22 +683,25 @@
 				DDEBD48724D46D4600623F3F /* WiFiDetailView.swift in Sources */,
 				DD0C3DD324DAB62400E90022 /* SimplePing.m in Sources */,
 				DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */,
+				DD8EC88B2560422D00BC0A67 /* IntroductionView.swift in Sources */,
 				DD8AB27C24E6BFBF0090DD47 /* ADNSTypeView.swift in Sources */,
 				DD95D10F24D60FA9000DA60F /* StatusView.swift in Sources */,
 				DD39DD4B2531EE8C00F9A17D /* PingGraph.swift in Sources */,
 				DDD129BC25163D3D00B886C0 /* InterfacesView.swift in Sources */,
 				DD0C3DCE24DA0FB000E90022 /* SearchBar.swift in Sources */,
+				DD8EC87C256040F100BC0A67 /* InformationDetailView.swift in Sources */,
 				DDB95ACD24E9C05600DC7A89 /* SOADNSTypeView.swift in Sources */,
+				DD8EC8862560419700BC0A67 /* TitleView.swift in Sources */,
 				DD73DBF624DF081A00892524 /* WoLManager.swift in Sources */,
 				DD833042253B49F0007FBBB6 /* AppDelegate.swift in Sources */,
 				DD9F035E24E57EB90006C658 /* Constants.swift in Sources */,
 				DDEBD46D24D4200E00623F3F /* SettingsTab.swift in Sources */,
-				DD833015253B44EE007FBBB6 /* AdvertisingProvider.swift in Sources */,
 				DDEBD48924D4A06800623F3F /* CellularDetailView.swift in Sources */,
 				DDB65BB324E9ABEA00235519 /* NSDNSTypeView.swift in Sources */,
 				DD73DBF224DE163100892524 /* DNSLookupView.swift in Sources */,
 				DD73DBFB24DF0FF200892524 /* WhoisManager.swift in Sources */,
 				DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */,
+				DD8EC867255F46B100BC0A67 /* ViewModifiers.swift in Sources */,
 				DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */,
 				DD73DBEE24DE160100892524 /* WoLView.swift in Sources */,
 				DDB65BB124E9AA2D00235519 /* AAAADNSTypeView.swift in Sources */,
@@ -718,7 +711,6 @@
 				DDEBD44024D41EB100623F3F /* NetworkArchApp.swift in Sources */,
 				DDEBD46B24D41FF700623F3F /* OverviewTab.swift in Sources */,
 				DDEBD47124D4235B00623F3F /* WiFiSection.swift in Sources */,
-				DD83304F253B509F007FBBB6 /* FullscreenSection.swift in Sources */,
 				DD833047253B4CD0007FBBB6 /* ApplicationExtentions.swift in Sources */,
 				DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */,
 				DD09A42024FBE842007DFC41 /* DNSModalBuyView.swift in Sources */,
@@ -1070,6 +1062,14 @@
 				minimumVersion = 4.1.0;
 			};
 		};
+		DD8EC875256014C500BC0A67 /* XCRemoteSwiftPackageReference "shiny" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/maustinstar/shiny";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.1;
+			};
+		};
 		DD953A32253107CB002C3F12 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -1085,6 +1085,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DD64A9CA25164DCD006BFE9F /* XCRemoteSwiftPackageReference "swift-netutils" */;
 			productName = NetUtils;
+		};
+		DD8EC876256014C500BC0A67 /* Shiny */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DD8EC875256014C500BC0A67 /* XCRemoteSwiftPackageReference "shiny" */;
+			productName = Shiny;
 		};
 		DD953A33253107CB002C3F12 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;

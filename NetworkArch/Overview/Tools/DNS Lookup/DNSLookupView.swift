@@ -92,7 +92,6 @@ struct DNSLookupView: View {
             dns.networkingError = false
             dns.jsonError = false
             shouldDisplayList = true
-            overview.DNSadWatchedTimes = 0
             resetRecords()
             hideKeyboard()
             DispatchQueue.global().async {
@@ -103,7 +102,7 @@ struct DNSLookupView: View {
             Text("Start")
                 .accentColor(Color(.systemGreen))
         }
-        .disabled(self.domainName.isEmpty || overview.DNSadWatchedTimes == 0)
+        .disabled(self.domainName.isEmpty)
         )
     }
     
