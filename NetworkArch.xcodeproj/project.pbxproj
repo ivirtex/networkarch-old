@@ -32,12 +32,12 @@
 		DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */; };
 		DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */; };
 		DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAD24D7539600DE9780 /* PingView.swift */; };
-		DD8EC867255F46B100BC0A67 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC866255F46B100BC0A67 /* ViewModifiers.swift */; };
 		DD8EC877256014C500BC0A67 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = DD8EC876256014C500BC0A67 /* Shiny */; };
 		DD8EC87C256040F100BC0A67 /* InformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC87B256040F100BC0A67 /* InformationDetailView.swift */; };
 		DD8EC8812560415F00BC0A67 /* InformationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC8802560415F00BC0A67 /* InformationContainerView.swift */; };
 		DD8EC8862560419700BC0A67 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC8852560419700BC0A67 /* TitleView.swift */; };
 		DD8EC88B2560422D00BC0A67 /* IntroductionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC88A2560422D00BC0A67 /* IntroductionView.swift */; };
+		DD8EC8D725605B4500BC0A67 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC8D625605B4500BC0A67 /* ViewModifiers.swift */; };
 		DD953A2E25310501002C3F12 /* SKReviewRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD953A2D25310501002C3F12 /* SKReviewRequest.swift */; };
 		DD953A34253107CB002C3F12 /* SwiftUICharts in Frameworks */ = {isa = PBXBuildFile; productRef = DD953A33253107CB002C3F12 /* SwiftUICharts */; };
 		DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD95D10124D5DA65000DA60F /* CellularData.swift */; };
@@ -120,11 +120,11 @@
 		DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularRadioConstants.swift; sourceTree = "<group>"; };
 		DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WiFiExternalIP.swift; sourceTree = "<group>"; };
 		DD8E0EAD24D7539600DE9780 /* PingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingView.swift; sourceTree = "<group>"; };
-		DD8EC866255F46B100BC0A67 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		DD8EC87B256040F100BC0A67 /* InformationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationDetailView.swift; sourceTree = "<group>"; };
 		DD8EC8802560415F00BC0A67 /* InformationContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationContainerView.swift; sourceTree = "<group>"; };
 		DD8EC8852560419700BC0A67 /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		DD8EC88A2560422D00BC0A67 /* IntroductionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionView.swift; sourceTree = "<group>"; };
+		DD8EC8D625605B4500BC0A67 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		DD953A2D25310501002C3F12 /* SKReviewRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKReviewRequest.swift; sourceTree = "<group>"; };
 		DD95D10124D5DA65000DA60F /* CellularData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellularData.swift; sourceTree = "<group>"; };
 		DD95D10E24D60FA9000DA60F /* StatusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusView.swift; sourceTree = "<group>"; };
@@ -322,7 +322,7 @@
 				DD9F035D24E57EB90006C658 /* Constants.swift */,
 				DDEBD44124D41EB100623F3F /* ContentView.swift */,
 				DD953A2D25310501002C3F12 /* SKReviewRequest.swift */,
-				DD8EC866255F46B100BC0A67 /* ViewModifiers.swift */,
+				DD8EC8D625605B4500BC0A67 /* ViewModifiers.swift */,
 				DD8EC88F2560424000BC0A67 /* IntroductionView */,
 				DDEBD47F24D4281100623F3F /* Overview */,
 				DDEBD48024D4283800623F3F /* Settings */,
@@ -701,9 +701,9 @@
 				DD73DBF224DE163100892524 /* DNSLookupView.swift in Sources */,
 				DD73DBFB24DF0FF200892524 /* WhoisManager.swift in Sources */,
 				DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */,
-				DD8EC867255F46B100BC0A67 /* ViewModifiers.swift in Sources */,
 				DD95D10224D5DA65000DA60F /* CellularData.swift in Sources */,
 				DD73DBEE24DE160100892524 /* WoLView.swift in Sources */,
+				DD8EC8D725605B4500BC0A67 /* ViewModifiers.swift in Sources */,
 				DDB65BB124E9AA2D00235519 /* AAAADNSTypeView.swift in Sources */,
 				DDEBD47524D423F900623F3F /* CellularSection.swift in Sources */,
 				DD73DBF024DE162000892524 /* TracerouteView.swift in Sources */,
@@ -886,7 +886,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HubertJozwiak.NetworkArch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NetworkArch/NetworkArch-Bridging-Header.h";
@@ -915,7 +915,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2.2;
+				MARKETING_VERSION = 1.3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HubertJozwiak.NetworkArch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NetworkArch/NetworkArch-Bridging-Header.h";

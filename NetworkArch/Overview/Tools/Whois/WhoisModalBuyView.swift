@@ -20,7 +20,7 @@ struct WhoisModalBuyView: View {
                 .padding()
                 .padding(.top, 10)
             Spacer()
-            Text("Whois is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name or an IP address block")
+            Text("Whois is a query and response protocol that is widely used for querying databases that store the registered users or assignees of an Internet resource, such as a domain name or an IP address block.")
                 .padding(.horizontal, 20)
                 .multilineTextAlignment(.leading)
             Image("whoisModal")
