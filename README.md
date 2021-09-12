@@ -6,3 +6,5 @@ NetworkArch is an advanced network diagnostic tool, which allows you to diagnose
 
 Compatibility:
 iOS 14+, iPadOS 14+, Mac (ARM)
+
+https://apps.apple.com/tt/app/networkarch/id1526690989#?platform=iphone
