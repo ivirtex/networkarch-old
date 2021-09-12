@@ -17,7 +17,7 @@ struct ContentView: View {
                 Image(systemName: "house")
                 Text("Overview")
             }
-            
+
             SettingsTab().tabItem {
                 Image(systemName: "gear")
                 Text("Settings")
@@ -29,16 +29,15 @@ struct ContentView: View {
         .onAppear {
             if ContentView.launchTimes == 0 {
                 isPresented = true
-            }
-            else {
+            } else {
                 isPresented = false
             }
         }
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
+// struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ContentView()
 //    }
-//}
+// }

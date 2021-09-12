@@ -67,6 +67,10 @@ FGRoute.getBSSID() // Connected wifi BSSID
 FGRoute.getSSIDDATA() // Connected wifi SSIDDATA
 
 FGRoute.getIPAddress() // Your local ip address in network
+
+FGRoute.getNetmask() // Connected wifi Netmask
+
+FGRoute.getDestination() // Connected wifi Destination ip address
 ```
 
 Full method documentation for ObjC
@@ -84,7 +88,20 @@ Full method documentation for ObjC
 [FGRoute getSSIDDATA]; // Connected wifi SSIDDATA
 
 [FGRoute getIPAddress]; // Your local ip address in network
+
+[FGRoute getNetmask]; // Connected wifi Netmask
+
+[FGRoute getDestination]; // Connected wifi Destination ip address
 ```
+
+## iOS 13 and later
+You need to have "Access WiFi Information" entitlement enabled and you must meet at least one of criteria bellow 
+
+* App with permission to access location
+* Currently enabled VPN app
+* NEHotspotConfiguration
+
+see example for more details
 
 ## Author
 

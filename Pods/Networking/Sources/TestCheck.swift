@@ -29,7 +29,7 @@ struct TestCheck {
     ///   - disabled: Checks wheter this feature is disabled and should just return in the main thread.
     ///   - block: The operation block to be performed.
     static func testBlock(_ disabled: Bool, block: @escaping () -> Void) {
-        if TestCheck.isTesting && disabled == false {
+        if TestCheck.isTesting, disabled == false {
             block()
         } else {
             DispatchQueue.main.async {

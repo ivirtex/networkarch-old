@@ -13,17 +13,17 @@ class PingManager: ObservableObject {
         var latency: Float?
         var isSuccessfull: Bool
     }
-    
+
     @Published var pingResult = [Result]()
-    
+
     func ping(address: String) {
         SimplePingClient.ping(hostname: address) { result in
             switch result {
-            case .success(let latency):
+            case let .success(latency):
                 let nLatency = Float(String(format: "%.1f", latency))!
                 self.pingResult.append(Result(latency: nLatency, isSuccessfull: true))
                 print("Latency: \(nLatency) ms")
-            case .failure(let error):
+            case let .failure(error):
                 self.pingResult.append(Result(isSuccessfull: false))
                 print("Ping got error: \(error.localizedDescription)")
             }

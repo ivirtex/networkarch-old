@@ -10,7 +10,7 @@ import SwiftUI
 struct SearchBar: View {
     @Binding var text: String
     var placeholder: String
-    
+
     var body: some View {
         HStack {
             Image(systemName: "magnifyingglass")
@@ -30,15 +30,15 @@ struct SearchBar: View {
         }
         .cornerRadius(12)
     }
-    
+
     @Environment(\.colorScheme) var colorScheme
 
     var backgroundColor: Color {
-      if colorScheme == .dark {
-           return Color(.systemGray5)
-       } else {
-           return Color(.systemGray6)
-       }
+        if colorScheme == .dark {
+            return Color(.systemGray5)
+        } else {
+            return Color(.systemGray6)
+        }
     }
 }
 
@@ -47,6 +47,3 @@ struct SearchBar_Previews: PreviewProvider {
         SearchBar(text: .constant(""), placeholder: "IP Address")
     }
 }
-
-
-

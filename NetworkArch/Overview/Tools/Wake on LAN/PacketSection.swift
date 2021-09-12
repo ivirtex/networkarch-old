@@ -9,16 +9,16 @@ import SwiftUI
 
 struct PacketSection: View {
     let mac: String
-    
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 Text(mac)
                     .padding(.vertical, 3)
             }
-            
+
             Spacer()
-            
+
             StatusView(backgroundColor: .green, text: "Packet sent")
         }
     }

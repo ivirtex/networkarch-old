@@ -11,7 +11,7 @@ import SwiftyStoreKit
 struct DNSModalBuyView: View {
     var overview = OverviewTab()
     @Binding var isPresented: Bool
-    
+
     var body: some View {
         VStack(alignment: .center) {
             Text("DNS Lookup")
@@ -27,13 +27,13 @@ struct DNSModalBuyView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Button(action: {
-                SwiftyStoreKit.purchaseProduct(Constants.ProductID.dnsProductID, quantity: 1, atomically: true) { (result) in
+                SwiftyStoreKit.purchaseProduct(Constants.ProductID.dnsProductID, quantity: 1, atomically: true) { result in
                     switch result {
-                    case .success(let purchase):
+                    case let .success(purchase):
                         overview.isDNSUnlocked = true
                         self.isPresented = false
                         print("Purchase Success: \(purchase.productId)")
-                    case .error(let error):
+                    case let .error(error):
                         switch error.code {
                         case .unknown: print("Unknown error. Please contact support")
                         case .clientInvalid: print("Not allowed to make the payment")
@@ -48,7 +48,7 @@ struct DNSModalBuyView: View {
                         }
                     }
                 }
-            }){
+            }) {
                 Text("Purchase")
                     .customButton()
             }
@@ -60,8 +60,8 @@ struct DNSModalBuyView: View {
     }
 }
 
-//struct DNSModalBuyView_Previews: PreviewProvider {
+// struct DNSModalBuyView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        DNSModalBuyView()
 //    }
-//}
+// }

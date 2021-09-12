@@ -11,7 +11,7 @@ struct NSDNSTypeView: View {
     let domainName: String
     let target: String
     let ttl: Int
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -22,7 +22,7 @@ struct NSDNSTypeView: View {
                 Text("TTL: \(ttl)")
             }
             .padding(.vertical, 5)
-            
+
             HStack {
                 Text(target)
                 Spacer()

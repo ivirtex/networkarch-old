@@ -6,26 +6,8 @@
         "repositoryURL": "https://github.com/AppPear/ChartView",
         "state": {
           "branch": null,
-          "revision": "4699847a9ac0c694666cea3acef133498952566e",
-          "version": "1.5.4"
-        }
-      },
-      {
-        "package": "Shiny",
-        "repositoryURL": "https://github.com/maustinstar/shiny",
-        "state": {
-          "branch": null,
-          "revision": "8bb38bf8122d5b144ac0c09258c30aab46dcac7e",
-          "version": "0.0.1"
-        }
-      },
-      {
-        "package": "NetUtils",
-        "repositoryURL": "https://github.com/ivirtex/swift-netutils.git",
-        "state": {
-          "branch": null,
-          "revision": "95ed1c16420d206d87eb3e5cc189913a2b80ea62",
-          "version": "4.2.0"
+          "revision": "9115a992c91fa19cbb4f2241084240d38654a1fc",
+          "version": "1.5.5"
         }
       }
     ]

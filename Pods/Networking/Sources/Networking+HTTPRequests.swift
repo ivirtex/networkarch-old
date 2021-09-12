@@ -1,7 +1,6 @@
 import Foundation
 
 public extension Networking {
-
     /// GET request to the specified path.
     ///
     /// - Parameters:
@@ -10,7 +9,7 @@ public extension Networking {
     ///   - completion: The result of the operation, it's an enum with two cases: success and failure.
     /// - Returns: The request identifier.
     @discardableResult
-    public func get(_ path: String, parameters: Any? = nil, cachingLevel: CachingLevel = .none, completion: @escaping (_ result: JSONResult) -> Void) -> String {
+    func get(_ path: String, parameters: Any? = nil, cachingLevel: CachingLevel = .none, completion: @escaping (_ result: JSONResult) -> Void) -> String {
         let parameterType: ParameterType = parameters != nil ? .formURLEncoded : .none
 
         return handleJSONRequest(.get, path: path, cacheName: nil, parameterType: parameterType, parameters: parameters, responseType: .json, cachingLevel: cachingLevel, completion: completion)
@@ -22,7 +21,7 @@ public extension Networking {
     ///   - path: The path for the faked GET request.
     ///   - response: An `Any` that will be returned when a GET request is made to the specified path.
     ///   - statusCode: By default it's 200, if you provide any status code that is between 200 and 299 the response object will be returned, otherwise we will return an error containig the provided status code.
-    public func fakeGET(_ path: String, response: Any?, statusCode: Int = 200) {
+    func fakeGET(_ path: String, response: Any?, statusCode: Int = 200) {
         registerFake(requestType: .get, path: path, response: response, responseType: .json, statusCode: statusCode)
     }
 
@@ -32,21 +31,20 @@ public extension Networking {
     ///   - path: The path for the faked GET request.
     ///   - fileName: The name of the file, whose contents will be registered as a reponse.
     ///   - bundle: The Bundle where the file is located.
-    public func fakeGET(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
+    func fakeGET(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
         registerFake(requestType: .get, path: path, fileName: fileName, bundle: bundle)
     }
 
     /// Cancels the GET request for the specified path. This causes the request to complete with error code URLError.cancelled.
     ///
     /// - Parameter path: The path for the cancelled GET request
-    public func cancelGET(_ path: String) {
+    func cancelGET(_ path: String) {
         let url = try! composedURL(with: path)
         cancelRequest(.data, requestType: .get, url: url)
     }
 }
 
 public extension Networking {
-
     /// PATCH request to the specified path, using the provided parameters.
     ///
     /// - Parameters:
@@ -56,7 +54,7 @@ public extension Networking {
     ///   - completion: The result of the operation, it's an enum with two cases: success and failure.
     /// - Returns: The request identifier.
     @discardableResult
-    public func patch(_ path: String, parameterType: ParameterType = .json, parameters: Any? = nil, completion: @escaping (_ result: JSONResult) -> Void) -> String {
+    func patch(_ path: String, parameterType: ParameterType = .json, parameters: Any? = nil, completion: @escaping (_ result: JSONResult) -> Void) -> String {
         return handleJSONRequest(.patch, path: path, cacheName: nil, parameterType: parameterType, parameters: parameters, responseType: .json, cachingLevel: .none, completion: completion)
     }
 
@@ -66,7 +64,7 @@ public extension Networking {
     ///   - path: The path for the faked PATCH request.
     ///   - response: An `Any` that will be returned when a PATCH request is made to the specified path.
     ///   - statusCode: By default it's 200, if you provide any status code that is between 200 and 299 the response object will be returned, otherwise we will return an error containig the provided status code.
-    public func fakePATCH(_ path: String, response: Any?, statusCode: Int = 200) {
+    func fakePATCH(_ path: String, response: Any?, statusCode: Int = 200) {
         registerFake(requestType: .patch, path: path, response: response, responseType: .json, statusCode: statusCode)
     }
 
@@ -76,21 +74,20 @@ public extension Networking {
     ///   - path: The path for the faked PATCH request.
     ///   - fileName: The name of the file, whose contents will be registered as a reponse.
     ///   - bundle: The Bundle where the file is located.
-    public func fakePATCH(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
+    func fakePATCH(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
         registerFake(requestType: .patch, path: path, fileName: fileName, bundle: bundle)
     }
 
     /// Cancels the PATCH request for the specified path. This causes the request to complete with error code URLError.cancelled.
     ///
     /// - Parameter path: The path for the cancelled PATCH request.
-    public func cancelPATCH(_ path: String) {
+    func cancelPATCH(_ path: String) {
         let url = try! composedURL(with: path)
         cancelRequest(.data, requestType: .patch, url: url)
     }
 }
 
 public extension Networking {
-
     /// PUT request to the specified path, using the provided parameters.
     ///
     /// - Parameters:
@@ -100,7 +97,7 @@ public extension Networking {
     ///   - completion: The result of the operation, it's an enum with two cases: success and failure.
     /// - Returns: The request identifier.
     @discardableResult
-    public func put(_ path: String, parameterType: ParameterType = .json, parameters: Any? = nil, completion: @escaping (_ result: JSONResult) -> Void) -> String {
+    func put(_ path: String, parameterType: ParameterType = .json, parameters: Any? = nil, completion: @escaping (_ result: JSONResult) -> Void) -> String {
         return handleJSONRequest(.put, path: path, cacheName: nil, parameterType: parameterType, parameters: parameters, responseType: .json, cachingLevel: .none, completion: completion)
     }
 
@@ -110,7 +107,7 @@ public extension Networking {
     ///   - path: The path for the faked PUT request.
     ///   - response: An `Any` that will be returned when a PUT request is made to the specified path.
     ///   - statusCode: By default it's 200, if you provide any status code that is between 200 and 299 the response object will be returned, otherwise we will return an error containig the provided status code.
-    public func fakePUT(_ path: String, response: Any?, statusCode: Int = 200) {
+    func fakePUT(_ path: String, response: Any?, statusCode: Int = 200) {
         registerFake(requestType: .put, path: path, response: response, responseType: .json, statusCode: statusCode)
     }
 
@@ -120,21 +117,20 @@ public extension Networking {
     ///   - path: The path for the faked PUT request.
     ///   - fileName: The name of the file, whose contents will be registered as a reponse.
     ///   - bundle: The Bundle where the file is located.
-    public func fakePUT(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
+    func fakePUT(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
         registerFake(requestType: .put, path: path, fileName: fileName, bundle: bundle)
     }
 
     /// Cancels the PUT request for the specified path. This causes the request to complete with error code URLError.cancelled.
     ///
     /// - Parameter path: The path for the cancelled PUT request.
-    public func cancelPUT(_ path: String) {
+    func cancelPUT(_ path: String) {
         let url = try! composedURL(with: path)
         cancelRequest(.data, requestType: .put, url: url)
     }
 }
 
 public extension Networking {
-
     /// POST request to the specified path, using the provided parameters.
     ///
     /// - Parameters:
@@ -144,7 +140,7 @@ public extension Networking {
     ///   - completion: The result of the operation, it's an enum with two cases: success and failure.
     /// - Returns: The request identifier.
     @discardableResult
-    public func post(_ path: String, parameterType: ParameterType = .json, parameters: Any? = nil, completion: @escaping (_ result: JSONResult) -> Void) -> String {
+    func post(_ path: String, parameterType: ParameterType = .json, parameters: Any? = nil, completion: @escaping (_ result: JSONResult) -> Void) -> String {
         return handleJSONRequest(.post, path: path, cacheName: nil, parameterType: parameterType, parameters: parameters, responseType: .json, cachingLevel: .none, completion: completion)
     }
 
@@ -157,7 +153,7 @@ public extension Networking {
     ///   - completion: A closure that gets called when the POST request is completed, it contains a `JSON` object and an `NSError`.
     /// - Returns: The request identifier.
     @discardableResult
-    public func post(_ path: String, parameters: Any? = nil, parts: [FormDataPart], completion: @escaping (_ result: JSONResult) -> Void) -> String {
+    func post(_ path: String, parameters: Any? = nil, parts: [FormDataPart], completion: @escaping (_ result: JSONResult) -> Void) -> String {
         return handleJSONRequest(.post, path: path, cacheName: nil, parameterType: .multipartFormData, parameters: parameters, parts: parts, responseType: .json, cachingLevel: .none, completion: completion)
     }
 
@@ -167,7 +163,7 @@ public extension Networking {
     ///   - path: The path for the faked POST request.
     ///   - response: An `Any` that will be returned when a POST request is made to the specified path.
     ///   - statusCode: By default it's 200, if you provide any status code that is between 200 and 299 the response object will be returned, otherwise we will return an error containig the provided status code.
-    public func fakePOST(_ path: String, response: Any?, statusCode: Int = 200) {
+    func fakePOST(_ path: String, response: Any?, statusCode: Int = 200) {
         registerFake(requestType: .post, path: path, response: response, responseType: .json, statusCode: statusCode)
     }
 
@@ -177,21 +173,20 @@ public extension Networking {
     ///   - path: The path for the faked POST request.
     ///   - fileName: The name of the file, whose contents will be registered as a reponse.
     ///   - bundle: The Bundle where the file is located.
-    public func fakePOST(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
+    func fakePOST(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
         registerFake(requestType: .post, path: path, fileName: fileName, bundle: bundle)
     }
 
     /// Cancels the POST request for the specified path. This causes the request to complete with error code URLError.cancelled.
     ///
     /// - Parameter path: The path for the cancelled POST request.
-    public func cancelPOST(_ path: String) {
+    func cancelPOST(_ path: String) {
         let url = try! composedURL(with: path)
         cancelRequest(.data, requestType: .post, url: url)
     }
 }
 
 public extension Networking {
-
     /// DELETE request to the specified path, using the provided parameters.
     ///
     /// - Parameters:
@@ -200,7 +195,7 @@ public extension Networking {
     ///   - completion: The result of the operation, it's an enum with two cases: success and failure.
     /// - Returns: The request identifier.
     @discardableResult
-    public func delete(_ path: String, parameters: Any? = nil, completion: @escaping (_ result: JSONResult) -> Void) -> String {
+    func delete(_ path: String, parameters: Any? = nil, completion: @escaping (_ result: JSONResult) -> Void) -> String {
         let parameterType: ParameterType = parameters != nil ? .formURLEncoded : .none
         return handleJSONRequest(.delete, path: path, cacheName: nil, parameterType: parameterType, parameters: parameters, responseType: .json, cachingLevel: .none, completion: completion)
     }
@@ -211,7 +206,7 @@ public extension Networking {
     ///   - path: The path for the faked DELETE request.
     ///   - response: An `Any` that will be returned when a DELETE request is made to the specified path.
     ///   - statusCode: By default it's 200, if you provide any status code that is between 200 and 299 the response object will be returned, otherwise we will return an error containig the provided status code.
-    public func fakeDELETE(_ path: String, response: Any?, statusCode: Int = 200) {
+    func fakeDELETE(_ path: String, response: Any?, statusCode: Int = 200) {
         registerFake(requestType: .delete, path: path, response: response, responseType: .json, statusCode: statusCode)
     }
 
@@ -221,28 +216,27 @@ public extension Networking {
     ///   - path: The path for the faked DELETE request.
     ///   - fileName: The name of the file, whose contents will be registered as a reponse.
     ///   - bundle: The Bundle where the file is located.
-    public func fakeDELETE(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
+    func fakeDELETE(_ path: String, fileName: String, bundle: Bundle = Bundle.main) {
         registerFake(requestType: .delete, path: path, fileName: fileName, bundle: bundle)
     }
 
     /// Cancels the DELETE request for the specified path. This causes the request to complete with error code URLError.cancelled.
     ///
     /// - Parameter path: The path for the cancelled DELETE request.
-    public func cancelDELETE(_ path: String) {
+    func cancelDELETE(_ path: String) {
         let url = try! composedURL(with: path)
         cancelRequest(.data, requestType: .delete, url: url)
     }
 }
 
 public extension Networking {
-
     /// Retrieves an image from the cache or from the filesystem.
     ///
     /// - Parameters:
     ///   - path: The path where the image is located.
     ///   - cacheName: The cache name used to identify the downloaded image, by default the path is used.
     /// - Returns: The cached image.
-    public func imageFromCache(_ path: String, cacheName: String? = nil) -> Image? {
+    func imageFromCache(_ path: String, cacheName: String? = nil) -> Image? {
         let object = objectFromCache(for: path, cacheName: cacheName, cachingLevel: .memoryAndFile, responseType: .image)
 
         return object as? Image
@@ -257,14 +251,14 @@ public extension Networking {
     ///   - completion: The result of the operation, it's an enum with two cases: success and failure.
     /// - Returns: The request identifier.
     @discardableResult
-    public func downloadImage(_ path: String, cacheName: String? = nil, cachingLevel: CachingLevel = .memoryAndFile, completion: @escaping (_ result: ImageResult) -> Void) -> String {
+    func downloadImage(_ path: String, cacheName: String? = nil, cachingLevel: CachingLevel = .memoryAndFile, completion: @escaping (_ result: ImageResult) -> Void) -> String {
         return handleImageRequest(.get, path: path, cacheName: cacheName, cachingLevel: cachingLevel, responseType: .image, completion: completion)
     }
 
     /// Cancels the image download request for the specified path. This causes the request to complete with error code URLError.cancelled.
     ///
     /// - Parameter path: The path for the cancelled image download request.
-    public func cancelImageDownload(_ path: String) {
+    func cancelImageDownload(_ path: String) {
         let url = try! composedURL(with: path)
         cancelRequest(.data, requestType: .get, url: url)
     }
@@ -275,7 +269,7 @@ public extension Networking {
     ///   - path: The path for the faked image download request.
     ///   - image: An image that will be returned when there's a request to the registered path.
     ///   - statusCode: The status code to be used when faking the request.
-    public func fakeImageDownload(_ path: String, image: Image?, statusCode: Int = 200) {
+    func fakeImageDownload(_ path: String, image: Image?, statusCode: Int = 200) {
         registerFake(requestType: .get, path: path, response: image, responseType: .image, statusCode: statusCode)
     }
 
@@ -287,7 +281,7 @@ public extension Networking {
     ///   - cachingLevel: Enum to control the caching level: .memory, .memoryAndFile, .none
     ///   - completion: A closure that gets called when the download request is completed, it contains  a `data` object and an `NSError`.
     @discardableResult
-    public func downloadData(_ path: String, cacheName: String? = nil, cachingLevel: CachingLevel = .memoryAndFile, completion: @escaping (_ result: DataResult) -> Void) -> String {
+    func downloadData(_ path: String, cacheName: String? = nil, cachingLevel: CachingLevel = .memoryAndFile, completion: @escaping (_ result: DataResult) -> Void) -> String {
         return handleDataRequest(.get, path: path, cacheName: cacheName, cachingLevel: cachingLevel, responseType: .data, completion: completion)
     }
 
@@ -297,7 +291,7 @@ public extension Networking {
     ///   - path: The path where the image is located.
     ///   - cacheName: The cache name used to identify the downloaded data, by default the path is used.
     /// - Returns: The cached data.
-    public func dataFromCache(_ path: String, cacheName: String? = nil) -> Data? {
+    func dataFromCache(_ path: String, cacheName: String? = nil) -> Data? {
         let object = objectFromCache(for: path, cacheName: cacheName, cachingLevel: .memoryAndFile, responseType: .data)
 
         return object as? Data

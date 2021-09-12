@@ -28,8 +28,7 @@ extension View {
 
 extension Text {
     func customTitleText() -> Text {
-        self
-            .fontWeight(.black)
+        fontWeight(.black)
             .font(.system(size: 36))
     }
 }

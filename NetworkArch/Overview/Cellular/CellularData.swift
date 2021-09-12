@@ -5,8 +5,8 @@
 //  Created by Hubert Jóźwiak on 01/08/2020.
 //
 
-import Foundation
 import CoreTelephony
+import Foundation
 
 let carrierInfo = CTTelephonyNetworkInfo()
 

@@ -11,7 +11,7 @@ struct CellularSection: View {
     var carrier: String
     var cellularImage: String
     var ipAddress: String
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -22,7 +22,7 @@ struct CellularSection: View {
                 Image(systemName: cellularImage)
             }
             .padding(.top, 5)
-            
+
             HStack {
                 Text("IP Address")
                     .padding(.top)

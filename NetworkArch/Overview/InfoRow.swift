@@ -10,7 +10,7 @@ import SwiftUI
 struct InfoRow: View {
     var leftSide: String
     var rightSide: String
-    
+
     var body: some View {
         HStack {
             Text(leftSide)

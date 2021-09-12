@@ -11,7 +11,7 @@ struct WiFiSection: View {
     let ssid: String
     let wifiImage: String
     let ipAddress: String
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -22,7 +22,7 @@ struct WiFiSection: View {
                 Image(systemName: wifiImage)
             }
             .padding(.top, 5)
-            
+
             HStack {
                 Text("IP Address")
                     .padding(.top)
@@ -32,7 +32,7 @@ struct WiFiSection: View {
             }
             .padding(.bottom)
         }
-        
+
         NavigationLink(destination: WiFiDetailView()) {
             Spacer()
             Text("More Info")
@@ -47,5 +47,3 @@ struct WiFiSection_Previews: PreviewProvider {
         WiFiSection(ssid: "SSID", wifiImage: "wifi", ipAddress: "0.0.0.0")
     }
 }
-
-

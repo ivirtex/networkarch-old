@@ -11,7 +11,7 @@ struct AAAADNSTypeView: View {
     let domainName: String
     let address: String
     let ttl: Int
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -22,7 +22,7 @@ struct AAAADNSTypeView: View {
                 Text("TTL: \(ttl)")
             }
             .padding(.vertical, 5)
-            
+
             HStack {
                 Text(address)
                 Spacer()

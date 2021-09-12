@@ -29,33 +29,33 @@ public class SimplePingClient: NSObject {
 }
 
 extension SimplePingClient: SimplePingDelegate {
-    public func simplePing(_ pinger: SimplePing, didStartWithAddress address: Data) {
+    public func simplePing(_ pinger: SimplePing, didStartWithAddress _: Data) {
         pinger.send(with: nil)
     }
 
-    public func simplePing(_ pinger: SimplePing, didFailWithError error: Error) {
+    public func simplePing(_: SimplePing, didFailWithError error: Error) {
         completion?(.failure(error))
     }
 
-    public func simplePing(_ pinger: SimplePing, didSendPacket packet: Data, sequenceNumber: UInt16) {
+    public func simplePing(_: SimplePing, didSendPacket _: Data, sequenceNumber _: UInt16) {
         dateReference = Date()
     }
 
-    public func simplePing(_ pinger: SimplePing, didFailToSendPacket packet: Data, sequenceNumber: UInt16, error: Error) {
+    public func simplePing(_ pinger: SimplePing, didFailToSendPacket _: Data, sequenceNumber _: UInt16, error: Error) {
         pinger.stop()
         completion?(.failure(error))
     }
 
-    public func simplePing(_ pinger: SimplePing, didReceiveUnexpectedPacket packet: Data) {
+    public func simplePing(_ pinger: SimplePing, didReceiveUnexpectedPacket _: Data) {
         pinger.stop()
         completion?(.failure(PingError.receivedUnexpectedPacket))
     }
 
-    public func simplePing(_ pinger: SimplePing, didReceivePingResponsePacket packet: Data, sequenceNumber: UInt16) {
+    public func simplePing(_ pinger: SimplePing, didReceivePingResponsePacket _: Data, sequenceNumber _: UInt16) {
         pinger.stop()
         guard let dateReference = dateReference else { return }
 
-        //timeIntervalSinceDate returns seconds, so we convert to milis
+        // timeIntervalSinceDate returns seconds, so we convert to milis
         let latency = Date().timeIntervalSince(dateReference) * 1000
         completion?(.success(latency))
     }

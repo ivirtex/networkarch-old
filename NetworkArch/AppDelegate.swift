@@ -5,13 +5,13 @@
 //  Created by Hubert Jóźwiak on 17/10/2020.
 //
 
-import UIKit
 import SwiftyStoreKit
+import UIKit
 
 class AppDelegate: NSObject, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         SKReviewRequest().showReviewView(afterMinimumLaunchCount: 3)
-        
+
         SwiftyStoreKit.completeTransactions(atomically: true) { purchases in
             for purchase in purchases {
                 switch purchase.transaction.transactionState {
@@ -23,7 +23,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
                 // Unlock content
                 case .failed, .purchasing, .deferred:
                     break // do nothing
-                
+
                 @unknown default:
                     print("wtf is that case")
                 }
@@ -31,10 +31,11 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         }
         return true
     }
-    
-    func application(_ application: UIApplication,
+
+    func application(_: UIApplication,
                      configurationForConnecting connectingSceneSession: UISceneSession,
-                     options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+                     options _: UIScene.ConnectionOptions) -> UISceneConfiguration
+    {
         return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 }

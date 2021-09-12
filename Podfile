@@ -8,8 +8,10 @@ target 'NetworkArch' do
   # Pods for NetworkArch
   
   pod 'FGRoute'
-  pod 'SwiftyJSON', '~> 4.0'
-  pod 'Networking', '~> 4'
+  pod 'SwiftyJSON', '~> 5.0'
+  pod 'Networking', '~> 5.1'
+  pod 'Shiny', '~> 2.0'
+  pod 'NetUtils', '~> 4.2'
   pod 'SwiftyStoreKit'
 
   target 'NetworkArchTests' do

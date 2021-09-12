@@ -10,7 +10,7 @@ import SwiftUI
 struct StatusView: View {
     let backgroundColor: Color
     let text: String
-    
+
     var body: some View {
         Text(text)
             .font(.system(size: 12, weight: .regular))

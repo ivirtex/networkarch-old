@@ -12,7 +12,7 @@ struct PingGraph: View {
     @State var pingData: [Double]
     @State var addr: String
     let myCustomStyle = Styles.barChartStyleNeonBlueLight
-    
+
     var body: some View {
         VStack {
             LineView(data: pingData, title: addr, legend: "ms", style: myCustomStyle)

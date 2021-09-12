@@ -1,7 +1,6 @@
 import Foundation
 
 extension Networking {
-
     func objectFromCache(for path: String, cacheName: String?, cachingLevel: CachingLevel, responseType: ResponseType) -> Any? {
         /// Workaround: Remove URL parameters from path. That can lead to writing cached files with names longer than
         /// 255 characters, resulting in error. Another option to explore is to use a hash version of the url if it's
@@ -73,11 +72,11 @@ extension Networking {
 
             switch fakeRequest.responseType {
             case .image:
-                let _ = cacheOrPurgeImage(data: fakeRequest.response as? Data, path: path, cacheName: cacheName, cachingLevel: cachingLevel)
+                cacheOrPurgeImage(data: fakeRequest.response as? Data, path: path, cacheName: cacheName, cachingLevel: cachingLevel)
             case .data:
                 cacheOrPurgeData(data: fakeRequest.response as? Data, path: path, cacheName: cacheName, cachingLevel: cachingLevel)
             case .json:
-                try! cacheOrPurgeJSON(object: fakeRequest.response, path: path, cacheName: cacheName, cachingLevel: cachingLevel)
+                try? cacheOrPurgeJSON(object: fakeRequest.response, path: path, cacheName: cacheName, cachingLevel: cachingLevel)
             }
             completion(fakeRequest.response, response, error)
         }
@@ -87,7 +86,6 @@ extension Networking {
     }
 
     func handleJSONRequest(_ requestType: RequestType, path: String, cacheName: String?, parameterType: ParameterType?, parameters: Any?, parts: [FormDataPart]? = nil, responseType: ResponseType, cachingLevel: CachingLevel, completion: @escaping (_ result: JSONResult) -> Void) -> String {
-
         switch cachingLevel {
         case .memory, .memoryAndFile:
             if let object = objectFromCache(for: path, cacheName: nil, cachingLevel: cachingLevel, responseType: responseType) {
@@ -255,7 +253,7 @@ extension Networking {
                 returnedData = data
 
                 if let httpResponse = response as? HTTPURLResponse {
-                    if httpResponse.statusCode >= 200 && httpResponse.statusCode < 300 {
+                    if httpResponse.statusCode >= 200, httpResponse.statusCode < 300 {
                         if let data = data, data.count > 0 {
                             returnedData = data
                         }
@@ -271,7 +269,7 @@ extension Networking {
 
                 self.cacheOrPurgeData(data: data, path: path, cacheName: nil, cachingLevel: cachingLevel)
 
-                if TestCheck.isTesting && self.isSynchronous == false {
+                if TestCheck.isTesting, self.isSynchronous == false {
                     semaphore.signal()
                 } else {
                     DispatchQueue.main.async {
@@ -332,7 +330,7 @@ extension Networking {
             }
 
             for sessionTask in sessionTasks {
-                if sessionTask.originalRequest?.httpMethod == requestType.rawValue && sessionTask.originalRequest?.url?.absoluteString == url.absoluteString {
+                if sessionTask.originalRequest?.httpMethod == requestType.rawValue, sessionTask.originalRequest?.url?.absoluteString == url.absoluteString {
                     sessionTask.cancel()
                     break
                 }
@@ -424,65 +422,66 @@ extension Networking {
 
     func cacheOrPurgeJSON(object: Any?, path: String, cacheName: String?, cachingLevel: CachingLevel) throws {
         guard let destinationURL = try? self.destinationURL(for: path, cacheName: cacheName) else {
-            fatalError("Couldn't get destination URL for path: \(path) and cacheName: \(String(describing: cacheName))")
+            return
         }
 
         if let unwrappedObject = object {
             switch cachingLevel {
             case .memory:
-                self.cache.setObject(unwrappedObject as AnyObject, forKey: destinationURL.absoluteString as AnyObject)
+                cache.setObject(unwrappedObject as AnyObject, forKey: destinationURL.absoluteString as AnyObject)
             case .memoryAndFile:
 
                 let convertedData = try JSONSerialization.data(withJSONObject: unwrappedObject, options: [])
                 _ = try convertedData.write(to: destinationURL, options: [.atomic])
-                self.cache.setObject(unwrappedObject as AnyObject, forKey: destinationURL.absoluteString as AnyObject)
+                cache.setObject(unwrappedObject as AnyObject, forKey: destinationURL.absoluteString as AnyObject)
             case .none:
                 break
             }
         } else {
-            self.cache.removeObject(forKey: destinationURL.absoluteString as AnyObject)
+            cache.removeObject(forKey: destinationURL.absoluteString as AnyObject)
         }
     }
 
     func cacheOrPurgeData(data: Data?, path: String, cacheName: String?, cachingLevel: CachingLevel) {
         guard let destinationURL = try? self.destinationURL(for: path, cacheName: cacheName) else {
-            fatalError("Couldn't get destination URL for path: \(path) and cacheName: \(String(describing: cacheName))")
+            return
         }
 
         if let returnedData = data, returnedData.count > 0 {
             switch cachingLevel {
             case .memory:
-                self.cache.setObject(returnedData as AnyObject, forKey: destinationURL.absoluteString as AnyObject)
+                cache.setObject(returnedData as AnyObject, forKey: destinationURL.absoluteString as AnyObject)
             case .memoryAndFile:
                 _ = try? returnedData.write(to: destinationURL, options: [.atomic])
-                self.cache.setObject(returnedData as AnyObject, forKey: destinationURL.absoluteString as AnyObject)
+                cache.setObject(returnedData as AnyObject, forKey: destinationURL.absoluteString as AnyObject)
             case .none:
                 break
             }
         } else {
-            self.cache.removeObject(forKey: destinationURL.absoluteString as AnyObject)
+            cache.removeObject(forKey: destinationURL.absoluteString as AnyObject)
         }
     }
 
+    @discardableResult
     func cacheOrPurgeImage(data: Data?, path: String, cacheName: String?, cachingLevel: CachingLevel) -> Image? {
         guard let destinationURL = try? self.destinationURL(for: path, cacheName: cacheName) else {
-            fatalError("Couldn't get destination URL for path: \(path) and cacheName: \(String(describing: cacheName))")
+            return nil
         }
 
         var image: Image?
         if let data = data, let nonOptionalImage = Image(data: data), data.count > 0 {
             switch cachingLevel {
             case .memory:
-                self.cache.setObject(nonOptionalImage, forKey: destinationURL.absoluteString as AnyObject)
+                cache.setObject(nonOptionalImage, forKey: destinationURL.absoluteString as AnyObject)
             case .memoryAndFile:
                 _ = try? data.write(to: destinationURL, options: [.atomic])
-                self.cache.setObject(nonOptionalImage, forKey: destinationURL.absoluteString as AnyObject)
+                cache.setObject(nonOptionalImage, forKey: destinationURL.absoluteString as AnyObject)
             case .none:
                 break
             }
             image = nonOptionalImage
         } else {
-            self.cache.removeObject(forKey: destinationURL.absoluteString as AnyObject)
+            cache.removeObject(forKey: destinationURL.absoluteString as AnyObject)
         }
 
         return image

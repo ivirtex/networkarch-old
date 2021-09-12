@@ -5,9 +5,9 @@
 //  Created by Hubert Jóźwiak on 31/07/2020.
 //
 
-import SwiftUI
 import CoreLocation
 import FGRoute
+import SwiftUI
 
 let locationManager = CLLocationManager()
 let carrier = CellularData()
@@ -22,48 +22,44 @@ struct OverviewTab: View {
     @State private var carrierInfo = carrier.carrierDetail
     @State private var cellularIP = UIDevice.current.ipv4(for: .cellular)
     @State private var timer: Timer?
-    
+
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Wi-Fi")) {
                     if let safeSSID = ssid, let safeIPv4 = ipv4 {
                         WiFiSection(ssid: String(describing: safeSSID), wifiImage: "wifi", ipAddress: safeIPv4)
-                    }
-                    else {
+                    } else {
                         WiFiSection(ssid: "SSID not available", wifiImage: "wifi.slash", ipAddress: "N/A")
                     }
                 }
-                
+
                 Section(header: Text("Cellular Network")) {
                     if let safeCarrierInfo = carrierInfo {
                         if let safeCarrierIP = cellularIP {
                             CellularSection(carrier: safeCarrierInfo.first?.value.carrierName ?? "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: safeCarrierIP)
-                        }
-                        else {
+                        } else {
                             CellularSection(carrier: safeCarrierInfo.first?.value.carrierName ?? "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "N/A")
                         }
-                    }
-                    else {
+                    } else {
                         CellularSection(carrier: "Carrier not available", cellularImage: "antenna.radiowaves.left.and.right", ipAddress: "N/A")
                     }
                 }
-                
+
                 Section(header: Text("Utilities")) {
                     NavigationLink(destination: PingView()) {
                         Text("Ping")
                     }
-                    
+
                     NavigationLink(destination: WoLView()) {
                         Text("Wake on LAN")
                     }
-                    
+
                     if isWhoisUnlocked {
                         NavigationLink(destination: WhoisView()) {
                             Text("Whois")
                         }
-                    }
-                    else {
+                    } else {
                         Button("Whois") {
                             self.isWhoisPresented = true
                         }
@@ -71,13 +67,12 @@ struct OverviewTab: View {
                             WhoisModalBuyView(isPresented: $isWhoisPresented)
                         }
                     }
-                    
+
                     if isDNSUnlocked {
                         NavigationLink(destination: DNSLookupView()) {
                             Text("DNS Lookup")
                         }
-                    }
-                    else {
+                    } else {
                         Button("DNS Lookup") {
                             self.isDNSPresented = true
                         }
@@ -85,7 +80,7 @@ struct OverviewTab: View {
                             DNSModalBuyView(isPresented: $isDNSPresented)
                         }
                     }
-                    
+
                     //                    NavigationLink(destination: ScannerView()) {
                     //                        Text("LAN Scan")
                     //                    }
@@ -99,7 +94,7 @@ struct OverviewTab: View {
         }
         .onAppear(perform: {
             locationManager.requestWhenInUseAuthorization()
-            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
+            timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
                 ssid = FGRoute.getSSID()
                 ipv4 = FGRoute.getIPAddress()
                 carrierInfo = carrier.carrierDetail

@@ -30,7 +30,7 @@ struct FakeRequest {
                     let fakePathParts = fakedPath.components(separatedBy: "/")
                     guard lookupPathParts.count == fakePathParts.count else { continue }
                     guard lookupPathParts.first == fakePathParts.first else { continue }
-                    guard lookupPathParts.count != 1 && fakePathParts.count != 1 else { return requests[originalFakedPath] }
+                    guard lookupPathParts.count != 1, fakePathParts.count != 1 else { return requests[originalFakedPath] }
 
                     var replacedValues = [String: String]()
                     for (index, fakePathPart) in fakePathParts.enumerated() {
@@ -62,7 +62,6 @@ struct FakeRequest {
 }
 
 extension String {
-
     mutating func removeFirstLetterIfDash() {
         let initialCharacter = String(self[..<index(after: startIndex)])
         if initialCharacter == "/" {

@@ -13,19 +13,19 @@ class DNSManager: ObservableObject {
     @Published var networkingError = false
     @Published var jsonError = false
     @Published var areRecordsAvailable = false
-    
+
     @Published var aDNSTypeDomainName: String?
     @Published var aDNSTypeAddress = ""
     @Published var aDNSTypeTTL: Int?
-    
+
     @Published var aaaaDNSTypeDomainName: String?
     @Published var aaaaDNSTypeAddress = ""
     @Published var aaaaDNSTypeTTL: Int?
-    
+
     @Published var nsDNSTypeDomainName: String?
     @Published var nsDNSTypeTarget = ""
     @Published var nsDNSTypeTTL: Int?
-    
+
     @Published var soaDNSTypeDomainName: String?
     @Published var soaDNSTypeAdmin: String?
     @Published var soaDNSTypeHost: String?
@@ -35,28 +35,28 @@ class DNSManager: ObservableObject {
     @Published var soaDNSTypeRetry: Int?
     @Published var soaDNSTypeSerial: Int?
     @Published var soaDNSTypeTTL: Int?
-    
+
     @Published var mxDNSTypeDomainName: String?
     @Published var mxDNSTypePriority = ""
     @Published var mxDNSTypeTarget = ""
     @Published var mxDNSTypeTTL: Int?
-    
+
     @Published var txtDNSTypeDomainName: String?
     @Published var txtDNSTypeStrings = ""
     @Published var txtDNSTypeTTL: Int?
-    
+
     let dnsUrl = "https://www.whoisxmlapi.com/whoisserver/DNSService?apiKey=\(Constants.xmlAPIKey)&type=_all&outputFormat=JSON"
-    
+
     func fetchIP(domainName: String) {
         let urlString = "\(dnsUrl)&domainName=\(domainName)&"
         performRequest(with: urlString)
     }
-    
+
     func performRequest(with urlString: String) {
         let networking = Networking(baseURL: urlString)
         networking.get("/get") { [self] result in
             switch result {
-            case .success(let response):
+            case let .success(response):
                 areRecordsAvailable = true
                 networkingError = false
                 jsonError = false
@@ -97,16 +97,14 @@ class DNSManager: ObservableObject {
                             self.txtDNSTypeTTL = item["ttl"].intValue
                         default:
                             print("additional dns record")
-                            break
                         }
                     }
-                }
-                else {
+                } else {
                     self.jsonError = true
                     print("dns error")
                 }
-                
-            case .failure(let response):
+
+            case let .failure(response):
                 self.networkingError = true
                 print(response)
             }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct IntroductionView: View {
     @Binding var isPresented: Bool
-    
+
     var body: some View {
         ScrollView {
             VStack(alignment: .center) {

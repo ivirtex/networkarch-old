@@ -27,16 +27,16 @@ extension Image {
     #endif
 
     #if os(OSX)
-    func pngData() -> Data? {
-        return data(.png)
-    }
+        func pngData() -> Data? {
+            return data(.png)
+        }
     #endif
 
     func jpgData() -> Data? {
         #if os(OSX)
             return data(.jpeg)
         #else
-            return self.jpegData(compressionQuality: 1)
+            return jpegData(compressionQuality: 1)
         #endif
     }
 }

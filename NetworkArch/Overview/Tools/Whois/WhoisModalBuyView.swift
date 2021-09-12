@@ -11,7 +11,7 @@ import SwiftyStoreKit
 struct WhoisModalBuyView: View {
     var overview = OverviewTab()
     @Binding var isPresented: Bool
-    
+
     var body: some View {
         VStack(alignment: .center) {
             Text("Whois")
@@ -27,13 +27,13 @@ struct WhoisModalBuyView: View {
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Button(action: {
-                SwiftyStoreKit.purchaseProduct(Constants.ProductID.whoisProductID, quantity: 1, atomically: true) { (result) in
+                SwiftyStoreKit.purchaseProduct(Constants.ProductID.whoisProductID, quantity: 1, atomically: true) { result in
                     switch result {
-                    case .success(let purchase):
+                    case let .success(purchase):
                         overview.isWhoisUnlocked = true
                         self.isPresented = false
                         print("Purchase Success: \(purchase.productId)")
-                    case .error(let error):
+                    case let .error(error):
                         switch error.code {
                         case .unknown: print("Unknown error. Please contact support")
                         case .clientInvalid: print("Not allowed to make the payment")
@@ -48,7 +48,7 @@ struct WhoisModalBuyView: View {
                         }
                     }
                 }
-            }){
+            }) {
                 Text("Purchase")
                     .customButton()
             }
@@ -60,8 +60,8 @@ struct WhoisModalBuyView: View {
     }
 }
 
-//struct WhoisModalBuyView_Previews: PreviewProvider {
+// struct WhoisModalBuyView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        WhoisModalBuyView(isPresented: //)
 //    }
-//}
+// }

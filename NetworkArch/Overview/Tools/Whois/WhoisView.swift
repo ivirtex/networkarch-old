@@ -12,13 +12,13 @@ struct WhoisView: View {
     @State private var addressWhois: String = ""
     @State private var shouldDisplayList = false
     private var overview = OverviewTab()
-    
+
     var body: some View {
         List {
             Section {
                 SearchBar(text: $addressWhois, placeholder: "IP / AS / Domain Name")
             }
-            
+
             if shouldDisplayList {
                 if whois.error == false {
                     Section {
@@ -28,14 +28,12 @@ struct WhoisView: View {
                                 ProgressView()
                                 Spacer()
                             }
-                        }
-                        else {
+                        } else {
                             Text(whois.response)
                                 .font(.subheadline)
                         }
                     }
-                }
-                else {
+                } else {
                     Section {
                         HStack {
                             Image(systemName: "xmark.circle")
@@ -61,8 +59,7 @@ struct WhoisView: View {
             DispatchQueue.main.async {
                 whois.fetchWhois(domainName: finalAddress)
             }
-        })
-        {
+        }) {
             Text("Start")
                 .accentColor(Color(.systemGreen))
         }

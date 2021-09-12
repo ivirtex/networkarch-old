@@ -17,7 +17,6 @@
 		DD0C3DD524DAB66E00E90022 /* SimplePingClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD424DAB66E00E90022 /* SimplePingClient.swift */; };
 		DD0C3DD724DB2EE800E90022 /* PingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C3DD624DB2EE800E90022 /* PingManager.swift */; };
 		DD39DD4B2531EE8C00F9A17D /* PingGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD39DD4A2531EE8C00F9A17D /* PingGraph.swift */; };
-		DD64A9CC25164DCD006BFE9F /* NetUtils in Frameworks */ = {isa = PBXBuildFile; productRef = DD64A9CB25164DCD006BFE9F /* NetUtils */; };
 		DD68FFDC24F7022300FEBA87 /* WhoisModalBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD68FFDB24F7022300FEBA87 /* WhoisModalBuyView.swift */; };
 		DD73DBEE24DE160100892524 /* WoLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBED24DE160100892524 /* WoLView.swift */; };
 		DD73DBF024DE162000892524 /* TracerouteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD73DBEF24DE162000892524 /* TracerouteView.swift */; };
@@ -32,7 +31,6 @@
 		DD8E0EAA24D72B5100DE9780 /* CellularRadioConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EA924D72B5100DE9780 /* CellularRadioConstants.swift */; };
 		DD8E0EAC24D736B000DE9780 /* WiFiExternalIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAB24D736B000DE9780 /* WiFiExternalIP.swift */; };
 		DD8E0EAE24D7539600DE9780 /* PingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8E0EAD24D7539600DE9780 /* PingView.swift */; };
-		DD8EC877256014C500BC0A67 /* Shiny in Frameworks */ = {isa = PBXBuildFile; productRef = DD8EC876256014C500BC0A67 /* Shiny */; };
 		DD8EC87C256040F100BC0A67 /* InformationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC87B256040F100BC0A67 /* InformationDetailView.swift */; };
 		DD8EC8812560415F00BC0A67 /* InformationContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC8802560415F00BC0A67 /* InformationContainerView.swift */; };
 		DD8EC8862560419700BC0A67 /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD8EC8852560419700BC0A67 /* TitleView.swift */; };
@@ -168,10 +166,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD64A9CC25164DCD006BFE9F /* NetUtils in Frameworks */,
 				DD953A34253107CB002C3F12 /* SwiftUICharts in Frameworks */,
 				DDB95AD524F0582300DC7A89 /* StoreKit.framework in Frameworks */,
-				DD8EC877256014C500BC0A67 /* Shiny in Frameworks */,
 				84648E3AA601BE17B072D079 /* Pods_NetworkArch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -428,6 +424,7 @@
 			buildPhases = (
 				C693CA93CCF1628FA684DB04 /* [CP] Check Pods Manifest.lock */,
 				DDEBD43824D41EB100623F3F /* Sources */,
+				DD5B891726ED6C2900DC8A68 /* ShellScript */,
 				DDEBD43924D41EB100623F3F /* Frameworks */,
 				DDEBD43A24D41EB100623F3F /* Resources */,
 				363BEC686B91DE0E633C54C5 /* [CP] Embed Pods Frameworks */,
@@ -438,9 +435,7 @@
 			);
 			name = NetworkArch;
 			packageProductDependencies = (
-				DD64A9CB25164DCD006BFE9F /* NetUtils */,
 				DD953A33253107CB002C3F12 /* SwiftUICharts */,
-				DD8EC876256014C500BC0A67 /* Shiny */,
 			);
 			productName = NetworkArch;
 			productReference = DDEBD43C24D41EB100623F3F /* NetworkArch.app */;
@@ -518,9 +513,7 @@
 			);
 			mainGroup = DDEBD43324D41EB100623F3F;
 			packageReferences = (
-				DD64A9CA25164DCD006BFE9F /* XCRemoteSwiftPackageReference "swift-netutils" */,
 				DD953A32253107CB002C3F12 /* XCRemoteSwiftPackageReference "ChartView" */,
-				DD8EC875256014C500BC0A67 /* XCRemoteSwiftPackageReference "shiny" */,
 			);
 			productRefGroup = DDEBD43D24D41EB100623F3F /* Products */;
 			projectDirPath = "";
@@ -642,6 +635,23 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		DD5B891726ED6C2900DC8A68 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/zsh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nPATH=/opt/homebrew/bin/:$PATH\n\nif which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 		E00B583986157A1EEE5B720A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -886,7 +896,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HubertJozwiak.NetworkArch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NetworkArch/NetworkArch-Bridging-Header.h";
@@ -915,7 +925,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.0;
+				MARKETING_VERSION = 1.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.HubertJozwiak.NetworkArch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "NetworkArch/NetworkArch-Bridging-Header.h";
@@ -1054,22 +1064,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DD64A9CA25164DCD006BFE9F /* XCRemoteSwiftPackageReference "swift-netutils" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ivirtex/swift-netutils.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.1.0;
-			};
-		};
-		DD8EC875256014C500BC0A67 /* XCRemoteSwiftPackageReference "shiny" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/maustinstar/shiny";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.0.1;
-			};
-		};
 		DD953A32253107CB002C3F12 /* XCRemoteSwiftPackageReference "ChartView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/AppPear/ChartView";
@@ -1081,16 +1075,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DD64A9CB25164DCD006BFE9F /* NetUtils */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DD64A9CA25164DCD006BFE9F /* XCRemoteSwiftPackageReference "swift-netutils" */;
-			productName = NetUtils;
-		};
-		DD8EC876256014C500BC0A67 /* Shiny */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DD8EC875256014C500BC0A67 /* XCRemoteSwiftPackageReference "shiny" */;
-			productName = Shiny;
-		};
 		DD953A33253107CB002C3F12 /* SwiftUICharts */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DD953A32253107CB002C3F12 /* XCRemoteSwiftPackageReference "ChartView" */;

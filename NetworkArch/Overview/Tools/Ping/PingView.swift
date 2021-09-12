@@ -22,20 +22,19 @@ struct PingView: View {
     private var avgPing: Float? {
         if !packetsNumber.isZero {
             return pingSummed / packetsNumber
-        }
-        else {
+        } else {
             return nil
         }
     }
-    
+
     var body: some View {
         let ipToPing = searchBarIP
-        
+
         List {
             Section {
                 SearchBar(text: $searchBarIP, placeholder: "IP Address / Host Name")
             }
-            
+
             if shouldDisplayStats {
                 if !ping.pingResult.isEmpty {
                     Section(header: Text("Ping statistics")) {
@@ -50,8 +49,7 @@ struct PingView: View {
                             if let safeAvgPing = avgPing {
                                 Text(String(format: "%.1f", safeAvgPing) + " ms")
                                     .foregroundColor(latencyColor(latency: safeAvgPing))
-                            }
-                            else {
+                            } else {
                                 Text("N/A")
                             }
                         }
@@ -60,14 +58,14 @@ struct PingView: View {
                             Spacer()
                             Text(String(format: "%.1f", latency.max() ?? "N/A") + " ms")
                         }
-                        
+
                         NavigationLink(destination: PingGraph(pingData: latency, addr: finalIP!)) {
                             Text("Latency graph")
                         }
                     }
                 }
             }
-            
+
             if shouldDisplayList {
                 Section {
                     ForEach(ping.pingResult) { result in
@@ -77,8 +75,7 @@ struct PingView: View {
                                 Text(finalIP ?? "")
                                 Spacer()
                                 Text(String(format: "%.1f", result.latency!) + " ms")
-                            }
-                            else {
+                            } else {
                                 StatusView(backgroundColor: .red, text: "Offline")
                                 Text(finalIP ?? "Failed to resolve IP address")
                                 Spacer()
@@ -107,13 +104,12 @@ struct PingView: View {
                 timer?.invalidate()
                 shouldDisplayList = true
                 finalIP = ipToPing
-                timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { (Timer) in
+                timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
                     DispatchQueue.main.async {
                         ping.ping(address: ipToPing)
                     }
                 })
-            }
-            else {
+            } else {
                 timer?.invalidate()
                 isPinging = false
                 shouldBeLocked = true
@@ -132,8 +128,7 @@ struct PingView: View {
             if !isPinging {
                 Text("Start")
                     .accentColor(Color(.systemGreen))
-            }
-            else {
+            } else {
                 Text("Stop")
                     .accentColor(Color(.systemRed))
             }
@@ -144,20 +139,17 @@ struct PingView: View {
             timer?.invalidate()
         })
     }
-    
+
     func latencyColor(latency: Float) -> Color {
         if latency < 50 {
             return .green
-        }
-        else if latency < 100 {
+        } else if latency < 100 {
             return .yellow
-        }
-        else {
+        } else {
             return .red
         }
     }
 }
-
 
 struct PingView_Previews: PreviewProvider {
     static var previews: some View {
@@ -166,10 +158,9 @@ struct PingView_Previews: PreviewProvider {
 }
 
 #if canImport(UIKit)
-extension View {
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+    extension View {
+        func hideKeyboard() {
+            UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+        }
     }
-}
 #endif
-

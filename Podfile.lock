@@ -1,28 +1,36 @@
 PODS:
-  - FGRoute (1.0.5)
-  - Networking (4.4.0)
-  - SwiftyJSON (4.3.0)
+  - FGRoute (1.0.7)
+  - NetUtils (4.2.0)
+  - Networking (5.1.0)
+  - Shiny (2.0.2)
+  - SwiftyJSON (5.0.1)
   - SwiftyStoreKit (0.16.1)
 
 DEPENDENCIES:
   - FGRoute
-  - Networking (~> 4)
-  - SwiftyJSON (~> 4.0)
+  - NetUtils (~> 4.2)
+  - Networking (~> 5.1)
+  - Shiny (~> 2.0)
+  - SwiftyJSON (~> 5.0)
   - SwiftyStoreKit
 
 SPEC REPOS:
   trunk:
     - FGRoute
+    - NetUtils
     - Networking
+    - Shiny
     - SwiftyJSON
     - SwiftyStoreKit
 
 SPEC CHECKSUMS:
-  FGRoute: 012077ebabb2841d2af3baf63b30e72841f35ba1
-  Networking: cbef47ab030af248248c26a696adb88989b52ef1
-  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+  FGRoute: e46b1ef1a98f74659fb4e25c8473550175799da4
+  NetUtils: 8c6c568c32c2819690b7d79ad2fe4e31838fb2d3
+  Networking: 85b2a0c2d3b6eb548f4eec9880f5f3c49e6b0959
+  Shiny: 6030b9170aa3192b4c99de1374435d5757df9d69
+  SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
   SwiftyStoreKit: 6b9c08810269f030586dac1fae8e75871a82e84a
 
-PODFILE CHECKSUM: 3408d9e9c8834831b4b4b2a4c727f3b2f541ddf8
+PODFILE CHECKSUM: 6f42321cd81fb145f19e86bd2779e2f5312492f3
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.11.0

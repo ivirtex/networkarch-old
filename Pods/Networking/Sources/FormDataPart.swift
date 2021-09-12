@@ -29,9 +29,9 @@ public enum FormDataPartType {
 /// The form data part.
 public struct FormDataPart {
     fileprivate let data: Data
-    fileprivate let parameterName: String
-    fileprivate let filename: String?
-    fileprivate let type: FormDataPartType
+    private let parameterName: String
+    private let filename: String?
+    private let type: FormDataPartType
     var boundary: String = ""
 
     var formData: Data {

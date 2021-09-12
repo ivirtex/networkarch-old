@@ -22,12 +22,11 @@ struct DataUsageInfo {
 }
 
 class DataUsage {
-
     private static let wwanInterfacePrefix = "pdp_ip"
     private static let wifiInterfacePrefix = "en"
 
     class func getDataUsage() -> DataUsageInfo {
-        var interfaceAddresses: UnsafeMutablePointer<ifaddrs>? = nil
+        var interfaceAddresses: UnsafeMutablePointer<ifaddrs>?
 
         var dataUsageInfo = DataUsageInfo()
 
@@ -59,7 +58,7 @@ class DataUsage {
     }
 
     private class func dataUsageInfo(from pointer: UnsafeMutablePointer<ifaddrs>, name: String) -> DataUsageInfo {
-        var networkData: UnsafeMutablePointer<if_data>? = nil
+        var networkData: UnsafeMutablePointer<if_data>?
         var dataUsageInfo = DataUsageInfo()
 
         if name.hasPrefix(wifiInterfacePrefix) {

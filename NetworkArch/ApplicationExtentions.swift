@@ -14,17 +14,17 @@ extension UIApplication {
     var rootViewController: UIViewController? {
         let window = connectedScenes
             .filter { $0.activationState == .foregroundActive }
-            .compactMap {$0 as? UIWindowScene }
+            .compactMap { $0 as? UIWindowScene }
             .first?
             .windows
             .filter { $0.isKeyWindow }
             .first
-        
+
         var controller = window?.rootViewController
         while controller?.presentedViewController != nil {
             controller = controller?.presentedViewController
         }
-        
+
         return controller
     }
 }

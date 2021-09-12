@@ -11,7 +11,7 @@ struct ADNSTypeView: View {
     let domainName: String
     let address: String
     let ttl: Int
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -22,7 +22,7 @@ struct ADNSTypeView: View {
                 Text("TTL: \(ttl)")
             }
             .padding(.vertical, 5)
-            
+
             HStack {
                 Text(address)
                 Spacer()
@@ -37,4 +37,3 @@ struct DNSTypeView_Previews: PreviewProvider {
         ADNSTypeView(domainName: "bbc.com", address: "0.0.0.0", ttl: 200)
     }
 }
-

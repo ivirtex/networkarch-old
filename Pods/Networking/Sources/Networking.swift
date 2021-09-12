@@ -1,7 +1,6 @@
 import Foundation
 
 public extension Int {
-
     /// Categorizes a status code.
     ///
     /// - Returns: The NetworkingStatusCodeType of the status code.
@@ -90,12 +89,12 @@ open class Networking {
         case informational, successful, redirection, clientError, serverError, cancelled, unknown
     }
 
-    fileprivate let baseURL: String
+    private let baseURL: String
     var fakeRequests = [RequestType: [String: FakeRequest]]()
     var token: String?
     var authorizationHeaderValue: String?
     var authorizationHeaderKey = "Authorization"
-    fileprivate var configuration: URLSessionConfiguration
+    private var configuration: URLSessionConfiguration
     var cache: NSCache<AnyObject, AnyObject>
 
     /// Flag used to indicate synchronous request.
@@ -204,13 +203,8 @@ open class Networking {
         let finalPath = "\(folderPath)/\(normalizedResourcesPath)"
 
         if let url = URL(string: finalPath) {
-            #if os(tvOS)
-                let directory = FileManager.SearchPathDirectory.cachesDirectory
-            #else
-                let directory = TestCheck.isTesting ? FileManager.SearchPathDirectory.cachesDirectory : FileManager.SearchPathDirectory.documentDirectory
-            #endif
+            let directory = FileManager.SearchPathDirectory.cachesDirectory
             if let cachesURL = FileManager.default.urls(for: directory, in: .userDomainMask).first {
-                try (cachesURL as NSURL).setResourceValue(true, forKey: URLResourceKey.isExcludedFromBackupKey)
                 let folderURL = cachesURL.appendingPathComponent(URL(string: folderPath)!.absoluteString)
 
                 if FileManager.default.exists(at: folderURL) == false {
@@ -295,17 +289,13 @@ open class Networking {
         headerFields = nil
         authorizationHeaderKey = "Authorization"
         authorizationHeaderValue = nil
-        
+
         Networking.deleteCachedFiles()
     }
 
     /// Deletes the downloaded/cached files.
     public static func deleteCachedFiles() {
-        #if os(tvOS)
         let directory = FileManager.SearchPathDirectory.cachesDirectory
-        #else
-        let directory = TestCheck.isTesting ? FileManager.SearchPathDirectory.cachesDirectory : FileManager.SearchPathDirectory.documentDirectory
-        #endif
         if let cachesURL = FileManager.default.urls(for: directory, in: .userDomainMask).first {
             let folderURL = cachesURL.appendingPathComponent(URL(string: Networking.domain)!.absoluteString)
             if FileManager.default.exists(at: folderURL) {

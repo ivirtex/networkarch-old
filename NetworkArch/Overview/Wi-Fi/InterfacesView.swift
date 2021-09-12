@@ -5,12 +5,12 @@
 //  Created by Hubert Jóźwiak on 19/09/2020.
 //
 
-import SwiftUI
 import NetUtils
+import SwiftUI
 
 struct InterfacesView: View {
     @State private var interfaces = NetUtils.Interface.allInterfaces()
-    
+
     var body: some View {
         List {
             ForEach(interfaces) { interface in
@@ -36,8 +36,7 @@ struct InterfacesView: View {
 //                                Spacer()
 //                                Text(String(describing: interface.addressBytes))
 //                            }
-                        }
-                        else {
+                        } else {
                             HStack {
                                 StatusView(backgroundColor: Color(.systemGreen), text: "Up")
                                 StatusView(backgroundColor: Color(.systemRed), text: "Not running")
@@ -48,8 +47,7 @@ struct InterfacesView: View {
                                     .foregroundColor(Color(.systemYellow))
                             }
                         }
-                    }
-                    else {
+                    } else {
                         HStack {
                             StatusView(backgroundColor: Color(.systemRed), text: "Not up")
                             StatusView(backgroundColor: Color(.systemRed), text: "Not running")

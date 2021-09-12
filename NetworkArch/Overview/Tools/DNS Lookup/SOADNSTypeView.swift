@@ -17,7 +17,7 @@ struct SOADNSTypeView: View {
     let retry: Int
     let serial: Int
     let ttl: Int
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -28,7 +28,7 @@ struct SOADNSTypeView: View {
                 Text("TTL: \(ttl)")
             }
             .padding(.vertical, 5)
-            
+
             HStack {
                 VStack(alignment: .leading) {
                     Text("Admin: \(admin)")
@@ -48,6 +48,6 @@ struct SOADNSTypeView: View {
 
 struct SOADNSTypeView_Previews: PreviewProvider {
     static var previews: some View {
-    SOADNSTypeView(domainName: "", admin: "", host: "", expire: 1, minimum: 1, refresh: 1, retry: 1, serial: 1, ttl: 1)
+        SOADNSTypeView(domainName: "", admin: "", host: "", expire: 1, minimum: 1, refresh: 1, retry: 1, serial: 1, ttl: 1)
     }
 }

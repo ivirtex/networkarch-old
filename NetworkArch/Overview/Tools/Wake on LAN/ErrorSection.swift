@@ -9,20 +9,20 @@ import SwiftUI
 
 struct ErrorSection: View {
     var errorReason: Error
-    
+
     var body: some View {
         HStack {
             Text(errorReason.localizedDescription)
-            
+
             Spacer()
-            
+
             StatusView(backgroundColor: .red, text: "Packet not sent")
         }
     }
 }
 
-//struct ErrorSection_Previews: PreviewProvider {
+// struct ErrorSection_Previews: PreviewProvider {
 //    static var previews: some View {
 //        ErrorSection()
 //    }
-//}
+// }

@@ -5,7 +5,6 @@
 import Foundation
 
 class NetworkActivityIndicator: NSObject {
-
     /// The shared instance.
     static let sharedIndicator = NetworkActivityIndicator()
 
